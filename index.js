@@ -26,6 +26,7 @@ bot.on("message", async message => {
         return message.channel.send("Hello!");
     }
 
+    //!help : Lists all the available commands in categories
     if(cmd == `${prefix}help`){
         let embed = new Discord.RichEmbed()
             .setTitle("## COMMANDS ##")
@@ -34,6 +35,8 @@ bot.on("message", async message => {
             .addField("Music", "!play <youtube-url> : Plays the song from youtube servers");
             return message.channel.send(embed);
     }
+
+    //!botinfo : Displays information about the bot
     if(cmd == `${prefix}botinfo`){
         let embed = new Discord.RichEmbed()
             .setTitle("## BOT INFORMATION ##")
@@ -44,6 +47,7 @@ bot.on("message", async message => {
             return message.channel.send(embed);
     }
 
+    //!svinfo : Displays information about the server
     if(cmd == `${prefix}serverinfo` || cmd == `${prefix}svinfo`){
         let embed = new Discord.RichEmbed()
             .setTitle("## SERVER INFORMATION ##")
@@ -58,6 +62,7 @@ bot.on("message", async message => {
             return message.channel.send(embed);
     }
 
+    //!report : Allows user to report other users
     if(cmd == `${prefix}report`){
         let user = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
         if(!user)
