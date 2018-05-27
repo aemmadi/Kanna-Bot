@@ -52,7 +52,7 @@ bot.on("message", async message => {
         let embed = new Discord.RichEmbed()
             .setTitle("## COMMANDS ##")
             .setColor("#7ff441")
-            .addField("General", "!botinfo : Shows bot info\n!svinfo : Shows server info\n!report <username> : Allows user to report users\n!kick <username> : Allows admin to kick another user")
+            .addField("General", "`!botinfo` : Shows bot info\n`!svinfo` : Shows server info\n`!report <usermention>` : Allows user to report users\n`!kick <usermention> [reason]` : Allows admin to kick another user\n`!ban <usermention> [reason]` : Allows admin to ban users\n`!mute <usermention> [time s/m/h/d]` : Allows admin to mute an user for a certain period")
             .addField("Music", "!play <youtube-url> : Plays the song from youtube servers");
             return message.channel.send(embed);
     }
