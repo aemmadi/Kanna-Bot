@@ -27,22 +27,20 @@ bot.on("message", async message => {
     }
 
     if(cmd == `${prefix}botinfo`){
-        let boticon = bot.user.displayAvatarURL;
         let embed = new Discord.RichEmbed()
             .setTitle("## Bot Information ##")
             .setColor("#f4a442")
-            .setThumbnail(boticon)
+            .setThumbnail(bot.user.displayAvatarURL)
             .addField("Bot Name", bot.user.username)
             .addField("Created on", bot.user.createdAt);
             return message.channel.send(embed);
     }
 
     if(cmd == `${prefix}serverinfo` || cmd == `${prefix}svinfo`){
-        let svicon = message.guild.iconURL;
         let embed = new Discord.RichEmbed()
             .setTitle("## Server Information ##")
             .setColor("#418ff4")
-            .setThumbnail(svicon)
+            .setThumbnail(message.guild.iconURL)
             .addField("Server Name", message.guild.name)
             .addField("Created on", message.guild.createdAt)
             .addField("You joined on", message.guild.joinedAt)
