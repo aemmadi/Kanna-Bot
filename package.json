@@ -1,13 +1,28 @@
 {
-  "name": "KannaBot",
-  "description": "A multi-purpose discord bot",
+  "name": "Kanna-Bot",
   "version": "0.0.1",
+  "description": "A Multi purpose discord bot",
   "main": "index.js",
+  "engines": {
+      "node": "8.x",
+      "npm": "*"
+  },
   "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index.js"
   },
-  "dependencies": {
-    "discord.js": "11.1.0",
-    "request": "2.81.0"
-  }
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kanna6501/Kanna-Bot.git"
+  },
+  "keywords": [
+    "heroku",
+    "discord.js"
+  ],
+  "author": "Anirudh Emmadi",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kanna6501/Kanna-Bot/issues"
+  },
+  "homepage": "hhttps://github.com/kanna6501/Kanna-Bot#readme"
 }
