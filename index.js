@@ -42,11 +42,13 @@ bot.on("message", async message => {
             .setColor("#418ff4")
             .setThumbnail(message.guild.iconURL)
             .addField("Server Name", message.guild.name)
+            .addField("Server ID", message.guild.id)
             .addField("Created on", message.guild.createdAt)
-            .addField("You joined on", message.guild.joinedAt)
+            .addField("Server Region", message.guild.region)
+            .addField("Server Owner", message.guild.owner)
+            .addField("Server Roles", message.guild.roles)
             .addField("Total Members", message.guild.memberCount);
             return message.channel.send(embed);
     }
 })
-
 bot.login(botconfig.token);
