@@ -6,7 +6,7 @@ module.exports.run = async (bot, message, args) =>{
     return message.channel.send("You don't have the permission to add/rmv roles on this server.");
   let rMember = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[1]));
   if(!rMember)
-    return message.channel.send(`Error. User not found, make sure you are using the right input: !role [add/rmv] <usermention> {role-name}.`);
+    return message.channel.send("Error. User not found, make sure you are using the right input: `!role [add/rmv] <usermention> {role-name}`.");
   let role = args.join(" ").slice(26);
   if(!role)
     return message.channel.send("Please Specify a Role!");
@@ -41,7 +41,7 @@ module.exports.run = async (bot, message, args) =>{
 
   //Asks user to check the syntax
   else{
-    return message.channel.send("Make sure you got the syntax right.\n!role [add/rmv] <usermention> {role-name}");
+    return message.channel.send("Make sure you got the syntax right.\n`!role [add/rmv] <usermention> {role-name}`");
   }
 }
 //End Command

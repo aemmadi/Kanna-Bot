@@ -8,7 +8,7 @@ module.exports.run = async (bot, message, args) =>{
   let platform = args[1] || "pc";
 
   if(!username)
-    return message.channel.send("Username not provided. Use the right syntax: !fbr <epic-username> [platform pc/xbl/psn]");
+    return message.channel.send("Username not provided. Use the right syntax: `!fbr <epic-username> [platform pc/xbl/psn]`");
 
   let data = ftnApi.user(username, platform).then(data => {
     let stats = data.stats;
@@ -43,7 +43,7 @@ module.exports.run = async (bot, message, args) =>{
       return message.channel.send(embed);
   }).catch(e => {
     console.log(e);
-    message.channel.send("Error. User not found, make sure you are using the right syntax: !fbr <epic-username> [platform pc/xbl/psn].");
+    message.channel.send("Error. User not found, make sure you are using the right syntax: `!fbr <epic-username> [platform pc/xbl/psn]`.");
   })
 }
 

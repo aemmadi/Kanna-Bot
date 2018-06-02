@@ -4,7 +4,7 @@ const ms = require('ms');
 module.exports.run = async(bot, message, args) => {
   let mute = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
   if(!mute)
-    return message.reply("Error. User not found, make sure you are using the right input: !mute <usermention> [time s/m/h/d].")
+    return message.reply("Error. User not found, make sure you are using the right input: `!mute <usermention> [time s/m/h/d]`.")
   if(!message.member.hasPermission('MANAGE_MESSAGES'))
     return message.channel.send("You don't have the permission to mute other users.");
   if(mute.hasPermission("MANAGE_MESSAGES"))
@@ -31,7 +31,7 @@ module.exports.run = async(bot, message, args) => {
   }
   let muteTime = args[1];
   if(!muteTime)
-    return message.reply("You need to specify a time. Syntax: !mute <usermention> [time s/m/h/d");
+    return message.reply("You need to specify a time. Syntax: `!mute <usermention> [time s/m/h/d]`");
   await(mute.addRole(muteRole.id));
   message.channel.send(`<@${mute.id}> has been muted for ${ms(ms(muteTime))}`);
   setTimeout(function(){

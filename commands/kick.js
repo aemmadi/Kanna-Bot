@@ -3,7 +3,7 @@ const Discord = require('discord.js');
 module.exports.run = async (bot, message, args) => {
   let kUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
   if(!kUser)
-     return message.channel.send("Error. User not found, make sure you are using the right input: !kick <usermention> [reason].");
+     return message.channel.send("Error. User not found, make sure you are using the right input: `!kick <usermention> [reason]`.");
   let reason = args.join(" ").slice(22);
   if(!message.member.hasPermission('KICK_MEMBERS'))
     return message.channel.send("You don't have the permission to kick other users.");
@@ -21,7 +21,7 @@ module.exports.run = async (bot, message, args) => {
 
   let iChannel = message.guild.channels.find('name', "incidents");
   if(!iChannel)
-      return message.channel.send("This server hasn't setup kicks/bans yet. To set it up, all you have to do is make a new text channel and give it the name 'incidents'.")
+      return message.channel.send("This server hasn't setup kicks/bans yet. To set it up, all you have to do is make a new text channel and give it the name `incidents`.")
   message.guild.member(kUser).kick(reason);
   message.delete().catch(O_o => {});
   message.channel.send(`Kicked User.\nSuccessfully kicked ${kUser}, Reason: ${reason}\nFull kick report available at '#incidents' channel`);
