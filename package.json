@@ -4,8 +4,8 @@
   "description": "A Multi purpose discord bot",
   "main": "index.js",
   "engines": {
-      "node": "8.x",
-      "npm": "*"
+    "node": "8.x",
+    "npm": "*"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -24,5 +24,12 @@
   "bugs": {
     "url": "https://github.com/kanna6501/Kanna-Bot/issues"
   },
-  "homepage": "hhttps://github.com/kanna6501/Kanna-Bot#readme"
+  "homepage": "hhttps://github.com/kanna6501/Kanna-Bot#readme",
+  "dependencies": {
+    "discord.js": "^11.3.2",
+    "fortnite": "^4.1.1",
+    "fs": "0.0.1-security",
+    "ms": "^2.1.1",
+    "request": "^2.87.0"
+  }
 }
