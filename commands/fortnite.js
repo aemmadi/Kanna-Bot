@@ -29,9 +29,9 @@ module.exports.run = async (bot, message, args) =>{
       let kd = lifetime[11]['K/d'];
 
     let embed = new Discord.RichEmbed()
-      .setTitle("## FORTNITE LIFETIME STATS ##")
+      .setTitle("## FORTNITE STATS ##")
       .setThumbnail("https://fortnitetracker.com/Images/General/logo.png")
-      .setAuthor(data.username)
+      .setDescription(`Lifetime stats for ${data.username}`)
       .setColor("#42b6f4")
       .addField("Wins", wins, true)
       .addField("Kills", kills, true)
