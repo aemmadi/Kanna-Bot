@@ -1,7 +1,7 @@
 const Discord = require('discord.js');
 const config = require('../config.json');
 const Fortnite = require('fortnite');
-const ftnApi = new Fortnite(config.ftnApi);
+const ftnApi = new Fortnite(process.env.ftnApi);
 
 module.exports.run = async (bot, message, args) =>{
   let username = args[0];

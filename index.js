@@ -29,12 +29,12 @@ bot.on("ready", async() => {
 
 bot.on("message", async message => {
     if(message.author.bot)
-        return; //Don't respond to messages made by the bqot
+        return; //Don't respond to messages made by the bot
     if(message.channel.type ==  'dm')
         return; //Don't respond to dm's sent to the bot
 
     //Variable declarations
-    let prefix = botconfig.prefix;
+    let prefix = process.env.prefix;
     let msgarray = message.content.split(' '); //Splits the msg everytime there is a space
     let cmd = msgarray[0]; //Assigns the first word in msg to cmd variable. Ex: "!play"
     let args = msgarray.slice(1); //Cuts off the cmd part of the msg and assigns the rest to args variable
@@ -84,5 +84,5 @@ bot.on("message", async message => {
             return message.channel.send(embed);
     }
 })
-bot.login(botconfig.token);
+bot.login(process.env.token);
 //bot.login(process.env.BOT_TOKEN); //For Heroku Deployment
