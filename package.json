@@ -29,6 +29,7 @@
     "discord.js": "^11.3.2",
     "fortnite": "^4.1.1",
     "fs": "0.0.1-security",
+    "heroku": "^7.0.86",
     "ms": "^2.1.1",
     "request": "^2.87.0"
   }
