@@ -34,7 +34,7 @@ bot.on("message", async message => {
         return; //Don't respond to dm's sent to the bot
 
     //Variable declarations
-    let prefix = process.env.prefix;
+    let prefix = botconfig.prefix;
     let msgarray = message.content.split(' '); //Splits the msg everytime there is a space
     let cmd = msgarray[0]; //Assigns the first word in msg to cmd variable. Ex: "!play"
     let args = msgarray.slice(1); //Cuts off the cmd part of the msg and assigns the rest to args variable
@@ -84,5 +84,5 @@ bot.on("message", async message => {
             return message.channel.send(embed);
     }
 })
-bot.login(process.env.token);
+bot.login(botconfig.token);
 //bot.login(process.env.BOT_TOKEN); //For Heroku Deployment
