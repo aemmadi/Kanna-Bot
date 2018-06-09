@@ -33,6 +33,52 @@ There are a certain requirements you must have on your server to ensure an enhan
 
 ## Contributing
  Feel free to fork the repository and pull request it. All I ask of you is to `comment your code` so that it would be easy to review it, and also make a `detailed pull request` so I will know where to look.
- 
+
+ ### Dependencies
+ Before you clone this repository to customize the bot, here are the dependencies I used to make this bot.
+ * `nodemon`
+ * `discord.js`
+ * `fortnite`
+ * `request`
+ * `heroku`
+ * `ms`
+ * `fs`
+ * `superagent`
+
+## Changelog
+  #### Before June 9, 2018
+  + Added Ban Command
+    `!ban <usermention> [reason]`
+    Allows an admin to easily ban a user from the server
+
+  + Added Coinflip Command
+    `!coinflip`
+    Replies with a "HEADS" or "TAILS"
+
+  + Added Dog Command
+    `!dog`
+    Replies with a random dog image or gif.
+    Dog videos are not supported (discord api doesnt allow it). When the bot finds a random dog video then it replies with "Error occurred. Please try again."
+
+  + Added Fortnite Command
+    `!fbr <epic-username> {mode solo/duo/squad} [platform pc/xbl/psn]`
+    Replies with the user's fortnite stats from Fortnite Tracker Network.
+
+  + Added Kick Command
+    `!kick <usermention> [reason]`
+    Allows an admin to easily kick any user
+
+  + Added Mute Command
+    `!mute <usermention> [time s/m/h/d]`
+    Allows an admin to temporarily mute any user
+
+  + Added Report Command
+    `!report <usernmention> [reason]`
+    Allows any user to report someone for admins to look out for.
+
+  + Added Role Command
+    `!role [add/rm] <usermention> {role-name}`
+    Allows user with previlege to easuly add a user or remove a user from a role.
+  
 ### This project is still under construction. 
 `Realease Date : TBD`
