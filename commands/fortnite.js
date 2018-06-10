@@ -2,6 +2,7 @@ const Discord = require('discord.js');
 const config = require('../config.json');
 const Fortnite = require('fortnite');
 const ftnApi = new Fortnite(config.ftnApi);
+const currentSeason = "4";
 
 module.exports.run = async (bot, message, args) =>{
   let username = args[0];
@@ -10,15 +11,13 @@ module.exports.run = async (bot, message, args) =>{
   if(args[2]){
     if (args[2].toLowerCase() == "all" || args[2].toLowerCase() == "season") {
       mode = args[2];
+    }else{
+      return message.channel.send("Error. Use the right syntax: `!fbr <epic-username> [platform pc/xbl/psn] {mode all/season}`.\nFor lifetime stats use `!fbr <epic-username> [platform pc/xbl/psn]`");
     }
   }
 
-  // if (mode !== 'all' || mode !== 'season' || mode !== 'life'){
-  //   console.log(mode);
-  //   return message.channel.send("Error. Use the right syntax: `!fbr <epic-username> [platform pc/xbl/psn] {mode all/season}`");
-  // }
   if(!username)
-    return message.channel.send("Username not provided. Use the right syntax: `!fbr <epic-username> [platform pc/xbl/psn] {mode all/season}`");
+    return message.channel.send("Username not provided. Use the right syntax: `!fbr <epic-username> [platform pc/xbl/psn] {mode all/season}`.\nFor lifetime stats use `!fbr <epic-username> [platform pc/xbl/psn]`");
 
   let data = ftnApi.user(username, platform).then(data => {
     let stats = data.stats;
@@ -45,7 +44,7 @@ module.exports.run = async (bot, message, args) =>{
       message.channel.send(lifeEmbed);
     }
     
-    if(mode == 'all'){
+    if(mode.toLowerCase() == 'all'){
       let solo = stats.solo;
         let soloScore = solo.score;
         let soloMatches = solo.matches;
@@ -103,9 +102,68 @@ module.exports.run = async (bot, message, args) =>{
         .addField("Score", squadScore, true);
       message.channel.send(squadEmbed);
     }
+
+    if(mode.toLowerCase() == 'season'){
+      let currentSolo = stats.current_solo;
+        let currentSoloScore = currentSolo.score;
+        let currentSoloMatches = currentSolo.matches;
+        let currentSoloWins = currentSolo.wins;
+        let currentSoloKills = currentSolo.kills;
+        let currentSoloKd = currentSolo.kd;
+
+      let currentSoloEmbed = new Discord.RichEmbed()
+        .setTitle(`## FORTNITE SEASON ${currentSeason} SOLO STATS ##`)
+        .setThumbnail("https://s3.amazonaws.com/media.atp/42511_solof.png")
+        .setDescription(`Season ${currentSeason} Solo stats for ${data.username}`)
+        .setColor("#42b6f4")
+        .addField("Wins", currentSoloWins, true)
+        .addField("Kills", currentSoloKills, true)
+        .addField("K/D", currentSoloKd, true)
+        .addField("Matches Played", currentSoloMatches, true)
+        .addField("Score", currentSoloScore, true);
+      message.channel.send(currentSoloEmbed);
+
+      let currentDuo = stats.current_duo;
+        let currentDuoScore = currentDuo.score;
+        let currentDuoMatches = currentDuo.matches;
+        let currentDuoWins = currentDuo.wins;
+        let currentDuoKills = currentDuo.kills;
+        let currentDuoKd = currentDuo.kd;
+
+      let currentDuoEmbed = new Discord.RichEmbed()
+        .setTitle(`## FORTNITE SEASON ${currentSeason} DUO STATS ##`)
+        .setThumbnail("http://www.dualski.com/wp-content/uploads/2015/08/Duo.png")
+        .setDescription(`Season ${currentSeason} Duo stats for ${data.username}`)
+        .setColor("#42b6f4")
+        .addField("Wins", currentDuoWins, true)
+        .addField("Kills", currentDuoKills, true)
+        .addField("K/D", currentDuoKd, true)
+        .addField("Matches Played", currentDuoMatches, true)
+        .addField("Score", currentDuoScore, true);
+      message.channel.send(currentDuoEmbed);
+
+      let currentSquad = stats.current_duo;
+        let currentSquadScore = currentSquad.score;
+        let currentSquadMatches = currentSquad.matches;
+        let currentSquadWins = currentSquad.wins;
+        let currentSquadKills = currentSquad.kills;
+        let currentSquadKd = currentSquad.kd;
+
+      let currentSquadEmbed = new Discord.RichEmbed()
+        .setTitle(`## FORTNITE SEASON ${currentSeason} SQUAD STATS ##`)
+        .setThumbnail("https://images.joinsquad.com/Logos/squadlogo_black_hires.png")
+        .setDescription(`Season ${currentSeason} Squad stats for ${data.username}`)
+        .setColor("#42b6f4")
+        .addField("Wins", currentSquadWins, true)
+        .addField("Kills", currentSquadKills, true)
+        .addField("K/D", currentSquadKd, true)
+        .addField("Matches Played", currentSquadMatches, true)
+        .addField("Score", currentSquadScore, true);
+      message.channel.send(currentSquadEmbed);
+    }
   }).catch(e => {
     console.log(e);
-    message.channel.send("Error. User not found, make sure you are using the right syntax: `!fbr <epic-username> [platform pc/xbl/psn] {mode all/season}`.");
+    message.channel.send("Error. User not found, make sure you are using the right syntax: `!fbr <epic-username> [platform pc/xbl/psn] {mode all/season}`.\nFor lifetime stats use `!fbr <epic-username> [platform pc/xbl/psn]`");
   })
 }
 
