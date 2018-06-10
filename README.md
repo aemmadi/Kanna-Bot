@@ -25,26 +25,10 @@ There are a certain requirements you must have on your server to ensure an enhan
 
 ## Features
  * General (info, report, kick, ban, etc...)
- * Music
- * Crypto Feed
  * Fortnite (Stats and random dropper)
  * Coin Flip
- * And many more.
-
-## Contributing
- Feel free to fork the repository and pull request it. All I ask of you is to `comment your code` so that it would be easy to review it, and also make a `detailed pull request` so I will know where to look.
-
- ### Dependencies
- Before you clone this repository to customize the bot, here are the dependencies I used to make this bot.
- * `nodemon`
- * `discord.js`
- * `fortnite`
- * `request`
- * `heroku`
- * `ms`
- * `fs`
- * `superagent`
-
+ * More Coming Soon...
+ 
 ## Changelog
   #### June 9, 2018
   + Updated Fortnite Command
@@ -85,6 +69,20 @@ There are a certain requirements you must have on your server to ensure an enhan
   + Added Role Command
     `!role [add/rm] <usermention> {role-name}`
     Allows user with previlege to easuly add a user or remove a user from a role.
+
+## Contributing
+ Feel free to fork the repository and pull request it. All I ask of you is to `comment your code` so that it would be easy to review it, and also make a `detailed pull request` so I will know where to look.
+
+ ### Dependencies
+ Before you clone this repository to customize the bot, here are the dependencies I used to make this bot.
+ * `nodemon`
+ * `discord.js`
+ * `fortnite`
+ * `request`
+ * `heroku`
+ * `ms`
+ * `fs`
+ * `superagent`
   
 ### This project is still under construction. 
 `Realease Date : TBD`
