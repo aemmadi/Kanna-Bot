@@ -30,6 +30,14 @@ There are a certain requirements you must have on your server to ensure an enhan
  * More Coming Soon...
  
 ## Changelog
+  #### June 10, 2018
+  + Added Fortnite Dropper Command
+    `!drop`
+    Repies with a randomely choses fortnite location on the map.
+  
+  + Updated Coinflip command
+  `!flip`
+  Changed command syntax from "!coinflip" to "!flip" to make it easier to type command faster. Optimized the command code to minimize errors.
   #### June 9, 2018
   + Updated Fortnite Command
     `!fbr <epic-username> [platform pc/xbl/psn] {mode all/season}`
