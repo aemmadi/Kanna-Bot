@@ -46,6 +46,12 @@ There are a certain requirements you must have on your server to ensure an enhan
  * `superagent`
 
 ## Changelog
+  #### June 9, 2018
+  + Updated Fortnite Command
+    `!fbr <epic-username> [platform pc/xbl/psn] {mode all/season}`
+    Replies with your fortnite stats. New arguement "mode" allows user to request for solo/duo/squad stats by using "all" abd their season stats by using "season".
+
+    Example: `!fbr Ninja pc all` ~ shows Ninja's solo, duo, and squad stats.
   #### Before June 9, 2018
   + Added Ban Command
     `!ban <usermention> [reason]`
