@@ -2,7 +2,7 @@
 An easy to use simple multi-purpose discord bot for your server. 
 <img src="https://pre00.deviantart.net/f86f/th/pre/f/2017/286/0/7/creepy_discord_icon___logo_remix_by_treetoadart-dbqg8wi.png" alt="Kanna Bot Logo" height = "100px" width = "100px" align="right">
 
-`THIS BOT IS STILL UNDER CONSTRUCTION, NO STABLE VERSION AVAILABLE RIGHT NOW`
+`Version 0.0.1 ~ Alpha`
 
 ## Setup
 It's pretty straight forward to use the bot.
@@ -31,6 +31,9 @@ There are a certain requirements you must have on your server to ensure an enhan
  
 ## Changelog
   #### June 10, 2018
+  + Deployed Bot to VPS
+    Stable alpha version released. (v0.0.1)
+  
   + Added Fortnite Dropper Command
     `!drop`
     Repies with a randomely choses fortnite location on the map.
@@ -38,6 +41,7 @@ There are a certain requirements you must have on your server to ensure an enhan
   + Updated Coinflip command
   `!flip`
   Changed command syntax from "!coinflip" to "!flip" to make it easier to type command faster. Optimized the command code to minimize errors.
+
   #### June 9, 2018
   + Updated Fortnite Command
     `!fbr <epic-username> [platform pc/xbl/psn] {mode all/season}`
@@ -93,4 +97,4 @@ There are a certain requirements you must have on your server to ensure an enhan
  * `superagent`
   
 ### This project is still under construction. 
-`Realease Date : TBD`
+`Realease Date : Fall 2018`
