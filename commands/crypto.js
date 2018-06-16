@@ -1,26 +1,24 @@
 const CoinMarketCap = require('coinmarketcap-api');
 const client = new CoinMarketCap();
 
+// !crypto <top/stats>
 module.exports.run = async (bot, message, args) =>{
-  //client.getListings().then(console.log).catch(console.error);
-// client.getTicker().then(console.log).catch(console.error);
-//  client.getGlobal().then(console.log).catch(console.error);
+  let request = args[0].toLowerCase();
 
-  let topList = client.getTicker({convert: 'USD'});
-    let topArray = [];
-    let discard = [];
-    if(topList.rank >= 10){
-      console.log(topList);
-      for(var i = 0; i < discard.length; i++){
-        discard[i] = topList.name;
-        console.log(discard);
-      }
-    }else{
-      for(var i = 0; i < topArray.length; i++){
-        topArray[i] = topList.rank;
-        console.log(topArray);
-      }
-    }
+  if(request == 'top'){
+    client.getTicker({limit: 10, sort: 'rank'}).then(console.log
+      // data => {
+      // let embed = new Discord.RichEmbed()
+      //   .setTitle("## TOP 10 CRYPTOCURRENCY STATS")
+      //   .setDescription("Top 10 cryptocurrencies according to CoinMarketCap")
+      //   .setThumbnail('https://en.bitcoinwiki.org/upload/en/images/9/9d/Coinmarketcap.png')
+      //   .setColor("#f49e42");
+    ).catch(e => {
+      console.log(e);
+      message.channel.send("Error. Make sure you got the syntax right `!crypto <top/global>`. If the syntax is right and still see this error, then it must be a fault at CoinMarketCap's API. Try again later.");
+    });
+  }
+
 }
 
 module.exports.help = {
