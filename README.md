@@ -27,16 +27,17 @@ There are a certain requirements you must have on your server to ensure an enhan
  * General (info, report, kick, ban, etc...)
  * Fortnite (Stats and random dropper)
  * Coin Flip
- * More Coming Soon...
+ * Random Dog Image/GIF
+ * Music (still working on it)
  
 ## Changelog
   #### June 10, 2018
-  + Deployed Bot to VPS
+  + Deployed Bot to VPS;
     Stable alpha version released. (v0.0.1)
   
   + Added Fortnite Dropper Command
     `!drop`
-    Repies with a randomely choses fortnite location on the map.
+    Replies with a randomely chosen fortnite location on the map.
   
   + Updated Coinflip command
   `!flip`
@@ -45,9 +46,10 @@ There are a certain requirements you must have on your server to ensure an enhan
   #### June 9, 2018
   + Updated Fortnite Command
     `!fbr <epic-username> [platform pc/xbl/psn] {mode all/season}`
-    Replies with your fortnite stats. New arguement "mode" allows user to request for solo/duo/squad stats by using "all" abd their season stats by using "season".
+    Replies with your fortnite stats. New arguement "mode" allows user to request for solo/duo/squad stats by using "all" and their season stats by using "season".
 
     Example: `!fbr Ninja pc all` ~ shows Ninja's solo, duo, and squad stats.
+    
   #### Before June 9, 2018
   + Added Ban Command
     `!ban <usermention> [reason]`
