@@ -18,7 +18,8 @@ module.exports.run = async (bot, message, args) =>{
   let info = await ytdl.getInfo(args[0]);
   let voiceChannel = message.member.voiceChannel;
   let connection = await voiceChannel.join();
-  let dispatcher = await connection.playStream(ytdl(args[0], {filter: 'audioonly'}))
+  let stream = await ytdl.downloadFromInfo(info, {filter: 'audioonly'});
+  let dispatcher = await connection.playStream(stream, {filter: 'audioonly'})
     .on("end", end => {
       message.channel.send(`Finished Playing: ${info.title}`);
       voiceChannel.leave();
