@@ -20,14 +20,18 @@ module.exports.run = async (bot, message, args, map) =>{
   
   let info = await ytdl.getInfo(args[0]);
   //Queue for songs requested by users
-  let data = map.get(message.guild.id || {});
-  if(!data.connection)
-    data.connection = await message.member.voiceChannel.join();
-  if(!data.queue)
-    data.queue = [];
-  data.guildID = message.guild.id;
+  let data = map.get({
+    connection: message.member.voiceChannel.join(),
+    queue: [],
+    guildID: message.guild.id
+  });
+  // if(!data.connection)
+  //   data.connection = await message.member.voiceChannel.join();
+  // if(!data.queue)
+  //   data.queue = [];
+  // data.guildID = message.guild.id;
 
-  data.queue.push({
+  data.map.get(queue).push({
     songTitle: info.title,
     requester: message.author.tag,
     url: args[0],
@@ -35,7 +39,7 @@ module.exports.run = async (bot, message, args, map) =>{
   });
 
   if(!data.dispatcher){
-    play();
+    play(bot, map, data);
   }else{
     message.channel.send(`Added to Queue: ${info.title} || Requested by: ${message.author.tag}`);
   }
@@ -43,7 +47,27 @@ module.exports.run = async (bot, message, args, map) =>{
   map.set(message.guild.id, data);
 
   async function play(bot, map, data){
-    
+    bot.channels.get(data.queue[0].announceChannel).send(`Now Playing ${data.queue[0]} || Requested by: ${data.queue[0].requester}`);
+    data.dispatcher = await data.connection.playStream(ytdl(data.queue[0].url, {filter: 'audioonly'}));
+    data.dispatcher.guildID = data.guildID;
+    data.dispatcher.on('end', function() {
+      finish(bot, map, data);
+    })
+  }
+
+  function finish(bot, map, data){
+    let fetched = map.get(dispatcher.guildID);
+    fetched.queue.shift();
+
+    if(fetched.queue.length >  0){
+      map.get(dispatcher.guildID, fetched);
+      play(bot, map, data);
+    }else{
+      map.delete(dispatcher.guildID);
+      let vc = bot.guilds.get(dispatcher.guildID).me.voiceChannel;
+      if(vc)
+        vc.leave();
+    }
   }
   // //Music playback
   // let info = await ytdl.getInfo(args[0]); 
