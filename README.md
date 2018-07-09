@@ -31,7 +31,22 @@ There are a certain requirements you must have on your server to ensure an enhan
  * Music (still working on it)
  
 ## Changelog
+  #### July 2, 2018
+  `UNSTABLE CHANGES (NOT AVAILABLE FOR PUBLIC)`
+
+  + Added music command
+  `!stop`
+  Stops playing song and leaves voice channel
+  #### June 28, 2018
+  `UNSTABLE CHANGES (NOT AVAILABLE FOR PUBLIC)`
+
+  + Added music command 
+    `!play`
+    Plays music requested by user. (Only youtube url support)
+
   #### June 10, 2018
+  `STABLE CHANGES (AVAILABLE FOR PUBLIC)`
+
   + Deployed Bot to VPS;
     Stable alpha version released. (v0.0.1)
   
@@ -44,6 +59,8 @@ There are a certain requirements you must have on your server to ensure an enhan
   Changed command syntax from "!coinflip" to "!flip" to make it easier to type command faster. Optimized the command code to minimize errors.
 
   #### June 9, 2018
+  `STABLE CHANGES (AVAILABLE FOR PUBLIC)`
+
   + Updated Fortnite Command
     `!fbr <epic-username> [platform pc/xbl/psn] {mode all/season}`
     Replies with your fortnite stats. New arguement "mode" allows user to request for solo/duo/squad stats by using "all" and their season stats by using "season".
@@ -51,6 +68,8 @@ There are a certain requirements you must have on your server to ensure an enhan
     Example: `!fbr Ninja pc all` ~ shows Ninja's solo, duo, and squad stats.
     
   #### Before June 9, 2018
+  `STABLE CHANGES (AVAILABLE FOR PUBLIC)`
+
   + Added Ban Command
     `!ban <usermention> [reason]`
     Allows an admin to easily ban a user from the server
