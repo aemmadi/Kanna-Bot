@@ -38,11 +38,10 @@ bot.on("message", async message => {
     let msgarray = message.content.split(' '); //Splits the msg everytime there is a space
     let cmd = msgarray[0]; //Assigns the first word in msg to cmd variable. Ex: "!play"
     let args = msgarray.slice(1); //Cuts off the cmd part of the msg and assigns the rest to args variable
-    let map = new Map();
 
     let commandFile = bot.commands.get(cmd.slice(prefix.length));
     if(commandFile)
-        commandFile.run(bot, message, args, map);
+        commandFile.run(bot, message, args);
     
     //Commands
     if(cmd == `${prefix}hello`){
@@ -86,5 +85,5 @@ bot.on("message", async message => {
             return message.channel.send(embed);
     }
 })
-bot.login(botconfig.token);
+bot.login(botconfig.devToken);
 
