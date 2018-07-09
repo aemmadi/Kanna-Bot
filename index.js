@@ -12,7 +12,7 @@ fileSys.readdir("./commands/", (err, files) => {
         console.log(err);
     let jsFile = files.filter(f => f.split(".").pop() == "js");
     if(jsFile.length <= 0){
-        console.log("Couldn't Find Commands In Commands Folder"); 
+        console.log("Couldn't Find Commands In Commands Folder");
         return;
     }
     jsFile.forEach((f, i) => {
@@ -42,6 +42,7 @@ bot.on("message", async message => {
     let commandFile = bot.commands.get(cmd.slice(prefix.length));
     if(commandFile)
         commandFile.run(bot, message, args);
+    
     //Commands
     if(cmd == `${prefix}hello`){
         return message.channel.send("Hello!");
@@ -84,5 +85,5 @@ bot.on("message", async message => {
             return message.channel.send(embed);
     }
 })
-bot.login(botconfig.token);
-//bot.login(process.env.BOT_TOKEN); //For Heroku Deployment
+bot.login(botconfig.devToken);
+
