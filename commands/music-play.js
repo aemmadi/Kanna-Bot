@@ -2,18 +2,15 @@ const Discord = require('discord.js');
 const config = require('../config.json');
 const ytdl = require('ytdl-core');
 
-module.exports.run = async (bot, message, args, map) =>{
-  //Checks for valid commands
+module.exports.run = async (bot, message, args) =>{
   if(!message.member.voiceChannel)
     return message.channel.send("You must be in a voice channel for me to start playing music");
   if(message.guild.me.voiceChannel)
     return message.channel.send("Im busy at a different voice channel on the server. Try again later.");
-
-  //Checks if user gave source for music playback
+  
   if(!args[0])
     return message.channel.send("Please enter a youtube URL for me to load the song from.");
 
-  //Checks if the URL given by user is from YouTube
   let validate = await ytdl.validateURL(args[0]);
   if(!validate)
     return message.channel.send("Whoops, re-check the URL you gave me, I am getting an error while trying to play the song. ");
@@ -31,27 +28,14 @@ module.exports.run = async (bot, message, args, map) =>{
   //   data.queue = [];
   // data.guildID = message.guild.id;
 
-  data.map.get(queue).push({
-    songTitle: info.title,
-    requester: message.author.tag,
-    url: args[0],
-    channel: message.channel.id
-  });
-
-  if(!data.dispatcher){
-    play(bot, map, data);
-  }else{
-    message.channel.send(`Added to Queue: ${info.title} || Requested by: ${message.author.tag}`);
-  }
-
-  map.set(message.guild.id, data);
-
-  async function play(bot, map, data){
-    bot.channels.get(data.queue[0].announceChannel).send(`Now Playing ${data.queue[0]} || Requested by: ${data.queue[0].requester}`);
-    data.dispatcher = await data.connection.playStream(ytdl(data.queue[0].url, {filter: 'audioonly'}));
-    data.dispatcher.guildID = data.guildID;
-    data.dispatcher.on('end', function() {
-      finish(bot, map, data);
+  let info = await ytdl.getInfo(args[0]);
+  let voiceChannel = message.member.voiceChannel;
+  let connection = await voiceChannel.join();
+  let stream = await ytdl.downloadFromInfo(info, {filter: 'audioonly'});
+  let dispatcher = await connection.playStream(stream, {filter: 'audioonly'})
+    .on("end", end => {
+      message.channel.send(`Finished Playing: ${info.title}`);
+      voiceChannel.leave();
     })
   }
 
