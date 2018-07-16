@@ -31,6 +31,10 @@ There are a certain requirements you must have on your server to ensure an enhan
  * Music (still working on it)
  
 ## Changelog
+  #### July 14, 2018
+  `STABLE CHANGES (AVAILABLE FOR PUBLIC)`
+
+  + Updated Fortnite Stats for season 5
   #### July 2, 2018
   `UNSTABLE CHANGES (NOT AVAILABLE FOR PUBLIC)`
 
