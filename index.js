@@ -84,5 +84,5 @@ bot.on("message", async message => {
             return message.channel.send(embed);
     }
 })
-bot.login(botconfig.token);
+bot.login(botconfig.devToken);
 //bot.login(process.env.BOT_TOKEN); //For Heroku Deployment
