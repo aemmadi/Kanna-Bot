@@ -85,5 +85,6 @@ bot.on("message", async message => {
             return message.channel.send(embed);
     }
 })
+
 bot.login(botconfig.token);
 
