@@ -2,7 +2,7 @@ const Discord = require('discord.js');
 const config = require('../config.json');
 const Fortnite = require('fortnite');
 const ftnApi = new Fortnite(config.ftnApi);
-const currentSeason = "4";
+const currentSeason = "5";
 
 module.exports.run = async (bot, message, args) =>{
   let username = args[0];
