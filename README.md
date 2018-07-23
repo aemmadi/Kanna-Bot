@@ -42,9 +42,15 @@ There are a certain requirements you must have on your server to ensure an enhan
    * `!fbr <epic-username [platform pc/xbl/psn]` : Shows lifetime stats of user. Example: `!fbr Ninja pc`
    * `!fbr <epic-username> [platform pc/xbl/psn] {mode all/season}` : Shows Solo/Duo/Squad stats (all) and Season Solo/Duo/Squad stats (season). Example: `!fbr Ninja pc season`
    * `!drop` : Randomly picks a spot on the fortnite map
+
   ### Crypto
    * `!crypto` : Shows global stats for all crypto's
    * `!crypto top` : Shows top 10 crypto stats
+
+   ### Feedback
+   * `!issue` : Report an issue with the bot. Any unresponsive commands.
+   * `!donate` : Can keep the bot running by donating for server costs :)
+
   ### Miscellaneous
    * `!dog` : Displays a random dog image or gif
    * `!flip` : Flips a coin. Heads or Tails
