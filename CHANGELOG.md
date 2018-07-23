@@ -1,4 +1,10 @@
 ## Changelog
+  #### July 22, 2018
+  `STABLE CHANGES (AVAILABLE FOR PUBLIC)`
+
+  + Removed all music features
+  `reason: server costs`
+  Maybe in the future
   #### July 21, 2018
   `STABLE CHANGES (AVAILABLE FOR PUBLIC)`
 
