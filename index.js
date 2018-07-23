@@ -43,5 +43,4 @@ bot.on("message", async message => {
     if(commandFile)
         commandFile.run(bot, message, args); //Run commands
 })
-bot.login(botconfig.devToken);
-
+bot.login(botconfig.token);
