@@ -35,7 +35,7 @@ There are a certain requirements you must have on your server to ensure an enhan
    * `!report <user-mention>` : Allows users to report people. Example: `!report @Drago#0542` 
    * `!kick <user-mention> [reason]` : Allows admin to kick users from server. Example: `!kick @koolDog#4932 breaking rules`
    * `!ban <user-mention> [reason]` : Allows admin to ban users from server. Example: `!ban @DaBamboozle#7190 broke several rules`
-   * `!mute <user-mention> [time s/m/h/d]` : Allows admin to mute an user for a certain period of time. Example: `!mute Pikachuu#6319 6h`
+   * `!mute <user-mention> [time s/m/h/d]` : Allows admin to mute an user for a certain period of time. Example: `!mute @Pikachuu#6319 6h`
    * `!role [add/rmv] <user-mention> {role-name}` : Allows admin to add/remove an user to/from a role. Example: `!role add @hayabuzaYasuo#3552 Admin`
 
   ### Fortnite
