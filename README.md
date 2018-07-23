@@ -4,6 +4,8 @@ An easy to use, simple multi-purpose discord bot for your server.
 
 `Version 0.0.1 ~ Alpha`
 
+Doesn't support music playback. (server costs :/)
+
 ## Setup
 It's pretty straight forward to use the bot.
 You must have the necessary permissions to invite discord bots.
