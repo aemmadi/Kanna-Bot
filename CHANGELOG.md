@@ -1,4 +1,10 @@
 ## Changelog
+  #### July 24, 2018
+  `STABLE CHANGES (AVAILABLE FOR PUBLIC)`
+
+  + Added random status changing. 
+  `Watching from Kanna's Laptop` and `Watching <active-servers> servers | !help`
+
   #### July 23, 2018
   `STABLE CHANGES (AVAILABLE FOR PUBLIC)`
 
