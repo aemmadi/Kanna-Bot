@@ -42,6 +42,7 @@ There are a certain requirements you must have on your server to ensure an enhan
   ### Crypto
    * `!crypto` : Shows global stats for all crypto's
    * `!crypto top` : Shows top 10 crypto stats
+   * `!crypto <coin-name/symbol>` : Shows specific coin stats. Example: `!crypto eth` (or) `!crypto bitcoin`
 
   ### Feedback
    * `!issue` : Report an issue with the bot. Any unresponsive commands.
