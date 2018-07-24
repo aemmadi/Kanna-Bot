@@ -45,6 +45,7 @@ There are a certain requirements you must have on your server to ensure an enhan
   ### Crypto
    * `!crypto` : Shows global stats for all crypto's
    * `!crypto top` : Shows top 10 crypto stats
+   * `!crypto <coin-name/symbol>` : Shows specific coin details. Example: `!crypto eth` (or) `!crypto bitcoin`
   ### Miscellaneous
    * `!dog` : Displays a random dog image or gif
    * `!flip` : Flips a coin. Heads or Tails
