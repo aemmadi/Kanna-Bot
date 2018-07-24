@@ -24,7 +24,8 @@ fileSys.readdir("./commands/", (err, files) => {
 //Ready message when bot successfully loads
 bot.on("ready", async() => {
     console.log(`${bot.user.username} is online! Running on ${bot.guilds.size} servers!`);
-    bot.user.setActivity("from Kanna's laptop", {type: "Watching"});
+    let status = [`from Kanna's Laptop`, `${bot.guilds.size} servers | !help`];
+    status_change(status); //Random status displays
 })
 
 bot.on("message", async message => {
@@ -44,3 +45,10 @@ bot.on("message", async message => {
         commandFile.run(bot, message, args); //Run commands
 })
 bot.login(botconfig.token);
+
+function status_change(status){
+    setInterval(function(){
+        let chosen = status[Math.floor(Math.random() * status.length)];
+        bot.user.setActivity(`${chosen}`, { type: "Watching" });
+    }, 4400)
+}
