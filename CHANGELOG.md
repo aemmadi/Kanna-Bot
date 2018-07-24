@@ -1,4 +1,10 @@
 ## Changelog
+  #### July 23, 2018
+  `STABLE CHANGES (AVAILABLE FOR PUBLIC)`
+
+  + Added crypto command
+  `!crypto <coin-name/symbol>`
+  Gets specific crypto stats
   #### July 22, 2018
   `STABLE CHANGES (AVAILABLE FOR PUBLIC)`
 
@@ -8,11 +14,11 @@
   #### July 21, 2018
   `STABLE CHANGES (AVAILABLE FOR PUBLIC)`
 
-  + Added crypto commands
+  + Added crypto command
   `!crypto`
   Gets global stats
   
-  + Added crypto commands
+  + Added crypto command
   `!crypto top`
   Gets top 10 crypto's stats
   #### July 20, 2018

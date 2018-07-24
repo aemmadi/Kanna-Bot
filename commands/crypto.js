@@ -4,7 +4,7 @@ const client = new CoinMarketCap();
 
 //!crypto - Show global stats
 //!crypto top - Show top 10
-//!crypto <coin-name> - Show <coin-name> stats
+//!crypto <coin-name/symbol> - Show <coin-name> stats
 module.exports.run = async (bot, message, args) =>{
   if(!args[0]){
     let global = client.getGlobal().then( global => {
@@ -114,9 +114,46 @@ module.exports.run = async (bot, message, args) =>{
 
       return message.channel.send(embed);
     }).catch(err => {
+      //console.error(err);
       return message.channel.send("An unknown error occurred. Try again later after `Kanna` takes care of the bug.");
-      //console.error();
     });
+  }else{
+    let coin = args[0];
+    let data = client.getTicker({structure: 'array', convert: 'USD' }).then(data => {
+      for(var i = 0; i < 100; i++){
+        if (data["data"][i].name.toLowerCase() == coin.toLowerCase() || data["data"][i].symbol.toLowerCase() == coin.toLowerCase()) {
+          let query = data["data"][i];
+          let name = query.name;
+          let price = query.quotes.USD.price;
+          let rank = query.rank;
+          let circulation = query.circulating_supply;
+          let symbol = query.symbol;
+          let max_supply = query.max_supply;
+          let price_change_hr = query.quotes.USD.percent_change_1h;
+          let price_change_day = query.quotes.USD.percent_change_24h;
+          let price_change_week = query.quotes.USD.percent_change_7d;
+
+          let embed = new Discord.RichEmbed()
+            .setTitle(`## ${coin.toUpperCase()} DETAILS ##`)
+            .setThumbnail("https://blog.digitexfutures.com/wp-content/uploads/2018/05/CoinMarketCap.png")
+            .setColor("#f98e22")
+            .addField("Name", `${name}`, true)
+            .addField("Symbol", `${symbol}`, true)
+            .addField("Price", `\$${price}`, true)
+            .addField("1Hr Change", `${price_change_hr}%`, true)
+            .addField("24Hr Change", `${price_change_day}%`, true)
+            .addField("7d Change", `${price_change_week}%`, true)
+            .addField("Circulating Supply", `${circulation}`, true)
+            .addField("Max Supply", `${max_supply}`, true);
+
+          return message.channel.send(embed);
+        } 
+      }
+      return message.channel.send("Error Occurred. Make sure you are using the right syntax `!crypto <coin-name/symbol>`");
+    }).catch(err => {
+      //console.error(err);
+      return message.channel.send("Error Occurred. Make sure you are using the right syntax `!crypto <coin-name/symbol>`");
+    })
   }
 }
 

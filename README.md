@@ -43,10 +43,10 @@ There are a certain requirements you must have on your server to ensure an enhan
    * `!crypto` : Shows global stats for all crypto's
    * `!crypto top` : Shows top 10 crypto stats
 
-   ### Feedback
+  ### Feedback
    * `!issue` : Report an issue with the bot. Any unresponsive commands.
    * `!donate` : Can keep the bot running by donating for server costs :)
-
+   
   ### Miscellaneous
    * `!dog` : Displays a random dog image or gif
    * `!flip` : Flips a coin. Heads or Tails
