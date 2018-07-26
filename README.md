@@ -16,6 +16,8 @@ Follow this link to invite the bot:
 
 [Invite Kanna Bot to your Server!](https://discordapp.com/api/oauth2/authorize?client_id=450118801816551424&permissions=8&scope=bot) 
 
+[View Trello Board for Bot](https://trello.com/b/m81jUf4o/kanna-bot)
+
 ### Requirements
 There are a certain requirements you must have on your server to ensure an enhanced experience with the bot
 1. Create a role solely dedicated to the bot (Ex: The Watcher) and give it the `Administrator` role
