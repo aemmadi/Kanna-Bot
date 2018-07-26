@@ -4,31 +4,28 @@ const superagent = require('superagent');
 const rlApi = config.rlApi;
 
 module.exports.run = async (bot, message, args) => {
-  let platform = args[0].toLowerCase();
+  if(!args[0])
+    return message.channel.send("Error. Make sure you specify a platform. `!rl [platform pc/psn/xbl] <id>`\n**<id>** is your STEAMID64/PSN Username/XboxGamerTag.");
+  if (!args[1])
+    return message.channel.send("Error. Make sure you specify an user id. `!rl [platform pc/psn/xbl] <id>`\n**<id>** is your STEAMID64/PSN Username/XboxGamerTag.");
   let username = args[1];
+  
+  if(args[0].toLowerCase() == 'steam' || args[0].toLowerCase() == 'pc'){
+    let platformId = '1';
+    getPlayerStats(platformId, username, rlApi);
 
-  getPlatformId(platform, rlApi);
-  getPlayerStats(platform, username, rlApi);
-
-  async function getPlatformId(platform, rlApi) {
-    let { body } = await superagent.get(`https://api.rocketleaguestats.com/v1/data/platforms?apikey=${rlApi}`);
-    return {
-      steam: body[0],
-      psn: body[1],
-      xbl: body[2]
-    }
+  }else if(args[0].toLowerCase() == 'psn' || args[0].toLowerCase() == 'ps4'){
+    let platformId = '2';
+  }else if(args[0].toLowerCase() == 'xbl' || args[0].toLowerCase() == 'xboxone' || args[0].toLowerCase() == 'xbox'){
+    let platformId = '3';
   }
 
-  async function getPlayerStats(platform, username, rlApi){
-    let platformData = await getPlatformId(platform, rlApi);
-   // console.log(platformData);
-    for(let i = 0; i < 3; i++){
-      console.log(i);
-      if(platform == platformData[Object.keys(platformData)[i]].name.toLowerCase()){
-        let platformId = platformData[Object.keys(platformData)[i]].id;
-      }
-    }
-    let { body } = await superagent.get(`https://api.rocketleaguestats.com/v1/player?unique_id=${username}&platform_id=${platformId}?apikey=${rlApi}`);
+  async function getPlayerStats(platformId, username, rlApi){
+    console.log(username)
+    console.log(platformId)
+    console.log(rlApi)
+    let { body } = await superagent.get(`https://api.rocketleaguestats.com/v1/player?unique_id=${username}&platform_id=${platformId}`).set('Authorization', rlApi);
+    
     console.log(body);
   }
 
