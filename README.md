@@ -36,10 +36,17 @@ There are a certain requirements you must have on your server to ensure an enhan
    * `!mute <user-mention> [time s/m/h/d]` : Allows admin to mute an user for a certain period of time. Example: `!mute @Pikachuu#6319 6h`
    * `!role [add/rmv] <user-mention> {role-name}` : Allows admin to add/remove an user to/from a role. Example: `!role add @hayabuzaYasuo#3552 Admin`
 
-  ### Fortnite
+  ### Game Stats
+  #### Fortnite
    * `!fbr <epic-username [platform pc/xbl/psn]` : Shows lifetime stats of user. Example: `!fbr Ninja pc`
    * `!fbr <epic-username> [platform pc/xbl/psn] {mode all/season}` : Shows Solo/Duo/Squad stats (all) and Season Solo/Duo/Squad stats (season). Example: `!fbr Ninja pc season`
    * `!drop` : Randomly picks a spot on the fortnite map
+
+  #### League of Legends
+  * `!lol <summoner-name>` : Shows the profile overview of user
+
+  #### Rocket League
+  * `!rl [platform pc/psn/xbl] <id>` : Shows game stats | **Note**: `<id>` refers to the user's STEAMID64 (for pc), PSN Username (for ps4), and XboxGamerTag (for XboxOne)
 
   ### Crypto
    * `!crypto` : Shows global stats for all crypto's
