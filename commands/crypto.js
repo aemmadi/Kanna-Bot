@@ -152,7 +152,7 @@ module.exports.run = async (bot, message, args) =>{
       return message.channel.send("Error Occurred. Make sure you are using the right syntax `!crypto <coin-name/symbol>`");
     }).catch(err => {
       //console.error(err);
-      return message.channel.send("Error Occurred. Make sure you are using the right syntax `!crypto <coin-name/symbol>`");
+      return message.channel.send("Error Occurred. Make sure you are using the right syntax `!crypto <coin-name/symbol>`\n\n**If this problem keeps arising, make sure you use the `!issue` command to report any issues with the bot**");
     })
   }
 }
