@@ -1,4 +1,10 @@
 ## Changelog
+  #### July 26, 2018
+  `STABLE CHANGES (AVAILABLE FOR PUBLIC)`
+
+  + Added league command
+  `!lol <summoner-name>`
+  Gets basic stats of player
   #### July 25, 2018
   `UNSTABLE CHANGES (NOT AVAILABLE FOR PUBLIC)`
 
