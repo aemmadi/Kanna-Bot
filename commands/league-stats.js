@@ -14,7 +14,10 @@ module.exports.run = async (bot, message, args) => {
   //Ranked Stats
   //Last Game
   //Live Game
-  let name = args[0];
+ if(!args[0])
+  return message.channel.send("Error. Make sure you specify a vaild username. `!lol <summoner-name>`");
+
+ let name = args[0];
 
  let summonerData = await getUserInfo(name, lolApi);
  let masteryData =  await getMasteryInfo(name, lolApi);
@@ -33,7 +36,9 @@ module.exports.run = async (bot, message, args) => {
   return message.channel.send(embed);
 
   async function getUserInfo(name, lolApi){
-    let { body } = await superagent.get(`https://na1.api.riotgames.com/lol/summoner/v3/summoners/by-name/${name}?api_key=${lolApi}`);
+    let { body } = await superagent.get(`https://na1.api.riotgames.com/lol/summoner/v3/summoners/by-name/${name}?api_key=${lolApi}`).on('error', err => {
+      return message.channel.send('Error Occurred. Make sure you got the username right. `!lol <summoner-name>`\n\n **If this problem keeps arising, make sure you use the `!issue` command to report any issues with the bot**');
+    });
     let userInfo = body;
       let summonerId = userInfo.id;
       let summonerName = userInfo.name;
@@ -49,7 +54,9 @@ module.exports.run = async (bot, message, args) => {
     let info = await getUserInfo(name, lolApi);
       let summonerId = info.summonerId;
 
-    let { body } = await superagent.get(`https://na1.api.riotgames.com/lol/champion-mastery/v3/champion-masteries/by-summoner/${summonerId}?api_key=${lolApi}`);
+    let { body } = await superagent.get(`https://na1.api.riotgames.com/lol/champion-mastery/v3/champion-masteries/by-summoner/${summonerId}?api_key=${lolApi}`).on('error', err => {
+      return message.channel.send('Error Occurred. Make sure you got the username right. `!lol <summoner-name>`\n\n **If this problem keeps arising, make sure you use the `!issue` command to report any issues with the bot**');
+    });
     let masteryInfo = body;
       let rank1 = {
         championId : masteryInfo[0].championId,
@@ -91,7 +98,9 @@ module.exports.run = async (bot, message, args) => {
       let latestPatch = body[0];
       return latestPatch;
     }
-    let { body } = await superagent.get(`http://ddragon.leagueoflegends.com/cdn/${latestPatch}/data/en_US/champion.json`);
+    let { body } = await superagent.get(`http://ddragon.leagueoflegends.com/cdn/${latestPatch}/data/en_US/champion.json`).on('error', err => {
+      return message.channel.send('Error Occurred. Make sure you got the username right. `!lol <summoner-name>`\n\n **If this problem keeps arising, make sure you use the `!issue` command to report any issues with the bot**');
+    });
     let championData = body.data;
     let championName = [];
       let dataLength = Object.keys(championData).length;

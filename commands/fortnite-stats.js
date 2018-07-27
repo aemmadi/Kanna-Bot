@@ -162,8 +162,8 @@ module.exports.run = async (bot, message, args) =>{
       message.channel.send(currentSquadEmbed);
     }
   }).catch(e => {
-    console.log(e);
-    message.channel.send("Error. User not found, make sure you are using the right syntax: `!fbr <epic-username> [platform pc/xbl/psn] {mode all/season}`.\nFor lifetime stats use `!fbr <epic-username> [platform pc/xbl/psn]`");
+    //console.log(e);
+    return message.channel.send("Error. User not found, make sure you are using the right syntax: `!fbr <epic-username> [platform pc/xbl/psn] {mode all/season}`.\nFor lifetime stats use `!fbr <epic-username> [platform pc/xbl/psn]`\n\n**If this problem keeps arising, make sure you use the `!issue` command to report any issues with the bot**");
   })
 }
 

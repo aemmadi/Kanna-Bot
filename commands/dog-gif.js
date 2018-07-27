@@ -3,7 +3,10 @@ const superagent = require('superagent');
 
 module.exports.run = async (bot, message, args) => {
   let { body } = await superagent
-    .get(`https://random.dog/woof.json`); //gets the JSON for random dog
+    .get(`https://random.dog/woof.json`).on('error', err => {
+      //console.log(err);
+      return message.channel.send("Unknown Error Occurred\n\n**If this problem keeps arising, make sure you use the `!issue` command to report any issues with the bot**");
+    }); //gets the JSON for random dog
 
   const link = body.url;
 
