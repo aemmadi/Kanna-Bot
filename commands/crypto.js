@@ -115,7 +115,7 @@ module.exports.run = async (bot, message, args) =>{
       return message.channel.send(embed);
     }).catch(err => {
       //console.error(err);
-      return message.channel.send("An unknown error occurred. Try again later after `Kanna` takes care of the bug.");
+      return message.channel.send("An unknown error occurred.\n\n**If this problem keeps arising, make sure you use the `!issue` command to report any issues with the bot**");
     });
   }else{
     let coin = args[0];
