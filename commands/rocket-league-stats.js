@@ -21,12 +21,13 @@ module.exports.run = async (bot, message, args) => {
   }
 
   async function getPlayerStats(platformId, username, rlApi){
-    console.log(username)
-    console.log(platformId)
-    console.log(rlApi)
     let { body } = await superagent.get(`https://api.rocketleaguestats.com/v1/player?unique_id=${username}&platform_id=${platformId}`).set('Authorization', rlApi);
-    
-    console.log(body);
+
+    let embed = new Discord.RichEmbed()
+      .setColor("#4286f4")
+      .setTitle(`## ROCKET LEAGUE STATS FOR ${body.displayName.toUpperCase()} ##`)
+      .setImage(body.signatureUrl);
+    return message.channel.send(embed);
   }
 
 
