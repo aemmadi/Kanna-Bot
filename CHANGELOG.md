@@ -2,6 +2,10 @@
   #### July 26, 2018
   `STABLE CHANGES (AVAILABLE FOR PUBLIC)`
 
+  + Added rocket league command
+  `!rl [platform pc/psn/xbl] <id>`
+  Gets game stats of player
+
   + Added league command
   `!lol <summoner-name>`
   Gets basic stats of player
