@@ -28,8 +28,7 @@ There are a certain requirements you must have on your server to ensure an enhan
 ## Commands
   ### General
    * `!help` : Lists all available commands
-   * `!botinfo` : Shows bot information
-   * `!svinfo` : Shows server information
+   * `!info` : Shows bot and server information
    * `!report <user-mention>` : Allows users to report people. Example: `!report @Drago#0542` 
    * `!kick <user-mention> [reason]` : Allows admin to kick users from server. Example: `!kick @koolDog#4932 breaking rules`
    * `!ban <user-mention> [reason]` : Allows admin to ban users from server. Example: `!ban @DaBamboozle#7190 broke several rules`
@@ -46,7 +45,7 @@ There are a certain requirements you must have on your server to ensure an enhan
   * `!lol <summoner-name>` : Shows the profile overview of user
 
   #### Rocket League
-  * `!rl [platform pc/psn/xbl] <id>` : Shows game stats | **Note**: `<id>` refers to the user's STEAMID64 (for pc), PSN Username (for ps4), and XboxGamerTag (for XboxOne)
+  * `!rl [platform pc/psn/xbl] <id>` : Shows game stats | **Note**: `<id>` refers to the user's STEAMID64 (for pc), PSN Username (for ps4), and XboxGamerTag (for XboxOne). Example: `!rl pc 76561198118691382` (the number is the STEAMID64 since I requested PC stats)
 
   ### Crypto
    * `!crypto` : Shows global stats for all crypto's
