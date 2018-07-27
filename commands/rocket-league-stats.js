@@ -13,15 +13,18 @@ module.exports.run = async (bot, message, args) => {
   if(args[0].toLowerCase() == 'steam' || args[0].toLowerCase() == 'pc'){
     let platformId = '1';
     getPlayerStats(platformId, username, rlApi);
-
   }else if(args[0].toLowerCase() == 'psn' || args[0].toLowerCase() == 'ps4'){
     let platformId = '2';
+    getPlayerStats(platformId, username, rlApi);
   }else if(args[0].toLowerCase() == 'xbl' || args[0].toLowerCase() == 'xboxone' || args[0].toLowerCase() == 'xbox'){
     let platformId = '3';
+    getPlayerStats(platformId, username, rlApi);
   }
 
   async function getPlayerStats(platformId, username, rlApi){
-    let { body } = await superagent.get(`https://api.rocketleaguestats.com/v1/player?unique_id=${username}&platform_id=${platformId}`).set('Authorization', rlApi);
+    let { body } = await superagent.get(`https://api.rocketleaguestats.com/v1/player?unique_id=${username}&platform_id=${platformId}`).set('Authorization', rlApi).on('error', err => {
+      return message.channel.send('Error Occurred. Make sure you got the syntax right. `!rl [platform pc/psn/xbl] <id>`\n**<id>** is your STEAMID64/PSN Username/XboxGamerTag.\n\n**Make sure your profile privacy settings are set to public**');
+     });
 
     let embed = new Discord.RichEmbed()
       .setColor("#4286f4")
