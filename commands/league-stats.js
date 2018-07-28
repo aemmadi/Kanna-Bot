@@ -22,6 +22,7 @@ module.exports.run = async (bot, message, args) => {
  let summonerData = await getUserInfo(name, lolApi);
  let masteryData =  await getMasteryInfo(name, lolApi);
  let championData = await getChampionData(name, lolApi);
+ let gameData = await getGameId(lolApi);
  let matchData = await getMatchData(name, lolApi);
 
  let embed = new Discord.RichEmbed()
@@ -56,6 +57,7 @@ module.exports.run = async (bot, message, args) => {
   async function getMasteryInfo(name, lolApi){
     let info = await getUserInfo(name, lolApi);
       let summonerId = info.summonerId;
+      //console.log(summonerId);
 
     let { body } = await superagent.get(`https://na1.api.riotgames.com/lol/champion-mastery/v3/champion-masteries/by-summoner/${summonerId}?api_key=${lolApi}`).on('error', err => {
       return message.channel.send('Error Occurred. Make sure you got the username right. `!lol <summoner-name>`\n\n **If this problem keeps arising, make sure you use the `!issue` command to report any issues with the bot**');
@@ -120,10 +122,47 @@ module.exports.run = async (bot, message, args) => {
     return championName;
   }
 
-  async function getMatchData(name, lolApi){
+  async function getGameId(lolApi) {
     let accountId = summonerData.accountId;
     let { body } = await superagent.get(`https://na1.api.riotgames.com/lol/match/v3/matchlists/by-account/${accountId}?api_key=${lolApi}`);
-    console.log(body);
+    let gameId = [];
+    for (let i = 0; i < 10; i++) {
+      gameId.push(body['matches'][i].gameId);
+    }
+    return gameId;
+  }
+
+  async function getMatchData(name, lolApi){
+    let accountId = summonerData.accountId;
+    console.log('accountId ' + accountId);
+    let summonerId = summonerData.summonerId;
+    console.log('summonerId ' + summonerId);
+    let gameId = gameData;
+    console.log('gameId ' + gameId);
+    let participantId = 0;
+    let result = [];
+    for(let i = 0; i < gameId.length; i++){
+      console.log('i ' + i);
+      let { body } = await superagent.get(`https://na1.api.riotgames.com/lol/match/v3/matches/${gameId[i]}?api_key=${lolApi}`);
+      console.log('body ' + body);
+      for(let k = 0; k < 10; k++){
+        console.log('k ' + k);
+        if (body.participantIdentities[k].player.summonerName == name || body.participantIdentities[k].player.accountId == accountId || body.participantIdentities[k].player.summonerName == summonerId){
+          participantId = body.participantIdentities[k].participantId;
+          console.log('participantId ' + participantId);
+          break;
+        }
+      }
+      if(body.participants[i].participantId == participantId){
+        if(body.participants[i].stats.win){
+          result.push('win');
+        }else{
+          result.push('loss');
+        }
+      }
+    }
+    console.log(result);
+    return result;
   }
 }
 
