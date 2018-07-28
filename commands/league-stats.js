@@ -22,6 +22,7 @@ module.exports.run = async (bot, message, args) => {
  let summonerData = await getUserInfo(name, lolApi);
  let masteryData =  await getMasteryInfo(name, lolApi);
  let championData = await getChampionData(name, lolApi);
+ let matchData = await getMatchData(name, lolApi);
 
  let embed = new Discord.RichEmbed()
   .setTitle(`## LEAGUE OF LEGENDS STATS FOR ${summonerData.summonerName.toUpperCase()} ##`)
@@ -40,10 +41,12 @@ module.exports.run = async (bot, message, args) => {
       return message.channel.send('Error Occurred. Make sure you got the username right. `!lol <summoner-name>`\n\n **If this problem keeps arising, make sure you use the `!issue` command to report any issues with the bot**');
     });
     let userInfo = body;
+      let accountId = userInfo.accountId;
       let summonerId = userInfo.id;
       let summonerName = userInfo.name;
       let summonerLevel = userInfo.summonerLevel;
     return {
+      accountId: accountId,
       summonerId: summonerId,
       summonerName: summonerName,
       summonerLevel: summonerLevel
@@ -115,6 +118,12 @@ module.exports.run = async (bot, message, args) => {
       }
     }
     return championName;
+  }
+
+  async function getMatchData(name, lolApi){
+    let accountId = summonerData.accountId;
+    let { body } = await superagent.get(`https://na1.api.riotgames.com/lol/match/v3/matchlists/by-account/${accountId}?api_key=${lolApi}`);
+    console.log(body);
   }
 }
 
