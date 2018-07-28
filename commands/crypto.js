@@ -120,7 +120,7 @@ module.exports.run = async (bot, message, args) =>{
   }else{
     let coin = args[0];
     let data = client.getTicker({structure: 'array', convert: 'USD' }).then(data => {
-      for(var i = 0; i < 100; i++){
+      for(var i = 0; i < 1800; i++){
         if (data["data"][i].name.toLowerCase() == coin.toLowerCase() || data["data"][i].symbol.toLowerCase() == coin.toLowerCase()) {
           let query = data["data"][i];
           let name = query.name;
