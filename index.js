@@ -40,9 +40,11 @@ bot.on("message", async message => {
     let cmd = msgarray[0]; //Assigns the first word in msg to cmd variable. Ex: "!play"
     let args = msgarray.slice(1); //Cuts off the cmd part of the msg and assigns the rest to args variable
 
-    let commandFile = bot.commands.get(cmd.slice(prefix.length));
-    if(commandFile)
-        commandFile.run(bot, message, args); //Run commands
+    if (cmd.charAt(0) == prefix) {
+        let commandFile = bot.commands.get(cmd.slice(prefix.length));
+        if (commandFile)
+            commandFile.run(bot, message, args); //Run commands
+    };
 })
 bot.login(config.token);
 
