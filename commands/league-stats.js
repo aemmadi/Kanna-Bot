@@ -30,7 +30,7 @@ module.exports.run = async (bot, message, args) => {
   .setColor('#e5f442')
   .addField("Name", `${summonerData.summonerName}`, true)
   .addField("Level", `${summonerData.summonerLevel}`, true)
-  .addField("Main Champions", `1. ${championData[0]} **[${masteryData[0].championLevel}]** : ${masteryData[0].championPoints}\n2. ${championData[1]} **[${masteryData[1].championLevel}]** : ${masteryData[1].championPoints}\n3. ${championData[2]} **[${masteryData[2].championLevel}]** : ${masteryData[2].championPoints}`, true)
+   .addField("Main Champions", `1. <:Xayah:472884783941419019> ${championData[0]} **[${masteryData[0].championLevel}]** : ${masteryData[0].championPoints}\n2. ${championData[1]} **[${masteryData[1].championLevel}]** : ${masteryData[1].championPoints}\n3. ${championData[2]} **[${masteryData[2].championLevel}]** : ${masteryData[2].championPoints}`, true)
   .addField("Fluent Champions", `4. ${championData[3]} **[${masteryData[3].championLevel}]** : ${masteryData[3].championPoints}\n5. ${championData[4]} **[${masteryData[4].championLevel}]** : ${masteryData[4].championPoints}`, true);
 
   return message.channel.send(embed);
@@ -116,6 +116,10 @@ module.exports.run = async (bot, message, args) => {
     }
     return championName;
   }
+
+  // async function getImage(){
+
+  // }
 }
 
 module.exports.help = {
