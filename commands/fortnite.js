@@ -5,6 +5,13 @@ const ftnApi = new Fortnite(config.ftnApi);
 const currentSeason = "5";
 
 module.exports.run = async (bot, message, args) =>{
+  if(args[0].toLowerCase() == 'drop'){
+    let places = ["Lazy Links", "Dusty Divot", "Fatal Fields", "Flush Factory", "Greasy Grove", "Haunted Hills", "Junk Junction", "Lonely Lodge", "Loot Lake", "Lucky Landing", "Paradise Palms", "Pleasant Park", "Retail Row", "Risky Reels", "Salty Springs", "Shifty Shafts", "Snobby Shores", "Tilted Towers", "Tomato Town", "Wailing Woods"];
+
+    let picker = Math.floor(Math.random() * places.length);
+
+    return message.channel.send(places[picker]);
+  }
   let username = args[0];
   let platform = args[1] || "pc";
   let mode = "life";
