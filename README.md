@@ -41,8 +41,11 @@ There are a certain requirements you must have on your server to ensure an enhan
    * `!fbr <epic-username> [platform pc/xbl/psn] {mode all/season}` : Shows Solo/Duo/Squad stats (all) and Season Solo/Duo/Squad stats (season). Example: `!fbr Ninja pc season`
    * `!drop` : Randomly picks a spot on the fortnite map
 
-  #### League of Legends
-  * `!lol <summoner-name>` : Shows the profile overview of user
+  #### League of Legends (NA ONLY)
+  * `!lol <summoner-name>` : Shows the profile overview of user. Example: `!lol parrot15`
+  
+  #### Overwatch
+  * `!ow <username#battleTag> [platform pc/psn/xbl]` : Shows profile stats of user. Example: `!ow Finnsi#2664 pc`
 
   #### Rocket League
   * `!rl [platform pc/psn/xbl] <id>` : Shows game stats | **Note**: `<id>` refers to the user's STEAMID64 (for pc), PSN Username (for ps4), and XboxGamerTag (for XboxOne). Example: `!rl pc 76561198118691382` (the number is the STEAMID64 since I requested PC stats)
