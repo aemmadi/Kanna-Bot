@@ -38,10 +38,16 @@ module.exports.run = async (bot, message, args) => {
   if (Object.keys(body).length === 0)
     return message.channel.send("Error occurred while retrieving player stats. Please try again later. `!ow <username#battleTag> [platform pc/psn/xbl]`\n\n **If this problem keeps arising, make sure you use the `!issue` command to report any issues with the bot**");
   
-
+  let embed = new Discord.RichEmbed()
+    .setTitle(`## OVERWATCH STATS FOR ${body.username.toUpperCase()} ##`)
+    .setThumbnail(`${body.portrait}`)
+    .setColor('#f4d442')
+    .addField(`Username`, `${body.username}`, true)
+    .addField(`Levels`, `**Game Level** : ${body.level}\n**Endorsement Level** : ${body.endorsement.level}`, true)
+    .addField(`Quickplay`, `**Wins** : ${body.games.quickplay.won}`, true)
+    .addField(`Competitive`, `**Rank** : ${body.competitive.rank}\n**Wins** : ${body.games.competitive.won}\n**Matches Played** : ${body.games.competitive.played}\n**Win Rate** : ${body.games.competitive.win_rate}`, true);
   
-  
-
+  return message.channel.send(embed);
 
   function checkUsername(username){
     let result = false;
@@ -52,7 +58,6 @@ module.exports.run = async (bot, message, args) => {
     }
     return result;
   }
-  //console.log(formattedUser);
 }
 
 module.exports.help = {
