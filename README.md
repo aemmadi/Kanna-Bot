@@ -2,7 +2,7 @@
 An easy to use, simple multi-purpose discord bot for your server. 
 <img src="https://i.imgur.com/ZOAzsBK.png" alt="Kanna Bot Logo" height = "100px" width = "100px" align="right">
 
-`Version 0.3 ~ Beta`
+`Version 0.7.3 ~ Beta`
 
 Doesn't support music playback. (server costs :/)
 
