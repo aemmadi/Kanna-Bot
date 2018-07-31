@@ -1,4 +1,13 @@
 ## Changelog
+  #### July 31, 2018
+  `STABLE CHANGES (AVAILABLE FOR PUBLIC)`
+
+  + Added overwatch stats command
+  `!ow <username#battleTag> [platform pc/psn/xbl]`
+  Gets basic stats of user
+
+  + Fixed issue #11, where `!dog` command replied "Error occurred. Try again". Now it is incredibly rare to get that error.
+  
   #### July 30, 2018
   `UNSTABLE CHANGES (NOT AVAILABLE FOR PUBLIC)`
 
