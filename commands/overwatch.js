@@ -38,6 +38,9 @@ module.exports.run = async (bot, message, args) => {
   if (Object.keys(body).length === 0)
     return message.channel.send("Error occurred while retrieving player stats. Please try again later. `!ow <username#battleTag> [platform pc/psn/xbl]`\n\n **If this problem keeps arising, make sure you use the `!issue` command to report any issues with the bot**");
   
+  if (body.private)
+    return message.reply("Blizzard is not letting me get your stats. Make your profile public to have access to your stats. You can do it by going to **Options > Social > Change profile to public** in the game client.");
+    
   let embed = new Discord.RichEmbed()
     .setTitle(`## OVERWATCH STATS FOR ${body.username.toUpperCase()} ##`)
     .setThumbnail(`${body.portrait}`)
@@ -45,7 +48,7 @@ module.exports.run = async (bot, message, args) => {
     .addField(`Username`, `${body.username}`, true)
     .addField(`Levels`, `**Game Level** : ${body.level}\n**Endorsement Level** : ${body.endorsement.level}`, true)
     .addField(`Quickplay`, `**Wins** : ${body.games.quickplay.won}`, true)
-    .addField(`Competitive`, `**Rank** : ${body.competitive.rank}\n**Wins** : ${body.games.competitive.won}\n**Matches Played** : ${body.games.competitive.played}\n**Win Rate** : ${body.games.competitive.win_rate}`, true);
+    .addField(`Competitive`, `**Rank** : ${body.competitive.rank}\n**Wins** : ${body.games.competitive.won}\n**Matches Played** : ${body.games.competitive.played}\n**Win Rate** : ${body.games.competitive.win_rate}%`, true);
   
   return message.channel.send(embed);
 
