@@ -39,7 +39,7 @@ There are a certain requirements you must have on your server to ensure an enhan
   #### Fortnite
    * `!fbr <epic-username [platform pc/xbl/psn]` : Shows lifetime stats of user. Example: `!fbr Ninja pc`
    * `!fbr <epic-username> [platform pc/xbl/psn] {mode all/season}` : Shows Solo/Duo/Squad stats (all) and Season Solo/Duo/Squad stats (season). Example: `!fbr Ninja pc season`
-   * `!drop` : Randomly picks a spot on the fortnite map
+   * `!fbr drop` : Randomly picks a spot on the fortnite map
 
   #### League of Legends (NA ONLY)
   * `!lol <summoner-name>` : Shows the profile overview of user. Example: `!lol parrot15`
