@@ -1,5 +1,6 @@
 const Discord = require('discord.js');
 
+//!help
 module.exports.run = async (bot, message, args) => {
   let embed = new Discord.RichEmbed()
     .setTitle("## COMMANDS ##")
@@ -11,7 +12,7 @@ module.exports.run = async (bot, message, args) => {
     .addField("Crypto", "`!crypto` : Shows global statistics of crpytocurrencies\n`!crypto top` : Shows Top 10 crypto stats")
     .addField("Feedback", "`!issue` : Report an issue with the bot. Any unresponsive commands.\n`!donate` : Can keep the bot running by donating for server costs :)")
     .addField("Misc.", "`!flip` : Flips a coin and replies HEADS or TAILS\n`!dog` : Random dog image or gif\n`!roll` : Rolls a dice");
-  return message.channel.send(embed);
+  return message.channel.send(embed); //Sends help message
 }
 
 module.exports.help = {

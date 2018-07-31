@@ -1,5 +1,6 @@
 const Discord = require('discord.js');
 
+//!info
 module.exports.run = async (bot, message, args) => {
   let botinfo = new Discord.RichEmbed()
     .setTitle("## BOT INFORMATION ##")
@@ -9,7 +10,7 @@ module.exports.run = async (bot, message, args) => {
     .addField("Running on", `${bot.guilds.size} servers`)
     .addField("Developed by", `[Anirudh Emmadi](http://www.anirudhemmadi.com)`)
     .addField("Created on", bot.user.createdAt);
-  message.channel.send(botinfo);
+  message.channel.send(botinfo); //Sends bot info
 
   let svinfo = new Discord.RichEmbed()
     .setTitle("## SERVER INFORMATION ##")
@@ -21,7 +22,7 @@ module.exports.run = async (bot, message, args) => {
     .addField("Server Region", message.guild.region)
     .addField("Server Owner", message.guild.owner)
     .addField("Total Members", message.guild.memberCount);
-  return message.channel.send(svinfo);
+  return message.channel.send(svinfo); //Sends server info
 }
 
 module.exports.help = {

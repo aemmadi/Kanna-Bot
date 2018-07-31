@@ -4,6 +4,9 @@ const Fortnite = require('fortnite');
 const ftnApi = new Fortnite(config.ftnApi);
 const currentSeason = "5";
 
+//!fbr <epic-username> [platform pc/psn/xbl]
+//!fbr <epic-username> [platform pc/psn/xbl] {mode all/season}
+//!fbr drop
 module.exports.run = async (bot, message, args) =>{
   //Fortnite drop command
   if(args[0].toLowerCase() == 'drop'){

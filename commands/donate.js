@@ -8,7 +8,7 @@ module.exports.run = async (bot, message, args) => {
     .addField("PayPal", "https://www.paypal.me/kanna6501")
     .addField("Bitcoin (BTC)", "3PHYokeWs7Smc7bYEy2i4tvLn7hPFgSquF")
     .addField("Ethereum (ETH)", "0xa3A65FFC89F3440553eE012f97609f2DA3C839B3");
-  return message.channel.send(embed);
+  return message.channel.send(embed); //Sends message
 }
 
 module.exports.help = {

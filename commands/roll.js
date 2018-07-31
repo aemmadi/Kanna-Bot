@@ -1,7 +1,7 @@
 const Discord = require('discord.js');
 
 module.exports.run = async (bot, message, args) => {
-  let result = Math.floor(Math.random() * 6);;
+  let result = Math.floor(Math.random() * 6);; //Picks a random number from 0 - 5
 
   if (result == 0){
     return message.channel.send("1");
@@ -16,7 +16,7 @@ module.exports.run = async (bot, message, args) => {
   } else if (result == 5) {
     return message.channel.send("6");
   }else {
-    return message.channel.send("Error Occurred, Flip again.");
+    return message.channel.send("Error Occurred, Flip again."); //Catches unknown error
   }
 }
 

@@ -6,11 +6,12 @@ const client = new CoinMarketCap();
 //!crypto top - Show top 10
 //!crypto <coin-name/symbol> - Show <coin-name> stats
 module.exports.run = async (bot, message, args) =>{
+  //!crypto
   if(!args[0]){
     let global = client.getGlobal().then( global => {
-      let totalCrypto = global.data.active_cryptocurrencies;
-      let totalMarket = global.data.active_markets;
-      let bitcoinPercent = global.data.bitcoin_percentage_of_market_cap;
+      let totalCrypto = global.data.active_cryptocurrencies; //Total active cryptocurrencies
+      let totalMarket = global.data.active_markets; //Total active markets
+      let bitcoinPercent = global.data.bitcoin_percentage_of_market_cap; //Bitcoin's dominance
 
       let embed = new Discord.RichEmbed()
         .setTitle("## CRYPTOCURRENCY GLOBAL STATS ##")
@@ -21,20 +22,16 @@ module.exports.run = async (bot, message, args) =>{
         .addField("Total Active Markets: ", totalMarket)
         .addField("Percentage of Bitcoin in the Market: ", `${bitcoinPercent}%`);
 
-       return message.channel.send(embed);
+       return message.channel.send(embed); //Sends global crypto stats
     }).catch(err => {
-      message.channel.send("Oops an error occurred. Try again later.");
-      console.error(err);
+      message.channel.send("Oops an error occurred. Try again later.\n\n**If this problem keeps arising, make sure you use the `!issue` command to report any issues with the bot**"); //Error message in case API fails
+      //console.error(err);
     });
   }
 
+  //!crypto top
   if(args[0].toLowerCase() == 'top'){
     let data = client.getTicker({ start: 0, limit: 10, structure: 'array', convert: 'USD' }).then(data => {
-      //Name
-      //Current Price
-      //Past Hour
-      //Past Day
-      //Past Week
       let rank1 = data['data'][0];
         let rank1_name = rank1.name;
         let rank1_price = rank1.quotes.USD.price;
@@ -112,12 +109,13 @@ module.exports.run = async (bot, message, args) =>{
         .addField(`Rank 9 ~ \`${rank9_name}\``, `\`Price\` at \`\$${rank9_price}\`\n\`1Hr Change\` at \`${rank9_price_change_hr}%\`\n\`24Hr Change\` at \`${rank9_price_change_day}%\`\n\`7d Change\` at \`${rank9_price_change_week}%\``)
         .addField(`Rank 10 ~ \`${rank10_name}\``, `\`Price\` at \`\$${rank10_price}\`\n\`1Hr Change\` at \`${rank10_price_change_hr}%\`\n\`24Hr Change\` at \`${rank10_price_change_day}%\`\n\`7d Change\` at \`${rank10_price_change_week}%\``);
 
-      return message.channel.send(embed);
+      return message.channel.send(embed); //Sends top 10 crypto stats
     }).catch(err => {
       //console.error(err);
-      return message.channel.send("An unknown error occurred.\n\n**If this problem keeps arising, make sure you use the `!issue` command to report any issues with the bot**");
+      return message.channel.send("An unknown error occurred.\n\n**If this problem keeps arising, make sure you use the `!issue` command to report any issues with the bot**"); //Error message in case API fails
     });
   }else{
+    //!crypto <coin-name/symbol>
     let coin = args[0];
     let data = client.getTicker({structure: 'array', convert: 'USD' }).then(data => {
       for(var i = 0; i < 1800; i++){
@@ -146,13 +144,13 @@ module.exports.run = async (bot, message, args) =>{
             .addField("Circulating Supply", `${circulation}`, true)
             .addField("Max Supply", `${max_supply}`, true);
 
-          return message.channel.send(embed);
+          return message.channel.send(embed); //Sends searched coin stats
         } 
       }
       return message.channel.send("Error Occurred. Make sure you are using the right syntax `!crypto <coin-name/symbol>`");
     }).catch(err => {
       //console.error(err);
-      return message.channel.send("Error Occurred. Make sure you are using the right syntax `!crypto <coin-name/symbol>`\n\n**If this problem keeps arising, make sure you use the `!issue` command to report any issues with the bot**");
+      return message.channel.send("Error Occurred. Make sure you are using the right syntax `!crypto <coin-name/symbol>`\n\n**If this problem keeps arising, make sure you use the `!issue` command to report any issues with the bot**"); //Error message in case API falis
     })
   }
 }
