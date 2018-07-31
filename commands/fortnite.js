@@ -5,30 +5,41 @@ const ftnApi = new Fortnite(config.ftnApi);
 const currentSeason = "5";
 
 module.exports.run = async (bot, message, args) =>{
-  let username = args[0];
-  let platform = args[1] || "pc";
-  let mode = "life";
+  //Fortnite drop command
+  if(args[0].toLowerCase() == 'drop'){
+    let places = ["Lazy Links", "Dusty Divot", "Fatal Fields", "Flush Factory", "Greasy Grove", "Haunted Hills", "Junk Junction", "Lonely Lodge", "Loot Lake", "Lucky Landing", "Paradise Palms", "Pleasant Park", "Retail Row", "Risky Reels", "Salty Springs", "Shifty Shafts", "Snobby Shores", "Tilted Towers", "Tomato Town", "Wailing Woods"];
+
+    let picker = Math.floor(Math.random() * places.length); //Randomely picks a spot
+
+    return message.channel.send(places[picker]); //Sends randomely picked spot
+  }
+  //Fortnite stats
+  let username = args[0]; //Gets username
+  let platform = args[1] || "pc"; //Gets platform, default: pc
+  let mode = "life"; //Default stats: lifetime
+
   if(args[2]){
     if (args[2].toLowerCase() == "all" || args[2].toLowerCase() == "season") {
-      mode = args[2];
-    }else{
-      return message.channel.send("Error. Use the right syntax: `!fbr <epic-username> [platform pc/xbl/psn] {mode all/season}`.\nFor lifetime stats use `!fbr <epic-username> [platform pc/xbl/psn]`");
+      mode = args[2]; //Gets stats type, all or season stats
+    }
+    else {
+      return message.channel.send("Error. Use the right syntax: `!fbr <epic-username> [platform pc/xbl/psn] {mode all/season}`.\nFor lifetime stats use `!fbr <epic-username> [platform pc/xbl/psn]`"); //Sends error message
     }
   }
 
-  if(!username)
-    return message.channel.send("Username not provided. Use the right syntax: `!fbr <epic-username> [platform pc/xbl/psn] {mode all/season}`.\nFor lifetime stats use `!fbr <epic-username> [platform pc/xbl/psn]`");
+  if(!username) //No username specified?
+    return message.channel.send("Username not provided. Use the right syntax: `!fbr <epic-username> [platform pc/xbl/psn] {mode all/season}`.\nFor lifetime stats use `!fbr <epic-username> [platform pc/xbl/psn]`"); //Sends error message
 
   let data = ftnApi.user(username, platform).then(data => {
-    let stats = data.stats;
+    let stats = data.stats; //Raw stats
     if(mode == 'life'){
-      let lifetime = stats.lifetime;
-        let lifeScore = lifetime[6]['Score'];
-        let lifeMatches = lifetime[7]['Matches Played'];
-        let lifeWins = lifetime[8]['Wins'];
-        let lifeWinPercent = lifetime[9]['Win%'];
-        let lifeKills = lifetime[10]['Kills'];
-        let lifeKd = lifetime[11]['K/d'];
+      let lifetime = stats.lifetime; //Lifetime stats
+        let lifeScore = lifetime[6]['Score']; 
+        let lifeMatches = lifetime[7]['Matches Played']; 
+        let lifeWins = lifetime[8]['Wins']; 
+        let lifeWinPercent = lifetime[9]['Win%']; 
+        let lifeKills = lifetime[10]['Kills']; 
+        let lifeKd = lifetime[11]['K/d']; 
 
       let lifeEmbed = new Discord.RichEmbed()
         .setTitle("## FORTNITE LIFETIME STATS ##")
@@ -41,11 +52,12 @@ module.exports.run = async (bot, message, args) =>{
         .addField("Matches Played", lifeMatches, true)
         .addField("Score", lifeScore, true)
         .addField("Win Percentage", lifeWinPercent, true);
-      message.channel.send(lifeEmbed);
+      message.channel.send(lifeEmbed); //Sends lifetime stats
     }
     
     if(mode.toLowerCase() == 'all'){
-      let solo = stats.solo;
+      //Solo stats
+      let solo = stats.solo; 
         let soloScore = solo.score;
         let soloMatches = solo.matches;
         let soloWins = solo.wins;
@@ -62,8 +74,9 @@ module.exports.run = async (bot, message, args) =>{
         .addField("K/D", soloKd, true)
         .addField("Matches Played", soloMatches, true)
         .addField("Score", soloScore, true);
-      message.channel.send(soloEmbed);
+      message.channel.send(soloEmbed); //Send solo stats
 
+      //Duo stats
       let duo = stats.duo;
         let duoScore = duo.score;
         let duoMatches = duo.matches;
@@ -81,8 +94,9 @@ module.exports.run = async (bot, message, args) =>{
         .addField("K/D", duoKd, true)
         .addField("Matches Played", duoMatches, true)
         .addField("Score", duoScore, true);
-      message.channel.send(duoEmbed);
+      message.channel.send(duoEmbed); //Send duo stats
 
+      //Squad stats
       let squad = stats.squad;
         let squadScore = squad.score;
         let squadMatches = squad.matches;
@@ -100,10 +114,11 @@ module.exports.run = async (bot, message, args) =>{
         .addField("K/D", squadKd, true)
         .addField("Matches Played", squadMatches, true)
         .addField("Score", squadScore, true);
-      message.channel.send(squadEmbed);
+      message.channel.send(squadEmbed); //Send squad stats
     }
 
     if(mode.toLowerCase() == 'season'){
+      //Solo season stats
       let currentSolo = stats.current_solo;
         let currentSoloScore = currentSolo.score;
         let currentSoloMatches = currentSolo.matches;
@@ -121,8 +136,9 @@ module.exports.run = async (bot, message, args) =>{
         .addField("K/D", currentSoloKd, true)
         .addField("Matches Played", currentSoloMatches, true)
         .addField("Score", currentSoloScore, true);
-      message.channel.send(currentSoloEmbed);
+      message.channel.send(currentSoloEmbed); //Send solo season stats
 
+      //Duo season stats
       let currentDuo = stats.current_duo;
         let currentDuoScore = currentDuo.score;
         let currentDuoMatches = currentDuo.matches;
@@ -140,8 +156,9 @@ module.exports.run = async (bot, message, args) =>{
         .addField("K/D", currentDuoKd, true)
         .addField("Matches Played", currentDuoMatches, true)
         .addField("Score", currentDuoScore, true);
-      message.channel.send(currentDuoEmbed);
+      message.channel.send(currentDuoEmbed); //Send duo season stats
 
+      //Squad season stats
       let currentSquad = stats.current_duo;
         let currentSquadScore = currentSquad.score;
         let currentSquadMatches = currentSquad.matches;
@@ -159,11 +176,12 @@ module.exports.run = async (bot, message, args) =>{
         .addField("K/D", currentSquadKd, true)
         .addField("Matches Played", currentSquadMatches, true)
         .addField("Score", currentSquadScore, true);
-      message.channel.send(currentSquadEmbed);
+      message.channel.send(currentSquadEmbed); //Send squad stats
     }
   }).catch(e => {
+    //Error handling
     //console.log(e);
-    return message.channel.send("Error. User not found, make sure you are using the right syntax: `!fbr <epic-username> [platform pc/xbl/psn] {mode all/season}`.\nFor lifetime stats use `!fbr <epic-username> [platform pc/xbl/psn]`\n\n**If this problem keeps arising, make sure you use the `!issue` command to report any issues with the bot**");
+    return message.channel.send("Error. User not found, make sure you are using the right syntax: `!fbr <epic-username> [platform pc/xbl/psn] {mode all/season}`.\nFor lifetime stats use `!fbr <epic-username> [platform pc/xbl/psn]`\n\n**If this problem keeps arising, make sure you use the `!issue` command to report any issues with the bot**"); //Send error message
   })
 }
 

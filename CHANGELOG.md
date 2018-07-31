@@ -1,4 +1,13 @@
 ## Changelog
+  #### July 28, 2018
+  `STABLE CHANGES (AVAILABLE FOR PUBLIC)`
+
+  + Fixed issue #10, where `!crypto <coin-name/symbol>` command only checked the top 100 coins in the database. Now it checks every coin. 
+
+  #### July 27, 2018
+  `STABLE CHANGES (AVAILABLE FOR PUBLIC)`
+
+  + Fixed issue #9, where the prefix was being ignored. `+help`, `_help`, `ahelp`, etc, would work even though the command is `!help`. 
   #### July 26, 2018
   `STABLE CHANGES (AVAILABLE FOR PUBLIC)`
 
