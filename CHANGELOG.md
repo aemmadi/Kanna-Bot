@@ -1,4 +1,11 @@
 ## Changelog
+  #### July 30, 2018
+  `UNSTABLE CHANGES (NOT AVAILABLE FOR PUBLIC)`
+
+  + Added overwatch stats command
+  `!ow <username#battleTag> [platform pc/psn/xbl]`
+  Gets basic stats of user
+
   #### July 28, 2018
   `STABLE CHANGES (AVAILABLE FOR PUBLIC)`
 
@@ -8,6 +15,7 @@
   `STABLE CHANGES (AVAILABLE FOR PUBLIC)`
 
   + Fixed issue #9, where the prefix was being ignored. `+help`, `_help`, `ahelp`, etc, would work even though the command is `!help`. 
+
   #### July 26, 2018
   `STABLE CHANGES (AVAILABLE FOR PUBLIC)`
 
@@ -18,6 +26,7 @@
   + Added league command
   `!lol <summoner-name>`
   Gets basic stats of player
+
   #### July 25, 2018
   `UNSTABLE CHANGES (NOT AVAILABLE FOR PUBLIC)`
 
@@ -37,12 +46,14 @@
   + Added crypto command
   `!crypto <coin-name/symbol>`
   Gets specific crypto stats
+
   #### July 22, 2018
   `STABLE CHANGES (AVAILABLE FOR PUBLIC)`
 
   + Removed all music features
   `reason: server costs`
   Maybe in the future
+
   #### July 21, 2018
   `STABLE CHANGES (AVAILABLE FOR PUBLIC)`
 
@@ -53,6 +64,7 @@
   + Added crypto command
   `!crypto top`
   Gets top 10 crypto's stats
+
   #### July 20, 2018
   `STABLE CHANGES (AVAILABLE FOR PUBLIC)`
   
@@ -73,6 +85,7 @@
   + Added crypto commands
   `!crypto <coin-name>`
   Gets specific coin stats
+
   #### July 14, 2018
   `STABLE CHANGES (AVAILABLE FOR PUBLIC)`
 
@@ -81,12 +94,14 @@
 
   + Updated Fortnite Dropper for season 5
   `!drop`
+
   #### July 2, 2018
   `UNSTABLE CHANGES (NOT AVAILABLE FOR PUBLIC)`
 
   + Added music command
   `!stop`
   Stops playing song and leaves voice channel
+
   #### June 28, 2018
   `UNSTABLE CHANGES (NOT AVAILABLE FOR PUBLIC)`
 
