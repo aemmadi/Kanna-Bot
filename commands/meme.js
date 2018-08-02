@@ -26,13 +26,19 @@ module.exports.run = async (bot, message, args) => {
     let subReddit = await getSubReddit(); //Gets random meme subreddit
     let meme = await getMeme(subReddit); //Gets random meme
 
-    //prettier-ignore
-    let embed = new Discord.RichEmbed()
-      .setTitle("## RANDOM FRESH MEME FROM REDDIT ##")
-      .setDescription(`**${meme.title}** | scraped from [r/${subReddit}](https://www.reddit.com/r/${subReddit}/) | ${meme.img}`)
-      .setImage(meme.img);
+    if (meme.title != null && meme.img != null) {
+      //prettier-ignore
+      let embed = new Discord.RichEmbed()
+        .setTitle("## RANDOM FRESH MEME FROM REDDIT ##")
+        .setDescription(`**${meme.title}** | scraped from [r/${subReddit}](https://www.reddit.com/r/${subReddit}/) | ${meme.img}`)
+        .setImage(meme.img);
 
-    return message.channel.send(embed); //Sends meme
+      return message.channel.send(embed); //Sends meme
+    } else {
+      return message.channel.send(
+        "Error. Reddit gave me a fake meme. Try again plz.\n`!meme` or `!meme <number>`"
+      );
+    }
 
     async function getSubReddit() {
       let memeSubs = [
@@ -45,7 +51,12 @@ module.exports.run = async (bot, message, args) => {
         "shittyadviceanimals",
         "wholesomememes",
         "dankmemes",
-        "memes"
+        "memes",
+        "Dogfort",
+        "vertical",
+        "AdviceAnimals",
+        "fffffffuuuuuuuuuuuu",
+        "treecomics"
       ];
       let randomSub = randomNumber(memeSubs.length);
       let subReddit = memeSubs[randomSub];
@@ -66,7 +77,7 @@ module.exports.run = async (bot, message, args) => {
       let checkUrl = linkChecker(link);
 
       if (!checkUrl) {
-        let repeat = await freshMeme();
+        return "";
       }
       let memeTitle = body.data.children[randomMeme].data.title;
       let memeImg = body.data.children[randomMeme].data.url;
@@ -79,14 +90,7 @@ module.exports.run = async (bot, message, args) => {
   }
 
   function linkChecker(link) {
-    if (
-      link[link.length - 3].toLowerCase() == "j" || //jpg
-      link[link.length - 3].toLowerCase() == "p" || //png
-      link[link.length - 3].toLowerCase() == "g" //gif
-    ) {
-      return true;
-    }
-    return false;
+    return link.match(/\.(jpeg|jpg|gif|png)$/) != null;
   }
 
   function randomNumber(num) {
