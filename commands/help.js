@@ -30,8 +30,12 @@ module.exports.run = async (bot, message, args) => {
       "`!crypto` : Shows global statistics of crpytocurrencies\n`!crypto top` : Shows Top 10 crypto stats\n`!crypto <coin-name/symbol>` : Shows stats for the specific coin"
     )
     .addField(
-      "Meme",
+      "Memes",
       "`!meme` : Gets a random meme from reddit\n`!meme <number 2-10>` : Gets <number> random memes from reddit"
+    )
+    .addField(
+      "Jokes",
+      "`!joke` : Gets a random dad joke\n`!joke <number 2-10>` : Gets <number> random dad jokes"
     )
     .addField(
       "Feedback",
