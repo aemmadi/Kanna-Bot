@@ -84,6 +84,7 @@ There are a certain requirements you must have on your server to ensure an enhan
 
 - `!dog` : Displays a random dog image or gif
 - `!cat` : Displays a random cat image or gif
+- `!8ball <question?>` : Generates an 8ball response to a question
 - `!flip` : Flips a coin. Heads or Tails
 - `!roll` : Rolls a dice. 1,2,3,4,5,6
 
