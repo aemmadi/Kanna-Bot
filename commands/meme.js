@@ -4,35 +4,35 @@ const superagent = require("superagent");
 //!meme - generates random meme
 //!meme <number> - generates <number> random memes
 module.exports.run = async (bot, message, args) => {
+  //Checks is <number> has been provided
   if (args[0]) {
-    let num = parseInt(args[0]);
+    let num = parseInt(args[0]); //Converts into <number> format.
     if (num == "NaN" || num > 10 || num < 2)
+      //Checks if <number> meets requirements. b/w 2-10
       return message.channel.send(
         "Error. Spam number needs to be a **valid** number (2-10).\n`!meme` for random meme\n`!meme <number>` for generating <number> memes "
-      );
+      ); //Error message
+
+    //Generates <number> random memes
     while (num > 1) {
       await freshMeme();
       num--;
     }
   }
 
-  await freshMeme();
+  await freshMeme(); //Generates only 1 random meme if user doesn't provide <number>
 
   async function freshMeme() {
-    let subReddit = await getSubReddit();
-    let meme = await getMeme(subReddit);
+    let subReddit = await getSubReddit(); //Gets random meme subreddit
+    let meme = await getMeme(subReddit); //Gets random meme
+
+    //prettier-ignore
     let embed = new Discord.RichEmbed()
       .setTitle("## RANDOM FRESH MEME FROM REDDIT ##")
-      .setDescription(
-        `**${
-          meme.title
-        }** | scraped from [r/${subReddit}](https://www.reddit.com/r/${subReddit}/) | ${
-          meme.img
-        }`
-      )
+      .setDescription(`**${meme.title}** | scraped from [r/${subReddit}](https://www.reddit.com/r/${subReddit}/) | ${meme.img}`)
       .setImage(meme.img);
 
-    return message.channel.send(embed);
+    return message.channel.send(embed); //Sends meme
 
     async function getSubReddit() {
       let memeSubs = [
