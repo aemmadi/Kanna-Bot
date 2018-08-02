@@ -26,6 +26,7 @@ module.exports.run = async (bot, message, args) => {
     let subReddit = await getSubReddit(); //Gets random meme subreddit
     let meme = await getMeme(subReddit); //Gets random meme
 
+    //Checks if meme exists
     if (meme.title != null && meme.img != null) {
       //prettier-ignore
       let embed = new Discord.RichEmbed()
@@ -37,7 +38,7 @@ module.exports.run = async (bot, message, args) => {
     } else {
       return message.channel.send(
         "Error. Reddit gave me a fake meme. Try again plz.\n`!meme` or `!meme <number>`"
-      );
+      ); //Sends error message
     }
 
     async function getSubReddit() {
@@ -57,13 +58,15 @@ module.exports.run = async (bot, message, args) => {
         "AdviceAnimals",
         "fffffffuuuuuuuuuuuu",
         "treecomics"
-      ];
-      let randomSub = randomNumber(memeSubs.length);
+      ]; //List of meme subreddits
+
+      let randomSub = randomNumber(memeSubs.length); //Randomely selects a subreddit
       let subReddit = memeSubs[randomSub];
       return subReddit;
     }
 
     async function getMeme(subReddit) {
+      //API Access
       let { body } = await superagent
         .get(`https://www.reddit.com/r/${subReddit}/hot.json?limit=100`)
         .on("error", err => {
@@ -72,15 +75,16 @@ module.exports.run = async (bot, message, args) => {
             "Error occurred while retrieving memes. Try again. `!meme`.\n\n **If this problem keeps arising, make sure you use the `!issue` command to report any issues with the bot**"
           );
         });
-      let randomMeme = randomNumber(100);
-      let link = body.data.children[randomMeme].data.url;
-      let checkUrl = linkChecker(link);
+      let randomMeme = randomNumber(100); //Randomely selects a post out of 100 posts
+      let link = body.data.children[randomMeme].data.url; //Url of post
+      let checkUrl = linkChecker(link); //Checks if url contains an image or gif
 
       if (!checkUrl) {
-        return "";
+        return ""; //Don't generate meme for non-images
       }
-      let memeTitle = body.data.children[randomMeme].data.title;
-      let memeImg = body.data.children[randomMeme].data.url;
+
+      let memeTitle = body.data.children[randomMeme].data.title; //Title of meme
+      let memeImg = body.data.children[randomMeme].data.url; //Url of meme
 
       return {
         title: memeTitle,
@@ -90,11 +94,11 @@ module.exports.run = async (bot, message, args) => {
   }
 
   function linkChecker(link) {
-    return link.match(/\.(jpeg|jpg|gif|png)$/) != null;
+    return link.match(/\.(jpeg|jpg|gif|png)$/) != null; //TRUE or FALSE. if url ends with .jpeg, .jpg, .png, or .gif
   }
 
   function randomNumber(num) {
-    let picker = Math.floor(Math.random() * num);
+    let picker = Math.floor(Math.random() * num); //Generates a random number
     return picker;
   }
 };
