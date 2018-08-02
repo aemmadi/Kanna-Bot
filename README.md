@@ -3,7 +3,7 @@
 An easy to use, simple multi-purpose discord bot for your server.
 <img src="https://i.imgur.com/ZOAzsBK.png" alt="Kanna Bot Logo" height = "100px" width = "100px" align="right">
 
-`Version 0.8.3 ~ Beta`
+`Version 0.9.3 ~ Beta`
 
 Doesn't support music playback. (server costs :/)
 
@@ -65,10 +65,15 @@ There are a certain requirements you must have on your server to ensure an enhan
 - `!crypto top` : Shows top 10 crypto stats
 - `!crypto <coin-name/symbol>` : Shows specific coin stats. Example: `!crypto eth` (or) `!crypto bitcoin`
 
-### Meme
+### Memes
 
 - `!meme` : Gets a random meme from meme subreddits on reddit
 - `!meme <number 2-10>` : Gets `<number>` random memes from meme subreddits on reddit
+
+### Jokes
+
+- `!joke` : Gets a randome dad joke
+- `!joke <number 2-10>` : Gets `<number>` random dad jokes
 
 ### Feedback
 
