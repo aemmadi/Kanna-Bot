@@ -14,7 +14,7 @@ module.exports.run = async (bot, message, args) => {
       "`!fbr <epic-username> [platform pc/xbl/psn]` : Shows lifetime stats.\n`!fbr <epic-username> [platform pc/xbl/psn] {mode all/season}` : Looks up stats for solo/duo/squad or season stats.\n`!drop` : Randomly picks a spot on the fortnite map"
     )
     .addField(
-      "League of Legends",
+      "League of Legends (NA ONLY)",
       "`!lol <summoner-name>` : Shows a basic profile overview of user."
     )
     .addField(
@@ -27,7 +27,11 @@ module.exports.run = async (bot, message, args) => {
     )
     .addField(
       "Crypto",
-      "`!crypto` : Shows global statistics of crpytocurrencies\n`!crypto top` : Shows Top 10 crypto stats"
+      "`!crypto` : Shows global statistics of crpytocurrencies\n`!crypto top` : Shows Top 10 crypto stats\n`!crypto <coin-name/symbol>` : Shows stats for the specific coin"
+    )
+    .addField(
+      "Meme",
+      "`!meme` : Gets a random meme from reddit\n`!meme <number 2-10>` : Gets <number> random memes from reddit"
     )
     .addField(
       "Feedback",
