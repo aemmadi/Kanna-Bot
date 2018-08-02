@@ -45,7 +45,19 @@ module.exports.run = async (bot, message, args) => {
       "Misc.",
       "`!flip` : Flips a coin and replies HEADS or TAILS\n`!dog` : Random dog image or gif\n`!cat` : Random cat image or gif\n`!roll` : Rolls a dice"
     );
-  return message.channel.send(embed); //Sends help message
+  try {
+    await message.author.send(embed);
+    await message.author.send(
+      `**For more detailed usage of commands, visit https://www.kannabot.ml **`
+    );
+    return message.channel.send(
+      `Sent all available commands in your DM's ${message.author}`
+    );
+  } catch (e) {
+    return message.channel.send(
+      `Due to the extensive features this bot provides, listing all available commands takes time. [Check list of commands](https://github.com/KannaDev/Kanna-Bot/blob/master/README.md)`
+    );
+  }
 };
 
 module.exports.help = {
