@@ -31,7 +31,7 @@ module.exports.run = async (bot, message, args) => {
         );
       });
     let joke = body.joke;
-    return message.channel.send(`**${num}. !${joke}**`);
+    return message.channel.send(`**${num}. ${joke}**`);
   }
 };
 
