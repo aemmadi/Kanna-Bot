@@ -1,4 +1,5 @@
 const Discord = require("discord.js");
+const package = require("../package.json");
 
 //!info
 module.exports.run = async (bot, message, args) => {
@@ -7,9 +8,10 @@ module.exports.run = async (bot, message, args) => {
     .setColor("#f4a442")
     .setThumbnail(bot.user.displayAvatarURL)
     .addField(
-      "Bot Name",
+      "Name",
       `[${bot.user.username}](https://www.github.com/KannaDev/Kanna-Bot/)`
     )
+    .addField("Version", `${package.version}`)
     .addField("Running on", `${bot.guilds.size} servers`)
     .addField("Developed by", `[Anirudh Emmadi](http://www.anirudhemmadi.com)`)
     .addField("Created on", bot.user.createdAt);
