@@ -12,6 +12,10 @@
   `!meme <number 2-10>`
   Gets `<number>` random memes from meme subreddits in reddit
 
+- Added cat image/gif commad
+  `!cat`
+  Displays a random cat image or gif
+
 #### July 31, 2018
 
 `STABLE CHANGES (AVAILABLE FOR PUBLIC)`
