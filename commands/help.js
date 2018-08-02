@@ -11,7 +11,7 @@ module.exports.run = async (bot, message, args) => {
     )
     .addField(
       "Fortnite",
-      "`!fbr <epic-username> [platform pc/xbl/psn]` : Shows lifetime stats.\n`!fbr <epic-username> [platform pc/xbl/psn] {mode all/season}` : Looks up stats for solo/duo/squad or season stats.\n`!drop` : Randomly picks a spot on the fortnite map"
+      "`!fbr <epic-username> [platform pc/xbl/psn]` : Shows lifetime stats.\n`!fbr <epic-username> [platform pc/xbl/psn] {mode all/season}` : Looks up stats for solo/duo/squad or season stats.\n`!fbr drop` : Randomly picks a spot on the fortnite map"
     )
     .addField(
       "League of Legends (NA ONLY)",
