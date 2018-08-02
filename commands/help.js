@@ -43,7 +43,7 @@ module.exports.run = async (bot, message, args) => {
     )
     .addField(
       "Misc.",
-      "`!flip` : Flips a coin and replies HEADS or TAILS\n`!dog` : Random dog image or gif\n`!cat` : Random cat image or gif\n`!roll` : Rolls a dice"
+      "`!8ball <question?>` : Generates a 8ball response to question\n`!flip` : Flips a coin and replies HEADS or TAILS\n`!dog` : Random dog image or gif\n`!cat` : Random cat image or gif\n`!roll` : Rolls a dice"
     );
   try {
     await message.author.send(embed);
