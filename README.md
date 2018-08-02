@@ -16,9 +16,7 @@ This bot requires `Administrator` permissions on your server.
 
 Follow this link to invite the bot:
 
-[Invite Kanna Bot to your Server!](https://discordapp.com/api/oauth2/authorize?client_id=450118801816551424&permissions=8&scope=bot)
-
-[View Trello Board for Bot](https://trello.com/b/m81jUf4o/kanna-bot)
+[Invite Kanna Bot to your Server!](https://discordapp.com/api/oauth2/authorize?client_id=450118801816551424&permissions=8&scope=bot) | [View Trello Board for Bot](https://trello.com/b/m81jUf4o/kanna-bot) | [Support Me (Patreon)](https://www.patreon.com/KannaDev)
 
 ### Requirements
 
