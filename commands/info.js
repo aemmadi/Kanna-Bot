@@ -1,4 +1,4 @@
-const Discord = require('discord.js');
+const Discord = require("discord.js");
 
 //!info
 module.exports.run = async (bot, message, args) => {
@@ -6,7 +6,10 @@ module.exports.run = async (bot, message, args) => {
     .setTitle("## BOT INFORMATION ##")
     .setColor("#f4a442")
     .setThumbnail(bot.user.displayAvatarURL)
-    .addField("Bot Name", `[${bot.user.username}](https://www.github.com/KannaDev/Kanna-Bot/)`)
+    .addField(
+      "Bot Name",
+      `[${bot.user.username}](https://www.github.com/KannaDev/Kanna-Bot/)`
+    )
     .addField("Running on", `${bot.guilds.size} servers`)
     .addField("Developed by", `[Anirudh Emmadi](http://www.anirudhemmadi.com)`)
     .addField("Created on", bot.user.createdAt);
@@ -23,8 +26,8 @@ module.exports.run = async (bot, message, args) => {
     .addField("Server Owner", message.guild.owner)
     .addField("Total Members", message.guild.memberCount);
   return message.channel.send(svinfo); //Sends server info
-}
+};
 
 module.exports.help = {
   name: "info"
-}
+};

@@ -1,11 +1,11 @@
-const Discord = require('discord.js');
+const Discord = require("discord.js");
 
 module.exports.run = async (bot, message, args) => {
-  let result = Math.floor(Math.random() * 6);; //Picks a random number from 0 - 5
+  let result = Math.floor(Math.random() * 6); //Picks a random number from 0 - 5
 
-  if (result == 0){
+  if (result == 0) {
     return message.channel.send("1");
-  }else if (result == 1){
+  } else if (result == 1) {
     return message.channel.send("2");
   } else if (result == 2) {
     return message.channel.send("3");
@@ -15,11 +15,11 @@ module.exports.run = async (bot, message, args) => {
     return message.channel.send("5");
   } else if (result == 5) {
     return message.channel.send("6");
-  }else {
+  } else {
     return message.channel.send("Error Occurred, Flip again."); //Catches unknown error
   }
-}
+};
 
 module.exports.help = {
   name: "roll"
-}
+};
