@@ -16,6 +16,10 @@
   `!cat`
   Displays a random cat image or gif
 
+- Added 8ball command
+  `!8ball <question?>`
+  Replies with a 8ball response to question
+
 #### July 31, 2018
 
 `STABLE CHANGES (AVAILABLE FOR PUBLIC)`
