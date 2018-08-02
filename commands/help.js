@@ -39,7 +39,7 @@ module.exports.run = async (bot, message, args) => {
     )
     .addField(
       "Misc.",
-      "`!flip` : Flips a coin and replies HEADS or TAILS\n`!dog` : Random dog image or gif\n`!roll` : Rolls a dice"
+      "`!flip` : Flips a coin and replies HEADS or TAILS\n`!dog` : Random dog image or gif\n`!cat` : Random cat image or gif\n`!roll` : Rolls a dice"
     );
   return message.channel.send(embed); //Sends help message
 };
