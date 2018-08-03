@@ -4,9 +4,9 @@ const Fortnite = require("fortnite");
 const ftnApi = new Fortnite(config.ftnApi);
 const currentSeason = "5";
 
-//!fbr <epic-username> [platform pc/psn/xbl]
-//!fbr <epic-username> [platform pc/psn/xbl] {mode all/season}
-//!fbr drop
+//.fbr <epic-username> [platform pc/psn/xbl]
+//.fbr <epic-username> [platform pc/psn/xbl] {mode all/season}
+//.fbr drop
 module.exports.run = async (bot, message, args) => {
   //Fortnite drop command
   if (args[0].toLowerCase() == "drop") {
@@ -47,7 +47,7 @@ module.exports.run = async (bot, message, args) => {
       mode = args[2]; //Gets stats type, all or season stats
     } else {
       return message.channel.send(
-        "Error. Use the right syntax: `!fbr <epic-username> [platform pc/xbl/psn] {mode all/season}`.\nFor lifetime stats use `!fbr <epic-username> [platform pc/xbl/psn]`"
+        "Error. Use the right syntax: `.fbr <epic-username> [platform pc/xbl/psn] {mode all/season}`.\nFor lifetime stats use `.fbr <epic-username> [platform pc/xbl/psn]`"
       ); //Sends error message
     }
   }
@@ -55,7 +55,7 @@ module.exports.run = async (bot, message, args) => {
   if (!username)
     //No username specified?
     return message.channel.send(
-      "Username not provided. Use the right syntax: `!fbr <epic-username> [platform pc/xbl/psn] {mode all/season}`.\nFor lifetime stats use `!fbr <epic-username> [platform pc/xbl/psn]`"
+      "Username not provided. Use the right syntax: `.fbr <epic-username> [platform pc/xbl/psn] {mode all/season}`.\nFor lifetime stats use `.fbr <epic-username> [platform pc/xbl/psn]`"
     ); //Sends error message
 
   let data = ftnApi
@@ -229,7 +229,7 @@ module.exports.run = async (bot, message, args) => {
       //Error handling
       //console.log(e);
       return message.channel.send(
-        "Error. User not found, make sure you are using the right syntax: `!fbr <epic-username> [platform pc/xbl/psn] {mode all/season}`.\nFor lifetime stats use `!fbr <epic-username> [platform pc/xbl/psn]`\n\n**If this problem keeps arising, make sure you use the `!issue` command to report any issues with the bot**"
+        "Error. User not found, make sure you are using the right syntax: `.fbr <epic-username> [platform pc/xbl/psn] {mode all/season}`.\nFor lifetime stats use `.fbr <epic-username> [platform pc/xbl/psn]`\n\n**If this problem keeps arising, make sure you use the `.issue` command to report any issues with the bot**"
       ); //Send error message
     });
 };

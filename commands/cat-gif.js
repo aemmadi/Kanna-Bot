@@ -1,7 +1,7 @@
 const Discord = require("discord.js");
 const superagent = require("superagent");
 
-//!cat
+//.cat
 module.exports.run = async (bot, message, args) => {
   let link = await getLink();
 
@@ -34,7 +34,7 @@ module.exports.run = async (bot, message, args) => {
     }
   }
   return message.channel.send(
-    "Error Occurred. Try again later.\n\n **If this problem keeps arising, make sure you use the `!issue` command to report any issues with the bot**"
+    "Error Occurred. Try again later.\n\n **If this problem keeps arising, make sure you use the `.issue` command to report any issues with the bot**"
   ); //Catches any unknown error
 
   async function getLink() {
@@ -44,7 +44,7 @@ module.exports.run = async (bot, message, args) => {
       .on("error", err => {
         //console.log(err);
         return message.channel.send(
-          "Unknown Error Occurred.\n\n**If this problem keeps arising, make sure you use the `!issue` command to report any issues with the bot**"
+          "Unknown Error Occurred.\n\n**If this problem keeps arising, make sure you use the `.issue` command to report any issues with the bot**"
         );
       });
     let link = body.file; //url of cat

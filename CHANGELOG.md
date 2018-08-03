@@ -1,5 +1,20 @@
 ## Changelog
 
+#### August 3, 2018
+
+**Command Changes**:
+
+_none_
+
+**Bug Fixes**:
+
+_none_
+
+**Other Changes**:
+
+- Changed CHANGELOG format (Getting ready for v1.0 release)
+- Changed prefix from `!` to `.` (type commands faster, shift + 1 [!] takes too much time to type)
+
 #### August 2, 2018
 
 `STABLE CHANGES (AVAILABLE FOR PUBLIC)`

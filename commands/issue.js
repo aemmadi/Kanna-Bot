@@ -1,6 +1,6 @@
 const Discord = require("discord.js");
 
-//!issue
+//.issue
 module.exports.run = async (bot, message, args) => {
   let embed = new Discord.RichEmbed()
     .setTitle("## REPORT AN ISSUE WITH THE BOT ##")

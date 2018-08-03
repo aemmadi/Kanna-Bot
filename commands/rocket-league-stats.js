@@ -3,18 +3,18 @@ const config = require("../config.json");
 const superagent = require("superagent");
 const rlApi = config.rlApi;
 
-//!rl [platform pc/psn/xbl] <id>
+//.rl [platform pc/psn/xbl] <id> - Shows rocket league stats
 module.exports.run = async (bot, message, args) => {
   //Checks if platform is provided
   if (!args[0])
     return message.channel.send(
-      "Error. Make sure you specify a platform. `!rl [platform pc/psn/xbl] <id>`\n**<id>** is your STEAMID64/PSN Username/XboxGamerTag."
+      "Error. Make sure you specify a platform. `.rl [platform pc/psn/xbl] <id>`\n**<id>** is your STEAMID64/PSN Username/XboxGamerTag."
     );
 
   //Checks if id is provided
   if (!args[1])
     return message.channel.send(
-      "Error. Make sure you specify an user id. `!rl [platform pc/psn/xbl] <id>`\n**<id>** is your STEAMID64/PSN Username/XboxGamerTag."
+      "Error. Make sure you specify an user id. `.rl [platform pc/psn/xbl] <id>`\n**<id>** is your STEAMID64/PSN Username/XboxGamerTag."
     );
 
   let username = args[1];
@@ -43,7 +43,7 @@ module.exports.run = async (bot, message, args) => {
       .set("Authorization", rlApi)
       .on("error", err => {
         return message.channel.send(
-          "Error Occurred. Make sure you got the syntax right. `!rl [platform pc/psn/xbl] <id>`\n**<id>** is your STEAMID64/PSN Username/XboxGamerTag.\n\n**Make sure your profile privacy settings are set to public**\n\n **If this problem keeps arising, make sure you use the `!issue` command to report any issues with the bot**"
+          "Error Occurred. Make sure you got the syntax right. `.rl [platform pc/psn/xbl] <id>`\n**<id>** is your STEAMID64/PSN Username/XboxGamerTag.\n\n**Make sure your profile privacy settings are set to public**\n\n **If this problem keeps arising, make sure you use the `.issue` command to report any issues with the bot**"
         ); //Error message in case API fails
       });
 

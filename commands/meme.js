@@ -1,8 +1,8 @@
 const Discord = require("discord.js");
 const superagent = require("superagent");
 
-//!meme - generates random meme
-//!meme <number> - generates <number> random memes
+//.meme - generates random meme
+//.meme <number> - generates <number> random memes
 module.exports.run = async (bot, message, args) => {
   //Checks is <number> has been provided
   if (args[0]) {
@@ -10,7 +10,7 @@ module.exports.run = async (bot, message, args) => {
     if (num == "NaN" || num > 10 || num < 2)
       //Checks if <number> meets requirements. b/w 2-10
       return message.channel.send(
-        "Error. Spam number needs to be a **valid** number (2-10).\n`!meme` for random meme\n`!meme <number>` for generating <number> memes "
+        "Error. Spam number needs to be a **valid** number (2-10).\n`.meme` for random meme\n`.meme <number>` for generating <number> memes "
       ); //Error message
 
     //Generates <number> random memes
@@ -37,7 +37,7 @@ module.exports.run = async (bot, message, args) => {
       return message.channel.send(embed); //Sends meme
     } else {
       return message.channel.send(
-        "Error. Reddit gave me a fake meme. Try again plz.\n`!meme` or `!meme <number>`"
+        "Error. Reddit gave me a fake meme. Try again plz.\n`.meme` or `.meme <number>`"
       ); //Sends error message
     }
 
@@ -72,7 +72,7 @@ module.exports.run = async (bot, message, args) => {
         .on("error", err => {
           //console.error(err);
           return message.channel.send(
-            "Error occurred while retrieving memes. Try again. `!meme`.\n\n **If this problem keeps arising, make sure you use the `!issue` command to report any issues with the bot**"
+            "Error occurred while retrieving memes. Try again. `.meme`.\n\n **If this problem keeps arising, make sure you use the `.issue` command to report any issues with the bot**"
           );
         });
       let randomMeme = randomNumber(100); //Randomely selects a post out of 100 posts
