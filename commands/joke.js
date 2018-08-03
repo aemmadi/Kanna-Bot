@@ -12,13 +12,14 @@ module.exports.run = async (bot, message, args) => {
         "Error. Spam number needs to be a **valid** number (2-10).\n`.joke` for random dad joke\n`.joke <number>` for generating `<number>` dad jokes "
       ); //Error message
 
-    //Generates <number> random memes
+    //Generates <number> random dad jokes
     while (num > 1) {
       await dadJoke(num);
       num--;
     }
   }
-  await dadJoke(1);
+
+  await dadJoke(1); //Generate 1 random dad joke
 
   async function dadJoke(num) {
     let { body } = await superagent

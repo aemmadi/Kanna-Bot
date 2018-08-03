@@ -15,6 +15,11 @@ module.exports.run = async (bot, message, args) => {
 
   let reason = args.join(" ").slice(22); //Cuts off the user id that comes with usermention
 
+  if (!reason)
+    return message.channel.send(
+      "Error. Reason for the ban must be given. `.ban <usermention> [reason]`."
+    );
+
   //Checks permissions of user
   if (!message.member.hasPermission("BAN_MEMBERS"))
     return message.channel.send(

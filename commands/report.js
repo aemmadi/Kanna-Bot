@@ -15,6 +15,11 @@ module.exports.run = async (bot, message, args) => {
 
   let reason = args.join(" ").slice(22); //Gets rid of user id that comes after usermention
 
+  if (!reason)
+    return message.channel.send(
+      "Error. Reason for the report must be given. `.report <usermention> [reason]`."
+    );
+
   let embed = new Discord.RichEmbed()
     .setTitle("## REPORTED DETAILS ##")
     .setDescription(
