@@ -2,6 +2,8 @@
 
 #### August 3, 2018
 
+**Release Version : 0.9.4**
+
 **Command Changes**:
 
 _none_
