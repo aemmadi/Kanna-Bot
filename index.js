@@ -25,7 +25,7 @@ bot.on("ready", async () => {
   console.log(
     `${bot.user.username} is online! Running on ${bot.guilds.size} servers!`
   );
-  let status = [`from Kanna's Laptop`, `${bot.guilds.size} servers | !help`];
+  let status = [`from Kanna's Laptop`, `${bot.guilds.size} servers | .help`];
   status_change(status); //Random status displays
 });
 

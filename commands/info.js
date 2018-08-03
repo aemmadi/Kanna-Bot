@@ -1,7 +1,7 @@
 const Discord = require("discord.js");
 const package = require("../package.json");
 
-//!info
+//.info
 module.exports.run = async (bot, message, args) => {
   let botinfo = new Discord.RichEmbed()
     .setTitle("## BOT INFORMATION ##")

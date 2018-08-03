@@ -1,6 +1,6 @@
 // This is just an example layout of the private config file the bot uses. This is only intended for contributors who would like to contribute for the development of this bot.
 {
-  "prefix": "!",
+  "prefix": ".",
   "token": "enter-app-token-from-discord",
   "ftnApi": "enter-app-token-from-fortnite-tracker-website",
   "lolApi": "enter-riot-api"

@@ -1,6 +1,6 @@
 const Discord = require("discord.js");
 
-//!ban <user-mention> [reason]
+//.ban <user-mention> [reason]
 module.exports.run = async (bot, message, args) => {
   //User to ban
   let bUser = message.guild.member(
@@ -10,7 +10,7 @@ module.exports.run = async (bot, message, args) => {
   //Checks if a usermention is provided
   if (!bUser)
     return message.channel.send(
-      "Error. User not found, make sure you are using the right input: `!ban <usermention> [reason]`."
+      "Error. User not found, make sure you are using the right input: `.ban <usermention> [reason]`."
     );
 
   let reason = args.join(" ").slice(22); //Cuts off the user id that comes with usermention

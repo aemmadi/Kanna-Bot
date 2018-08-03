@@ -1,6 +1,6 @@
 const Discord = require("discord.js");
 
-//!role [add/rmv] <usermention> {role-name}
+//.role [add/rmv] <usermention> {role-name} - adds/removes user to/from role
 module.exports.run = async (bot, message, args) => {
   //Checks user permissions
   if (!message.member.hasPermission("MANAGE_MEMBERS"))
@@ -16,7 +16,7 @@ module.exports.run = async (bot, message, args) => {
   //Checks if usermention is specified
   if (!rMember)
     return message.channel.send(
-      "Error. User not found, make sure you are using the right input: `!role [add/rmv] <usermention> {role-name}`."
+      "Error. User not found, make sure you are using the right input: `.role [add/rmv] <usermention> {role-name}`."
     );
 
   let role = args.join(" ").slice(26); //Gets rid of user id that comes after usermention
@@ -76,7 +76,7 @@ module.exports.run = async (bot, message, args) => {
     }
   } else {
     return message.channel.send(
-      "Make sure you got the syntax right.\n`!role [add/rmv] <usermention> {role-name}`"
+      "Make sure you got the syntax right.\n`.role [add/rmv] <usermention> {role-name}`"
     ); //Error message
   }
 };

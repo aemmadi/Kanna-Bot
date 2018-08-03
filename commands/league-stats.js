@@ -3,14 +3,14 @@ const superagent = require("superagent");
 const config = require("../config.json");
 const lolApi = config.lolApi;
 
-// !lol <region> [summoner-name] - Player Stats
-// !lol <champion-name> - Champion Info/Stats
-// !lol <item-name> - Item Info
+// .lol <region> [summoner-name] - Player Stats
+// .lol <champion-name> - Champion Info/Stats
+// .lol <item-name> - Item Info
 module.exports.run = async (bot, message, args) => {
   //Checks if username is provided
   if (!args[0])
     return message.channel.send(
-      "Error. Make sure you specify a vaild username. `!lol <summoner-name>`"
+      "Error. Make sure you specify a vaild username. `.lol <summoner-name>`"
     );
 
   let name = args[0];
@@ -65,7 +65,7 @@ module.exports.run = async (bot, message, args) => {
       )
       .on("error", err => {
         return message.channel.send(
-          "Error Occurred. Make sure you got the username right. `!lol <summoner-name>`\n\n **If this problem keeps arising, make sure you use the `!issue` command to report any issues with the bot**"
+          "Error Occurred. Make sure you got the username right. `.lol <summoner-name>`\n\n **If this problem keeps arising, make sure you use the `.issue` command to report any issues with the bot**"
         ); //Error message if API fails
       });
     let userInfo = body;
@@ -90,7 +90,7 @@ module.exports.run = async (bot, message, args) => {
       )
       .on("error", err => {
         return message.channel.send(
-          "Error Occurred. Make sure you got the username right. `!lol <summoner-name>`\n\n **If this problem keeps arising, make sure you use the `!issue` command to report any issues with the bot**"
+          "Error Occurred. Make sure you got the username right. `.lol <summoner-name>`\n\n **If this problem keeps arising, make sure you use the `.issue` command to report any issues with the bot**"
         ); //Error message if API fails
       });
     let masteryInfo = body; //Totally unneccessary but for readability
@@ -143,7 +143,7 @@ module.exports.run = async (bot, message, args) => {
       )
       .on("error", err => {
         return message.channel.send(
-          "Error Occurred. Make sure you got the username right. `!lol <summoner-name>`\n\n **If this problem keeps arising, make sure you use the `!issue` command to report any issues with the bot**"
+          "Error Occurred. Make sure you got the username right. `.lol <summoner-name>`\n\n **If this problem keeps arising, make sure you use the `.issue` command to report any issues with the bot**"
         ); //Error message if API fails
       });
     let championData = body.data;

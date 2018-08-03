@@ -1,7 +1,7 @@
 const Discord = require("discord.js");
 const ms = require("ms");
 
-//!mute <user-mention> [time s/m/h/d]
+//.mute <user-mention> [time s/m/h/d]
 module.exports.run = async (bot, message, args) => {
   //User to mute
   let mute = message.guild.member(
@@ -11,7 +11,7 @@ module.exports.run = async (bot, message, args) => {
   //Checks if usermention is provided
   if (!mute)
     return message.reply(
-      "Error. User not found, make sure you are using the right input: `!mute <usermention> [time s/m/h/d]`."
+      "Error. User not found, make sure you are using the right input: `.mute <usermention> [time s/m/h/d]`."
     );
 
   //Checks user permissions
@@ -51,7 +51,7 @@ module.exports.run = async (bot, message, args) => {
   //Checks if time is provided
   if (!muteTime)
     return message.reply(
-      "You need to specify a time. Syntax: `!mute <usermention> [time s/m/h/d]`"
+      "You need to specify a time. Syntax: `.mute <usermention> [time s/m/h/d]`"
     );
 
   await mute.addRole(muteRole.id); //Mutes user

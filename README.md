@@ -31,62 +31,62 @@ There are a certain requirements you must have on your server to ensure an enhan
 
 ### General
 
-- `!help` : Lists all available commands
-- `!info` : Shows bot and server information
-- `!report <user-mention>` : Allows users to report people. Example: `!report @Drago#0542`
-- `!kick <user-mention> [reason]` : Allows admin to kick users from server. Example: `!kick @koolDog#4932 breaking rules`
-- `!ban <user-mention> [reason]` : Allows admin to ban users from server. Example: `!ban @DaBamboozle#7190 broke several rules`
-- `!mute <user-mention> [time s/m/h/d]` : Allows admin to mute an user for a certain period of time. Example: `!mute @Pikachuu#6319 6h`
-- `!role [add/rmv] <user-mention> {role-name}` : Allows admin to add/remove an user to/from a role. Example: `!role add @hayabuzaYasuo#3552 Admin`
+- `.help` : Lists all available commands
+- `.info` : Shows bot and server information
+- `.report <user-mention>` : Allows users to report people. Example: `.report @Drago#0542`
+- `.kick <user-mention> [reason]` : Allows admin to kick users from server. Example: `.kick @koolDog#4932 breaking rules`
+- `.ban <user-mention> [reason]` : Allows admin to ban users from server. Example: `.ban @DaBamboozle#7190 broke several rules`
+- `.mute <user-mention> [time s/m/h/d]` : Allows admin to mute an user for a certain period of time. Example: `.mute @Pikachuu#6319 6h`
+- `.role [add/rmv] <user-mention> {role-name}` : Allows admin to add/remove an user to/from a role. Example: `.role add @hayabuzaYasuo#3552 Admin`
 
 ### Game Stats
 
 #### Fortnite
 
-- `!fbr <epic-username [platform pc/xbl/psn]` : Shows lifetime stats of user. Example: `!fbr Ninja pc`
-- `!fbr <epic-username> [platform pc/xbl/psn] {mode all/season}` : Shows Solo/Duo/Squad stats (all) and Season Solo/Duo/Squad stats (season). Example: `!fbr Ninja pc season`
-- `!fbr drop` : Randomly picks a spot on the fortnite map
+- `.fbr <epic-username [platform pc/xbl/psn]` : Shows lifetime stats of user. Example: `.fbr Ninja pc`
+- `.fbr <epic-username> [platform pc/xbl/psn] {mode all/season}` : Shows Solo/Duo/Squad stats (all) and Season Solo/Duo/Squad stats (season). Example: `.fbr Ninja pc season`
+- `.fbr drop` : Randomly picks a spot on the fortnite map
 
 #### League of Legends (NA ONLY)
 
-- `!lol <summoner-name>` : Shows the profile overview of user. Example: `!lol parrot15`
+- `.lol <summoner-name>` : Shows the profile overview of user. Example: `.lol parrot15`
 
 #### Overwatch
 
-- `!ow <username#battleTag> [platform pc/psn/xbl]` : Shows profile stats of user. Example: `!ow Finnsi#2664 pc`
+- `.ow <username#battleTag> [platform pc/psn/xbl]` : Shows profile stats of user. Example: `.ow Finnsi#2664 pc`
 
 #### Rocket League
 
-- `!rl [platform pc/psn/xbl] <id>` : Shows game stats | **Note**: `<id>` refers to the user's STEAMID64 (for pc), PSN Username (for ps4), and XboxGamerTag (for XboxOne). Example: `!rl pc 76561198118691382` (the number is the STEAMID64 since I requested PC stats)
+- `.rl [platform pc/psn/xbl] <id>` : Shows game stats | **Note**: `<id>` refers to the user's STEAMID64 (for pc), PSN Username (for ps4), and XboxGamerTag (for XboxOne). Example: `.rl pc 76561198118691382` (the number is the STEAMID64 since I requested PC stats)
 
 ### Crypto
 
-- `!crypto` : Shows global stats for all crypto's
-- `!crypto top` : Shows top 10 crypto stats
-- `!crypto <coin-name/symbol>` : Shows specific coin stats. Example: `!crypto eth` (or) `!crypto bitcoin`
+- `.crypto` : Shows global stats for all crypto's
+- `.crypto top` : Shows top 10 crypto stats
+- `.crypto <coin-name/symbol>` : Shows specific coin stats. Example: `.crypto eth` (or) `.crypto bitcoin`
 
 ### Memes
 
-- `!meme` : Gets a random meme from meme subreddits on reddit
-- `!meme <number 2-10>` : Gets `<number>` random memes from meme subreddits on reddit
+- `.meme` : Gets a random meme from meme subreddits on reddit
+- `.meme <number 2-10>` : Gets `<number>` random memes from meme subreddits on reddit
 
 ### Jokes
 
-- `!joke` : Gets a randome dad joke
-- `!joke <number 2-10>` : Gets `<number>` random dad jokes
+- `.joke` : Gets a randome dad joke
+- `.joke <number 2-10>` : Gets `<number>` random dad jokes
 
 ### Feedback
 
-- `!issue` : Report an issue with the bot. Any unresponsive commands.
-- `!donate` : Can keep the bot running by donating for server costs :)
+- `.issue` : Report an issue with the bot. Any unresponsive commands.
+- `.donate` : Can keep the bot running by donating for server costs :)
 
 ### Miscellaneous
 
-- `!dog` : Displays a random dog image or gif
-- `!cat` : Displays a random cat image or gif
-- `!8ball <question?>` : Generates an 8ball response to a question
-- `!flip` : Flips a coin. Heads or Tails
-- `!roll` : Rolls a dice. 1,2,3,4,5,6
+- `.dog` : Displays a random dog image or gif
+- `.cat` : Displays a random cat image or gif
+- `.8ball <question?>` : Generates an 8ball response to a question
+- `.flip` : Flips a coin. Heads or Tails
+- `.roll` : Rolls a dice. 1,2,3,4,5,6
 
 ### More Commands Coming Soon...
 

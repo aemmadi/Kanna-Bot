@@ -1,6 +1,6 @@
 const Discord = require("discord.js");
 
-//!report <user-mention> [reason]
+//.report <user-mention> [reason] - allows an user to report another user
 module.exports.run = async (bot, message, args) => {
   //User to report
   let rUser = message.guild.member(
@@ -10,7 +10,7 @@ module.exports.run = async (bot, message, args) => {
   //Checks if usermention is provided
   if (!rUser)
     return message.channel.send(
-      "Error. User not found, make sure you are using the right input: `!report <usermention> [reason]`."
+      "Error. User not found, make sure you are using the right input: `.report <usermention> [reason]`."
     );
 
   let reason = args.join(" ").slice(22); //Gets rid of user id that comes after usermention

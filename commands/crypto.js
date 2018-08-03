@@ -2,11 +2,11 @@ const Discord = require("discord.js");
 const CoinMarketCap = require("coinmarketcap-api");
 const client = new CoinMarketCap();
 
-//!crypto - Show global stats
-//!crypto top - Show top 10
-//!crypto <coin-name/symbol> - Show <coin-name> stats
+//.crypto - Show global stats
+//.crypto top - Show top 10
+//.crypto <coin-name/symbol> - Show <coin-name> stats
 module.exports.run = async (bot, message, args) => {
-  //!crypto
+  //.crypto
   if (!args[0]) {
     let global = client
       .getGlobal()
@@ -35,13 +35,13 @@ module.exports.run = async (bot, message, args) => {
       })
       .catch(err => {
         message.channel.send(
-          "Oops an error occurred. Try again later.\n\n**If this problem keeps arising, make sure you use the `!issue` command to report any issues with the bot**"
+          "Oops an error occurred. Try again later.\n\n**If this problem keeps arising, make sure you use the `.issue` command to report any issues with the bot**"
         ); //Error message in case API fails
         //console.error(err);
       });
   }
 
-  //!crypto top
+  //.crypto top
   if (args[0].toLowerCase() == "top") {
     let data = client
       .getTicker({ start: 0, limit: 10, structure: "array", convert: "USD" })
@@ -160,11 +160,11 @@ module.exports.run = async (bot, message, args) => {
       .catch(err => {
         //console.error(err);
         return message.channel.send(
-          "An unknown error occurred.\n\n**If this problem keeps arising, make sure you use the `!issue` command to report any issues with the bot**"
+          "An unknown error occurred.\n\n**If this problem keeps arising, make sure you use the `.issue` command to report any issues with the bot**"
         ); //Error message in case API fails
       });
   } else {
-    //!crypto <coin-name/symbol>
+    //.crypto <coin-name/symbol>
     let coin = args[0];
     let data = client
       .getTicker({ structure: "array", convert: "USD" })
@@ -204,13 +204,13 @@ module.exports.run = async (bot, message, args) => {
           }
         }
         return message.channel.send(
-          "Error Occurred. Make sure you are using the right syntax `!crypto <coin-name/symbol>`"
+          "Error Occurred. Make sure you are using the right syntax `.crypto <coin-name/symbol>`"
         );
       })
       .catch(err => {
         //console.error(err);
         return message.channel.send(
-          "Error Occurred. Make sure you are using the right syntax `!crypto <coin-name/symbol>`\n\n**If this problem keeps arising, make sure you use the `!issue` command to report any issues with the bot**"
+          "Error Occurred. Make sure you are using the right syntax `.crypto <coin-name/symbol>`\n\n**If this problem keeps arising, make sure you use the `.issue` command to report any issues with the bot**"
         ); //Error message in case API falis
       });
   }

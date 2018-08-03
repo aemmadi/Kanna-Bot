@@ -1,6 +1,6 @@
 const Discord = require("discord.js");
 
-//!kick <user-mention> [reason]
+//.kick <user-mention> [reason]
 module.exports.run = async (bot, message, args) => {
   //User to kick
   let kUser = message.guild.member(
@@ -10,7 +10,7 @@ module.exports.run = async (bot, message, args) => {
   //Checks if a usermention is provided
   if (!kUser)
     return message.channel.send(
-      "Error. User not found, make sure you are using the right input: `!kick <usermention> [reason]`."
+      "Error. User not found, make sure you are using the right input: `.kick <usermention> [reason]`."
     );
 
   let reason = args.join(" ").slice(22); //Cuts off the user id that comes with usermention
