@@ -1,5 +1,22 @@
 ## Changelog
 
+#### August 4, 2018
+
+**Release Version : 1.0.0**
+
+**Command Changes**:
+
+_none_
+
+**Bug Fixes**:
+
+_none_
+
+**Other Changes**:
+
+- Added more `.donate` command popups. To spread awareness for donation to keep the bot alive.
+- Bot website now live [kannabot.ml](http://www.kannabot.ml/)
+
 #### August 3, 2018
 
 **Release Version : 0.9.4**
