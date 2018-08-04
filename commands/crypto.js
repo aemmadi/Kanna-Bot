@@ -29,12 +29,17 @@ module.exports.run = async (bot, message, args) => {
           .addField(
             "Percentage of Bitcoin in the Market: ",
             `${bitcoinPercent}%`
+          )
+          .addBlankField()
+          .addField(
+            "Note",
+            "If you like the bot and want it to be active, use the `.donate` command to support the bot's server costs. "
           );
 
         return message.channel.send(embed); //Sends global crypto stats
       })
       .catch(err => {
-        message.channel.send(
+        return message.channel.send(
           "Oops an error occurred. Try again later.\n\n**If this problem keeps arising, make sure you use the `.issue` command to report any issues with the bot**"
         ); //Error message in case API fails
         //console.error(err);
@@ -163,6 +168,11 @@ module.exports.run = async (bot, message, args) => {
             `Rank 10 ~ **${rank10_name}**`,
             `**Price**: **\$${rank10_price}**\n**1Hr Change**: **${rank10_price_change_hr}%**\n**24Hr Change**: **${rank10_price_change_day}%**\n**7d Change**: **${rank10_price_change_week}%**`,
             true
+          )
+          .addBlankField()
+          .addField(
+            "Note",
+            "If you like the bot and want it to be active, use the `.donate` command to support the bot's server costs. "
           );
 
         return message.channel.send(embed); //Sends top 10 crypto stats
@@ -208,7 +218,12 @@ module.exports.run = async (bot, message, args) => {
               .addField("24Hr Change", `${price_change_day}%`, true)
               .addField("7d Change", `${price_change_week}%`, true)
               .addField("Circulating Supply", `${circulation}`, true)
-              .addField("Max Supply", `${max_supply}`, true);
+              .addField("Max Supply", `${max_supply}`, true)
+              .addBlankField()
+              .addField(
+                "Note",
+                "If you like the bot and want it to be active, use the `.donate` command to support the bot's server costs. "
+              );
 
             return message.channel.send(embed); //Sends searched coin stats
           }

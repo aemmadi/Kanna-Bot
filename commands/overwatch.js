@@ -85,6 +85,11 @@ module.exports.run = async (bot, message, args) => {
         body.games.competitive.played
       }\n**Win Rate** : ${body.games.competitive.win_rate}%`,
       true
+    )
+    .addBlankField()
+    .addField(
+      "Note",
+      "If you like the bot and want it to be active, use the **`.donate`** command to support the bot's server costs. "
     );
 
   return message.channel.send(embed); //Sends stats

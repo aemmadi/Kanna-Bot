@@ -32,7 +32,8 @@ module.exports.run = async (bot, message, args) => {
       let embed = new Discord.RichEmbed()
         .setTitle("## RANDOM FRESH MEME FROM REDDIT ##")
         .setDescription(`**${meme.title}** | scraped from [r/${subReddit}](https://www.reddit.com/r/${subReddit}/) | ${meme.img}`)
-        .setImage(meme.img);
+        .setImage(meme.img)
+        .addField("Note", "If you like the bot and want it to be active, use the **`.donate`** command to support the bot's server costs. ");
 
       return message.channel.send(embed); //Sends meme
     } else {

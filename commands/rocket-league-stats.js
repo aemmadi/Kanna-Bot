@@ -52,6 +52,9 @@ module.exports.run = async (bot, message, args) => {
       .setTitle(
         `## ROCKET LEAGUE STATS FOR ${body.displayName.toUpperCase()} ##`
       )
+      .setDescription(
+        "If you like the bot and want it to be active, use the **`.donate`** command to support the bot's server costs. "
+      )
       .setImage(body.signatureUrl);
     return message.channel.send(embed); //Sends player stats
   }

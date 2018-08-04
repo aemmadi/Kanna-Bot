@@ -28,7 +28,12 @@ module.exports.run = async (bot, message, args) => {
     .setThumbnail("https://8ball.delegator.com/images/8ball.png")
     .setColor("#FFFFFF")
     .addField("Question", `**${question}**`)
-    .addField("Answer", `**${answer}**`);
+    .addField("Answer", `**${answer}**`)
+    .addBlankField()
+    .addField(
+      "Note",
+      "If you like the bot and want it to be active, use the `.donate` command to support the bot's server costs. "
+    );
 
   return message.channel.send(embed);
 };

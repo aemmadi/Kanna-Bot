@@ -16,6 +16,9 @@ module.exports.run = async (bot, message, args) => {
         let embed = new Discord.RichEmbed()
           .setColor("#f4b342")
           .setTitle("## DOG IMAGE ##")
+          .setDescription(
+            "If you like the bot and want it to be active, use the **`.donate`** command to support the bot's server costs. "
+          )
           .setImage(link);
 
         return message.channel.send(embed); //Sends image
@@ -25,6 +28,9 @@ module.exports.run = async (bot, message, args) => {
         let embed = new Discord.RichEmbed()
           .setColor("#f4b342")
           .setTitle("## DOG GIF ##")
+          .setDescription(
+            "If you like the bot and want it to be active, use the **`.donate`** command to support the bot's server costs. "
+          )
           .setImage(link);
 
         return message.channel.send(embed); //Sends GIF

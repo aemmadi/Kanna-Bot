@@ -83,7 +83,13 @@ module.exports.run = async (bot, message, args) => {
           .addField("K/D", lifeKd, true)
           .addField("Matches Played", lifeMatches, true)
           .addField("Score", lifeScore, true)
-          .addField("Win Percentage", lifeWinPercent, true);
+          .addField("Win Percentage", lifeWinPercent, true)
+          .addBlankField()
+          .addField(
+            "Note",
+            "If you like the bot and want it to be active, use the **`.donate`** command to support the bot's server costs. "
+          );
+
         message.channel.send(lifeEmbed); //Sends lifetime stats
       }
 
@@ -105,7 +111,12 @@ module.exports.run = async (bot, message, args) => {
           .addField("Kills", soloKills, true)
           .addField("K/D", soloKd, true)
           .addField("Matches Played", soloMatches, true)
-          .addField("Score", soloScore, true);
+          .addField("Score", soloScore, true)
+          .addBlankField()
+          .addField(
+            "Note",
+            "If you like the bot and want it to be active, use the **`.donate`** command to support the bot's server costs. "
+          );
         message.channel.send(soloEmbed); //Send solo stats
 
         //Duo stats
@@ -127,7 +138,12 @@ module.exports.run = async (bot, message, args) => {
           .addField("Kills", duoKills, true)
           .addField("K/D", duoKd, true)
           .addField("Matches Played", duoMatches, true)
-          .addField("Score", duoScore, true);
+          .addField("Score", duoScore, true)
+          .addBlankField()
+          .addField(
+            "Note",
+            "If you like the bot and want it to be active, use the **`.donate`** command to support the bot's server costs. "
+          );
         message.channel.send(duoEmbed); //Send duo stats
 
         //Squad stats
@@ -149,7 +165,12 @@ module.exports.run = async (bot, message, args) => {
           .addField("Kills", squadKills, true)
           .addField("K/D", squadKd, true)
           .addField("Matches Played", squadMatches, true)
-          .addField("Score", squadScore, true);
+          .addField("Score", squadScore, true)
+          .addBlankField()
+          .addField(
+            "Note",
+            "If you like the bot and want it to be active, use the **`.donate`** command to support the bot's server costs. "
+          );
         message.channel.send(squadEmbed); //Send squad stats
       }
 
@@ -173,7 +194,12 @@ module.exports.run = async (bot, message, args) => {
           .addField("Kills", currentSoloKills, true)
           .addField("K/D", currentSoloKd, true)
           .addField("Matches Played", currentSoloMatches, true)
-          .addField("Score", currentSoloScore, true);
+          .addField("Score", currentSoloScore, true)
+          .addBlankField()
+          .addField(
+            "Note",
+            "If you like the bot and want it to be active, use the **`.donate`** command to support the bot's server costs. "
+          );
         message.channel.send(currentSoloEmbed); //Send solo season stats
 
         //Duo season stats
@@ -197,7 +223,12 @@ module.exports.run = async (bot, message, args) => {
           .addField("Kills", currentDuoKills, true)
           .addField("K/D", currentDuoKd, true)
           .addField("Matches Played", currentDuoMatches, true)
-          .addField("Score", currentDuoScore, true);
+          .addField("Score", currentDuoScore, true)
+          .addBlankField()
+          .addField(
+            "Note",
+            "If you like the bot and want it to be active, use the **`.donate`** command to support the bot's server costs. "
+          );
         message.channel.send(currentDuoEmbed); //Send duo season stats
 
         //Squad season stats
@@ -221,7 +252,12 @@ module.exports.run = async (bot, message, args) => {
           .addField("Kills", currentSquadKills, true)
           .addField("K/D", currentSquadKd, true)
           .addField("Matches Played", currentSquadMatches, true)
-          .addField("Score", currentSquadScore, true);
+          .addField("Score", currentSquadScore, true)
+          .addBlankField()
+          .addField(
+            "Note",
+            "If you like the bot and want it to be active, use the **`.donate`** command to support the bot's server costs. "
+          );
         message.channel.send(currentSquadEmbed); //Send squad stats
       }
     })
