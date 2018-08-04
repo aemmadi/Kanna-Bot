@@ -115,44 +115,54 @@ module.exports.run = async (bot, message, args) => {
           .setDescription("These are the top 10 crypto's from Coinmarketcap")
           .setColor("#f98e22")
           .addField(
-            `Rank 1 ~ \`${rank1_name}\``,
-            `\`Price\` at \`\$${rank1_price}\`\n\`1Hr Change\` at \`${rank1_price_change_hr}%\`\n\`24Hr Change\` at \`${rank1_price_change_day}%\`\n\`7d Change\` at \`${rank1_price_change_week}%\``
+            `Rank 1 ~ **${rank1_name}**`,
+            `**Price**: **\$${rank1_price}**\n**1Hr Change**: **${rank1_price_change_hr}%**\n**24Hr Change**: **${rank1_price_change_day}%**\n**7d Change**: **${rank1_price_change_week}%**`,
+            true
           )
           .addField(
-            `Rank 2 ~ \`${rank2_name}\``,
-            `\`Price\` at \`\$${rank2_price}\`\n\`1Hr Change\` at \`${rank2_price_change_hr}%\`\n\`24Hr Change\` at \`${rank2_price_change_day}%\`\n\`7d Change\` at \`${rank2_price_change_week}%\``
+            `Rank 2 ~ **${rank2_name}**`,
+            `**Price**: **\$${rank2_price}**\n**1Hr Change**: **${rank2_price_change_hr}%**\n**24Hr Change**: **${rank2_price_change_day}%**\n**7d Change**: **${rank2_price_change_week}%**`,
+            true
           )
           .addField(
-            `Rank 3 ~ \`${rank3_name}\``,
-            `\`Price\` at \`\$${rank3_price}\`\n\`1Hr Change\` at \`${rank3_price_change_hr}%\`\n\`24Hr Change\` at \`${rank3_price_change_day}%\`\n\`7d Change\` at \`${rank3_price_change_week}%\``
+            `Rank 3 ~ **${rank3_name}**`,
+            `**Price**: **\$${rank3_price}**\n**1Hr Change**: **${rank3_price_change_hr}%**\n**24Hr Change**: **${rank3_price_change_day}%**\n**7d Change**: **${rank3_price_change_week}%**`,
+            true
           )
           .addField(
-            `Rank 4 ~ \`${rank4_name}\``,
-            `\`Price\` at \`\$${rank4_price}\`\n\`1Hr Change\` at \`${rank4_price_change_hr}%\`\n\`24Hr Change\` at \`${rank4_price_change_day}%\`\n\`7d Change\` at \`${rank4_price_change_week}%\``
+            `Rank 4 ~ **${rank4_name}**`,
+            `**Price**: **\$${rank4_price}**\n**1Hr Change**: **${rank4_price_change_hr}%**\n**24Hr Change**: **${rank4_price_change_day}%**\n**7d Change**: **${rank4_price_change_week}%**`,
+            true
           )
           .addField(
-            `Rank 5 ~ \`${rank5_name}\``,
-            `\`Price\` at \`\$${rank5_price}\`\n\`1Hr Change\` at \`${rank5_price_change_hr}%\`\n\`24Hr Change\` at \`${rank5_price_change_day}%\`\n\`7d Change\` at \`${rank5_price_change_week}%\``
+            `Rank 5 ~ **${rank5_name}**`,
+            `**Price**: **\$${rank5_price}**\n**1Hr Change**: **${rank5_price_change_hr}%**\n**24Hr Change**: **${rank5_price_change_day}%**\n**7d Change**: **${rank5_price_change_week}%**`,
+            true
           )
           .addField(
-            `Rank 6 ~ \`${rank6_name}\``,
-            `\`Price\` at \`\$${rank6_price}\`\n\`1Hr Change\` at \`${rank6_price_change_hr}%\`\n\`24Hr Change\` at \`${rank6_price_change_day}%\`\n\`7d Change\` at \`${rank6_price_change_week}%\``
+            `Rank 6 ~ **${rank6_name}**`,
+            `**Price**: **\$${rank6_price}**\n**1Hr Change**: **${rank6_price_change_hr}%**\n**24Hr Change**: **${rank6_price_change_day}%**\n**7d Change**: **${rank6_price_change_week}%**`,
+            true
           )
           .addField(
-            `Rank 7 ~ \`${rank7_name}\``,
-            `\`Price\` at \`\$${rank7_price}\`\n\`1Hr Change\` at \`${rank7_price_change_hr}%\`\n\`24Hr Change\` at \`${rank7_price_change_day}%\`\n\`7d Change\` at \`${rank7_price_change_week}%\``
+            `Rank 7 ~ **${rank7_name}**`,
+            `**Price**: **\$${rank7_price}**\n**1Hr Change**: **${rank7_price_change_hr}%**\n**24Hr Change**: **${rank7_price_change_day}%**\n**7d Change**: **${rank7_price_change_week}%**`,
+            true
           )
           .addField(
-            `Rank 8 ~ \`${rank8_name}\``,
-            `\`Price\` at \`\$${rank8_price}\`\n\`1Hr Change\` at \`${rank8_price_change_hr}%\`\n\`24Hr Change\` at \`${rank8_price_change_day}%\`\n\`7d Change\` at \`${rank8_price_change_week}%\``
+            `Rank 8 ~ **${rank8_name}**`,
+            `**Price**: **\$${rank8_price}**\n**1Hr Change**: **${rank8_price_change_hr}%**\n**24Hr Change**: **${rank8_price_change_day}%**\n**7d Change**: **${rank8_price_change_week}%**`,
+            true
           )
           .addField(
-            `Rank 9 ~ \`${rank9_name}\``,
-            `\`Price\` at \`\$${rank9_price}\`\n\`1Hr Change\` at \`${rank9_price_change_hr}%\`\n\`24Hr Change\` at \`${rank9_price_change_day}%\`\n\`7d Change\` at \`${rank9_price_change_week}%\``
+            `Rank 9 ~ **${rank9_name}**`,
+            `**Price**: **\$${rank9_price}**\n**1Hr Change**: **${rank9_price_change_hr}%**\n**24Hr Change**: **${rank9_price_change_day}%**\n**7d Change**: **${rank9_price_change_week}%**`,
+            true
           )
           .addField(
-            `Rank 10 ~ \`${rank10_name}\``,
-            `\`Price\` at \`\$${rank10_price}\`\n\`1Hr Change\` at \`${rank10_price_change_hr}%\`\n\`24Hr Change\` at \`${rank10_price_change_day}%\`\n\`7d Change\` at \`${rank10_price_change_week}%\``
+            `Rank 10 ~ **${rank10_name}**`,
+            `**Price**: **\$${rank10_price}**\n**1Hr Change**: **${rank10_price_change_hr}%**\n**24Hr Change**: **${rank10_price_change_day}%**\n**7d Change**: **${rank10_price_change_week}%**`,
+            true
           );
 
         return message.channel.send(embed); //Sends top 10 crypto stats
