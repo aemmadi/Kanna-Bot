@@ -33,7 +33,7 @@ There are a certain requirements you must have on your server to ensure an enhan
 
 - `.help` : Lists all available commands
 - `.info` : Shows bot and server information
-- `.report <user-mention> [reason]` : Allows users to report people. Example: `.report @Drago#0542`
+- `.report <user-mention> [reason]` : Allows users to report people. Example: `.report @Drago#0542 idiot`
 - `.kick <user-mention> [reason]` : Allows admin to kick users from server. Example: `.kick @koolDog#4932 breaking rules`
 - `.ban <user-mention> [reason]` : Allows admin to ban users from server. Example: `.ban @DaBamboozle#7190 broke several rules`
 - `.mute <user-mention> [time s/m/h/d]` : Allows admin to mute an user for a certain period of time. Example: `.mute @Pikachuu#6319 6h`
