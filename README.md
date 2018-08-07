@@ -47,7 +47,7 @@ These are some suggestions (not mandatory) :-
 - `.fbr <epic-username> [platform pc/xbl/psn] {mode all/season}` : Shows Solo/Duo/Squad stats (all) and Season Solo/Duo/Squad stats (season). Example: `.fbr Ninja pc season`
 - `.fbr drop` : Randomly picks a spot on the fortnite map
 
-#### League of Legends (NA ONLY)
+#### League of Legends (NA ONLY, NO 24x7 SUPPORT)
 
 - `.lol <summoner-name>` : Shows the profile overview of user. Example: `.lol parrot15`
 
