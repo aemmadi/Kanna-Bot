@@ -10,17 +10,14 @@ Doesn't support music playback. (server costs :/)
 ## Setup
 
 It's pretty straight forward to use the bot.
-You must have the necessary permissions to invite discord bots.
-
-This bot requires `Administrator` permissions on your server.
 
 Follow this link to invite the bot:
 
-[Invite Kanna Bot to your Server!](https://discordapp.com/api/oauth2/authorize?client_id=450118801816551424&permissions=8&scope=bot) | [View Trello Board for Bot](https://trello.com/b/m81jUf4o/kanna-bot) | [Support Me (Patreon)](https://www.patreon.com/KannaDev)
+[Invite Kanna Bot to your Server!](https://discordapp.com/oauth2/authorize?client_id=450118801816551424&permissions=1916071031&scope=bot) | [View Trello Board for Bot](https://trello.com/b/m81jUf4o/kanna-bot) | [Support Me (Patreon)](https://www.patreon.com/KannaDev)
 
-### Requirements
+### Suggestions
 
-There are a certain requirements you must have on your server to ensure an enhanced experience with the bot
+These are some suggestions (not mandatory) :-
 
 1.  Create a role solely dedicated to the bot (Ex: The Watcher) and give it the `Administrator` role
 2.  Keep no restrictions for the bot
@@ -33,6 +30,9 @@ There are a certain requirements you must have on your server to ensure an enhan
 
 - `.help` : Lists all available commands
 - `.info` : Shows bot and server information
+
+### Moderation
+
 - `.report <user-mention> [reason]` : Allows users to report people. Example: `.report @Drago#0542 idiot`
 - `.kick <user-mention> [reason]` : Allows admin to kick users from server. Example: `.kick @koolDog#4932 breaking rules`
 - `.ban <user-mention> [reason]` : Allows admin to ban users from server. Example: `.ban @DaBamboozle#7190 broke several rules`
