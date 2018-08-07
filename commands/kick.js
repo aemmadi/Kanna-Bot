@@ -29,7 +29,7 @@ module.exports.run = async (bot, message, args) => {
   //Checks if soon to be kicked user has any admin permissions
   if (kUser.hasPermission("KICK_MEMBERS"))
     return message.channel.send(
-      `Oops, looks like ${kUser} has admin permissions or is either an  equal to you or higher than you.`
+      `Oops, looks like ${kUser} has admin permissions or is either an equal to you or higher than you.`
     );
 
   let embed = new Discord.RichEmbed()

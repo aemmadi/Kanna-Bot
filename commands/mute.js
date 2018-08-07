@@ -15,15 +15,15 @@ module.exports.run = async (bot, message, args) => {
     );
 
   //Checks user permissions
-  if (!message.member.hasPermission("MANAGE_MESSAGES"))
+  if (!message.member.hasPermission("MUTE_MEMBERS"))
     return message.channel.send(
       "You don't have the permission to mute other users."
     );
 
   //Checks soon to be muted user permissions
-  if (mute.hasPermission("MANAGE_MESSAGES"))
+  if (mute.hasPermission("MUTE_MEMBERS"))
     return message.channel.send(
-      `Oops, looks like ${mute} has admin permissions or is either an  equal to you or higher than you.`
+      `Oops, looks like ${mute} has admin permissions or is either an equal to you or higher than you.`
     );
 
   let muteRole = message.guild.roles.find(`name`, "muted"); //Gets mute role in server, if it exists

@@ -3,7 +3,7 @@ const Discord = require("discord.js");
 //.role [add/rmv] <usermention> {role-name} - adds/removes user to/from role
 module.exports.run = async (bot, message, args) => {
   //Checks user permissions
-  if (!message.member.hasPermission("MANAGE_MEMBERS"))
+  if (!message.member.hasPermission("MANAGE_ROLES"))
     return message.channel.send(
       "You don't have the permission to add/rmv roles on this server."
     );
