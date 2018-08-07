@@ -26,6 +26,17 @@ module.exports.run = async (bot, message, args) => {
     let subReddit = await getSubReddit(); //Gets random meme subreddit
     let meme = await getMeme(subReddit); //Gets random meme
 
+    if (meme.link == "video") {
+      return message.channel.send(
+        "Error. Reddit gave me a fake meme. Try again plz.\n`.meme` or `.meme <number>`"
+      ); //Sends error message
+    }
+
+    if (meme.nsfw == "nsfw_in_sfw")
+      return message.channel.send(
+        "**This meme cointains NSFW content, and this text channel doesn't allow NSFW content**"
+      );
+
     //Checks if meme exists
     if (meme.title != null && meme.img != null) {
       //prettier-ignore
@@ -80,9 +91,17 @@ module.exports.run = async (bot, message, args) => {
       let randomMeme = randomNumber(100); //Randomely selects a post out of 100 posts
       let link = body.data.children[randomMeme].data.url; //Url of post
       let checkUrl = linkChecker(link); //Checks if url contains an image or gif
-
+      let memeLink = "image";
       if (!checkUrl) {
-        return ""; //Don't generate meme for non-images
+        memeLink = "video";
+      }
+
+      let nsfw = nsfwChecker(body, randomMeme);
+      let memeNsfw = "sfw_in_sfw";
+      if (nsfw) {
+        if (!message.channel.nsfw) {
+          memeNsfw = "nsfw_in_sfw";
+        }
       }
 
       let memeTitle = body.data.children[randomMeme].data.title; //Title of meme
@@ -90,13 +109,20 @@ module.exports.run = async (bot, message, args) => {
 
       return {
         title: memeTitle,
-        img: memeImg
+        img: memeImg,
+        nsfw: memeNsfw,
+        link: memeLink
       };
     }
   }
 
   function linkChecker(link) {
     return link.match(/\.(jpeg|jpg|gif|png)$/) != null; //TRUE or FALSE. if url ends with .jpeg, .jpg, .png, or .gif
+  }
+
+  function nsfwChecker(body, randomMeme) {
+    let nsfw = body.data.children[randomMeme].data.over_18;
+    return nsfw;
   }
 
   function randomNumber(num) {
