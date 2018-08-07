@@ -1,6 +1,7 @@
 # Kanna Bot
 
 An easy to use, simple multi-purpose discord bot for your server.
+
 <img src="https://i.imgur.com/ZOAzsBK.png" alt="Kanna Bot Logo" height = "100px" width = "100px" align="right">
 
 `Version 1.0.0`
@@ -9,7 +10,7 @@ Doesn't support music playback. (server costs :/)
 
 ## Setup
 
-It's pretty straight forward to use the bot.
+It's pretty straight forward to use the bot. Invite the bot, and type `.help` to view all the available commands.
 
 Follow this link to invite the bot:
 
@@ -99,7 +100,3 @@ These are some suggestions (not mandatory) :-
 Feel free to fork the repository and pull request it.
 
 All I ask of you is to `comment your code` so that it would be easy to review it, and also use the template from [CONTRIBUTING.md](CONTRIBUTING.md) for structuring your pull request.
-
-### This project is still under construction.
-
-`Realease Date : Fall 2018`
