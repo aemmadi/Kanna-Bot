@@ -54,21 +54,42 @@ module.exports.run = async (bot, message, args) => {
       .addField(`Username`, `${profileStats.username}`, true)
       .addField(`Levels`, `**Game Level** : ${profileStats.level}\n**Endorsement Level** : ${profileStats.endorsement.level}`, true)
       .addBlankField()
-      .addField(`Quickplay`, `**Wins** : ${profileStats.games.quickplay.won}`, true)
-      .addField(`Competitive`, `**Rank** : ${profileStats.competitive.rank}\n**Wins** : ${profileStats.games.competitive.won}\n**Matches Played** : ${profileStats.games.competitive.played}\n**Win Rate** : ${profileStats.games.competitive.win_rate}%`, true)
+      .addField(`Quickplay`, `${profileStats.username} has **Won ${profileStats.games.quickplay.won} games!**`)
+      .addField(`Eliminations`, `${playerStats.stats.combat.quickplay[11].value}`, true)
+      .addField(`Damage Done`, `${playerStats.stats.combat.quickplay[12].value}`, true)
+      .addField(`Deaths`, `${playerStats.stats.combat.quickplay[4].value}`, true)
+      .addField(`Final Blows`, `${playerStats.stats.combat.quickplay[10].value}`, true)
+      .addField(`Solo Kills`, `${playerStats.stats.combat.quickplay[7].value}`, true)
+      .addField(`Healing Done`, `${playerStats.stats.assists.quickplay[3].value}`, true)
+      .addField(`Objective Kills`, `${playerStats.stats.combat.quickplay[9].value}`, true)
+      .addField(`Objective Time`, `${playerStats.stats.combat.quickplay[8].value}`, true)
       .addBlankField()
-      .addField(`Quickplay`, `**Melee Kills** : ${playerStats.stats.combat.quickplay[0].value}\n**Environment Kills** : ${playerStats.stats.combat.quickplay[1].value}\n**Multi Kills** : ${playerStats.stats.combat.quickplay[2].value}\n**Barrier Damage** : ${playerStats.stats.combat.quickplay[3].value}\n**Deaths** : ${playerStats.stats.combat.quickplay[4].value}\n**Hero Damage** : ${playerStats.stats.combat.quickplay[5].value}\n**Solo Kills** : ${playerStats.stats.combat.quickplay[7].value}\n**Objective Time** : ${playerStats.stats.combat.quickplay[8].value}\n**Objective Kills** : ${playerStats.stats.combat.quickplay[9].value}\n**Final Blows** : ${playerStats.stats.combat.quickplay[10].value}\n**Eliminations** : ${playerStats.stats.combat.quickplay[11].value}\n**All Damage** : ${playerStats.stats.combat.quickplay[12].value}\n**Time Played** : ${playerStats.stats.game.quickplay[0].value}`, true)
-      .addField(`Competitive`, `**Melee Kills** : ${playerStats.stats.combat.competitive[0].value}\n**Environment Kills** : ${playerStats.stats.combat.competitive[1].value}\n**Multi Kills** : ${playerStats.stats.combat.competitive[2].value}\n**Barrier Damage** : ${playerStats.stats.combat.competitive[3].value}\n**Deaths** : ${playerStats.stats.combat.competitive[4].value}\n**Hero Damage** : ${playerStats.stats.combat.competitive[5].value}\n**Solo Kills** : ${playerStats.stats.combat.competitive[7].value}\n**Objective Time** : ${playerStats.stats.combat.competitive[8].value}\n**Objective Kills** : ${playerStats.stats.combat.competitive[9].value}\n**Final Blows** : ${playerStats.stats.combat.competitive[10].value}\n**Eliminations** : ${playerStats.stats.combat.competitive[11].value}\n**All Damage** : ${playerStats.stats.combat.competitive[12].value}\n**Time Played** : ${playerStats.stats.game.competitive[0].value}`, true);
+      .addField(`Competitive`, `${profileStats.username} has **Won ${profileStats.games.competitive.won} games out of ${profileStats.games.competitive.played} total games!** and has a **Rank of ${profileStats.competitive.rank}** with a **Win Rate of ${profileStats.games.competitive.win_rate}%**`)
+      .addField(`Eliminations`, `${playerStats.stats.combat.competitive[11].value}`, true)
+      .addField(`Damage Done`, `${playerStats.stats.combat.competitive[12].value}`, true)
+      .addField(`Deaths`, `${playerStats.stats.combat.competitive[4].value}`, true)
+      .addField(`Final Blows`, `${playerStats.stats.combat.competitive[10].value}`, true)
+      .addField(`Solo Kills`, `${playerStats.stats.combat.competitive[7].value}`, true)
+      .addField(`Healing Done`, `${playerStats.stats.assists.competitive[3].value}`, true)
+      .addField(`Objective Kills`, `${playerStats.stats.combat.competitive[9].value}`, true)
+      .addField(`Objective Time`, `${playerStats.stats.combat.competitive[8].value}`, true);
 
     return message.channel.send(embed); //Sends stats
-  } else {
-    if (args[2] != "heroes")
-      return message.channe.send(
-        "Error. Make sure you got the syntax right.\n`.ow <username#battleTag> [platform pc/psn/xbl]` - Shows player game stats\n`.ow <username#battleTag> [platform pc/psn/xbl] heroes` - Shows player hero stats"
-      );
-
+  } else if (args[2] == "top" || args[2] == "heroes") {
     let playerStats = await getPlayerStats(platform, username);
+
+    //prettier-ignore
+    let embed = new Discord.RichEmbed()
+      .setTitle(`## OVERWATCH TOP HEROES FOR ${playerStats.username.toUpperCase()} ##`)
+      .setDescription("Hero Name - Games Won - Time Played")
+      .addField(`Quickplay`, `Main Heroes - Fluent Heroes`)
+      .addField(`Main Heroes`, `1. ${playerStats.stats.top_heroes.quickplay.games_won[0].hero} - ${playerStats.stats.top_heroes.quickplay.games_won[0].games_won}`);
+
+    return message.channel.send(embed);
     //ADD TOP HEROES
+  } else if (args[2] == "full") {
+    let playerStats = await getPlayerStats(platform, username);
+    //FULL COMBAT REPORT
   }
 
   async function getProfileStats(platform, username) {
