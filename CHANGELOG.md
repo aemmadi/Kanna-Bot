@@ -1,5 +1,23 @@
 ## Changelog
 
+#### August 9, 2018
+
+**Release Version : 1.0.1**
+
+**Command Chnages**:
+
+- Added new overwatch command.
+  `.ow <username#battleTag> [platform pc/psn/xbl] top/heroes`
+  Shows top 5 hero stats for user.
+
+**Bug Fixes**:
+
+_none_
+
+**Other Changes**:
+
+- Re-did the layout of the `.crypto top` command. Its more neater now.
+
 #### August 4, 2018
 
 **Release Version : 1.0.0**
