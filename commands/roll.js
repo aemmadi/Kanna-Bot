@@ -1,11 +1,12 @@
-const Discord = require('discord.js');
+const Discord = require("discord.js");
 
+//.roll - rolls a dice
 module.exports.run = async (bot, message, args) => {
-  let result = Math.floor(Math.random() * 6);;
+  let result = Math.floor(Math.random() * 6); //Picks a random number from 0 - 5
 
-  if (result == 0){
+  if (result == 0) {
     return message.channel.send("1");
-  }else if (result == 1){
+  } else if (result == 1) {
     return message.channel.send("2");
   } else if (result == 2) {
     return message.channel.send("3");
@@ -15,11 +16,11 @@ module.exports.run = async (bot, message, args) => {
     return message.channel.send("5");
   } else if (result == 5) {
     return message.channel.send("6");
-  }else {
-    return message.channel.send("Error Occurred, Flip again.");
+  } else {
+    return message.channel.send("Error Occurred, roll again. `.roll`"); //Catches unknown error
   }
-}
+};
 
 module.exports.help = {
   name: "roll"
-}
+};

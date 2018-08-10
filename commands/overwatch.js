@@ -1,12 +1,12 @@
 const Discord = require("discord.js");
 const superagent = require("superagent");
 
-//!ow <username#battletag> [platform pc/psn/xbl]
+//.ow <username#battletag> [platform pc/psn/xbl] - Shows basic overwatch profile stats
 module.exports.run = async (bot, message, args) => {
   //Checks if username is provided
   if (!args[0])
     return message.channel.send(
-      "Error. Please specify a username with a battleTag. `!ow <username#battleTag> [platform pc/psn/xbl]`"
+      "Error. Please specify a username with a battleTag. `.ow <username#battleTag> [platform pc/psn/xbl]`"
     );
 
   let username = args[0];
@@ -15,7 +15,7 @@ module.exports.run = async (bot, message, args) => {
   //Checks if battleTag is provided
   if (!result)
     return message.channel.send(
-      "Error. Please provide your battle tag right after your username. `!ow <username#battleTag> [platform pc/psn/xbl]`"
+      "Error. Please provide your battle tag right after your username. `.ow <username#battleTag> [platform pc/psn/xbl]`"
     );
 
   username = username.replace("#", "-");
@@ -23,7 +23,7 @@ module.exports.run = async (bot, message, args) => {
   //Checks if platform is provided
   if (!args[1])
     return message.channel.send(
-      "Error. Please specify a platform pc/psn/xbl. `!ow <username#battleTag> [platform pc/psn/xbl]`"
+      "Error. Please specify a platform pc/psn/xbl. `.ow <username#battleTag> [platform pc/psn/xbl]`"
     );
 
   let platform = "wrong";

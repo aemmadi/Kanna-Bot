@@ -1,15 +1,21 @@
-const Discord = require('discord.js');
+const Discord = require("discord.js");
+const package = require("../package.json");
 
+//.info
 module.exports.run = async (bot, message, args) => {
   let botinfo = new Discord.RichEmbed()
     .setTitle("## BOT INFORMATION ##")
     .setColor("#f4a442")
     .setThumbnail(bot.user.displayAvatarURL)
-    .addField("Bot Name", `[${bot.user.username}](https://www.github.com/KannaDev/Kanna-Bot/)`)
+    .addField(
+      "Name",
+      `[${bot.user.username}](https://www.github.com/KannaDev/Kanna-Bot/)`
+    )
+    .addField("Version", `${package.version}`)
     .addField("Running on", `${bot.guilds.size} servers`)
     .addField("Developed by", `[Anirudh Emmadi](http://www.anirudhemmadi.com)`)
     .addField("Created on", bot.user.createdAt);
-  message.channel.send(botinfo);
+  message.channel.send(botinfo); //Sends bot info
 
   let svinfo = new Discord.RichEmbed()
     .setTitle("## SERVER INFORMATION ##")
@@ -21,9 +27,9 @@ module.exports.run = async (bot, message, args) => {
     .addField("Server Region", message.guild.region)
     .addField("Server Owner", message.guild.owner)
     .addField("Total Members", message.guild.memberCount);
-  return message.channel.send(svinfo);
-}
+  return message.channel.send(svinfo); //Sends server info
+};
 
 module.exports.help = {
   name: "info"
-}
+};

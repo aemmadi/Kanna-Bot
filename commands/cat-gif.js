@@ -1,7 +1,7 @@
 const Discord = require("discord.js");
 const superagent = require("superagent");
 
-//.dog
+//.cat
 module.exports.run = async (bot, message, args) => {
   let link = await getLink();
 
@@ -15,7 +15,7 @@ module.exports.run = async (bot, message, args) => {
       ) {
         let embed = new Discord.RichEmbed()
           .setColor("#f4b342")
-          .setTitle("## DOG IMAGE ##")
+          .setTitle("## CAT IMAGE ##")
           .setDescription(
             "If you like the bot and want it to be active, use the **`.donate`** command to support the bot's server costs. "
           )
@@ -27,7 +27,7 @@ module.exports.run = async (bot, message, args) => {
       else if (link[link.length - 3] == "g" || link[link.length - 3] == "G") {
         let embed = new Discord.RichEmbed()
           .setColor("#f4b342")
-          .setTitle("## DOG GIF ##")
+          .setTitle("## CAT GIF ##")
           .setDescription(
             "If you like the bot and want it to be active, use the **`.donate`** command to support the bot's server costs. "
           )
@@ -44,20 +44,20 @@ module.exports.run = async (bot, message, args) => {
   ); //Catches any unknown error
 
   async function getLink() {
-    //Access API for random dog image/gif
+    //Access API for random cat image/gif
     let { body } = await superagent
-      .get(`https://random.dog/woof.json`)
+      .get(`http://aws.random.cat/meow`)
       .on("error", err => {
         //console.log(err);
         return message.channel.send(
           "Unknown Error Occurred.\n\n**If this problem keeps arising, make sure you use the `.issue` command to report any issues with the bot**"
         );
       });
-    let link = body.url; //url of dog
+    let link = body.file; //url of cat
     return link;
   }
 };
 
 module.exports.help = {
-  name: "dog"
+  name: "cat"
 };
