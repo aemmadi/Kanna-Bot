@@ -15,26 +15,17 @@ module.exports.run = async (bot, message, args) => {
         let totalMarket = global.data.active_markets; //Total active markets
         let bitcoinPercent = global.data.bitcoin_percentage_of_market_cap; //Bitcoin's dominance
 
+        //prettier-ignore
         let embed = new Discord.RichEmbed()
           .setTitle("## CRYPTOCURRENCY GLOBAL STATS ##")
-          .setThumbnail(
-            "https://blog.digitexfutures.com/wp-content/uploads/2018/05/CoinMarketCap.png"
-          )
-          .setDescription(
-            "These are the global crypto stats from coinmarketcap's API"
-          )
+          .setThumbnail("https://blog.digitexfutures.com/wp-content/uploads/2018/05/CoinMarketCap.png")
+          .setDescription("These are the global crypto stats from coinmarketcap's API")
           .setColor("#f98e22")
           .addField("Number of Active Cryptocurrencies: ", totalCrypto)
           .addField("Total Active Markets: ", totalMarket)
-          .addField(
-            "Percentage of Bitcoin in the Market: ",
-            `${bitcoinPercent}%`
-          )
+          .addField("Percentage of Bitcoin in the Market: ",`${bitcoinPercent}%`)
           .addBlankField()
-          .addField(
-            "Note",
-            "If you like the bot and want it to be active, use the `.donate` command to support the bot's server costs. "
-          );
+          .addField("Note","If you like the bot and want it to be active, use the **`.donate`** command to support the bot's server costs. ");
 
         return message.channel.send(embed); //Sends global crypto stats
       })
@@ -112,67 +103,66 @@ module.exports.run = async (bot, message, args) => {
         let rank10_price_change_day = rank10.quotes.USD.percent_change_24h;
         let rank10_price_change_week = rank10.quotes.USD.percent_change_7d;
 
+        //prettier-ignore
         let embed = new Discord.RichEmbed()
           .setTitle("## CRYPTOCURRENCY TOP 10 STATS ##")
-          .setThumbnail(
-            "https://blog.digitexfutures.com/wp-content/uploads/2018/05/CoinMarketCap.png"
-          )
+          .setThumbnail("https://blog.digitexfutures.com/wp-content/uploads/2018/05/CoinMarketCap.png")
           .setDescription("These are the top 10 crypto's from Coinmarketcap")
           .setColor("#f98e22")
           .addField(
             `Rank 1 ~ **${rank1_name}**`,
-            `**Price**: **\$${rank1_price}**\n**1Hr Change**: **${rank1_price_change_hr}%**\n**24Hr Change**: **${rank1_price_change_day}%**\n**7d Change**: **${rank1_price_change_week}%**`,
+            `**Price**: \$${rank1_price}\n**1Hr Change**: ${rank1_price_change_hr}%\n**24Hr Change**: ${rank1_price_change_day}%\n**7d Change**: ${rank1_price_change_week}%`,
             true
           )
           .addField(
             `Rank 2 ~ **${rank2_name}**`,
-            `**Price**: **\$${rank2_price}**\n**1Hr Change**: **${rank2_price_change_hr}%**\n**24Hr Change**: **${rank2_price_change_day}%**\n**7d Change**: **${rank2_price_change_week}%**`,
+            `**Price**: \$${rank2_price}\n**1Hr Change**: ${rank2_price_change_hr}%\n**24Hr Change**: ${rank2_price_change_day}%\n**7d Change**: ${rank2_price_change_week}%`,
             true
           )
           .addField(
             `Rank 3 ~ **${rank3_name}**`,
-            `**Price**: **\$${rank3_price}**\n**1Hr Change**: **${rank3_price_change_hr}%**\n**24Hr Change**: **${rank3_price_change_day}%**\n**7d Change**: **${rank3_price_change_week}%**`,
+            `**Price**: \$${rank3_price}\n**1Hr Change**: ${rank3_price_change_hr}%\n**24Hr Change**: ${rank3_price_change_day}%\n**7d Change**: ${rank3_price_change_week}%`,
             true
           )
           .addField(
             `Rank 4 ~ **${rank4_name}**`,
-            `**Price**: **\$${rank4_price}**\n**1Hr Change**: **${rank4_price_change_hr}%**\n**24Hr Change**: **${rank4_price_change_day}%**\n**7d Change**: **${rank4_price_change_week}%**`,
+            `**Price**: \$${rank4_price}\n**1Hr Change**: ${rank4_price_change_hr}%\n**24Hr Change**: ${rank4_price_change_day}%\n**7d Change**: ${rank4_price_change_week}%`,
             true
           )
           .addField(
             `Rank 5 ~ **${rank5_name}**`,
-            `**Price**: **\$${rank5_price}**\n**1Hr Change**: **${rank5_price_change_hr}%**\n**24Hr Change**: **${rank5_price_change_day}%**\n**7d Change**: **${rank5_price_change_week}%**`,
+            `**Price**: \$${rank5_price}\n**1Hr Change**: ${rank5_price_change_hr}%\n**24Hr Change**: ${rank5_price_change_day}%\n**7d Change**: ${rank5_price_change_week}%`,
             true
           )
           .addField(
             `Rank 6 ~ **${rank6_name}**`,
-            `**Price**: **\$${rank6_price}**\n**1Hr Change**: **${rank6_price_change_hr}%**\n**24Hr Change**: **${rank6_price_change_day}%**\n**7d Change**: **${rank6_price_change_week}%**`,
+            `**Price**: \$${rank6_price}\n**1Hr Change**: ${rank6_price_change_hr}%\n**24Hr Change**: ${rank6_price_change_day}%\n**7d Change**: ${rank6_price_change_week}%`,
             true
           )
           .addField(
             `Rank 7 ~ **${rank7_name}**`,
-            `**Price**: **\$${rank7_price}**\n**1Hr Change**: **${rank7_price_change_hr}%**\n**24Hr Change**: **${rank7_price_change_day}%**\n**7d Change**: **${rank7_price_change_week}%**`,
+            `**Price**: \$${rank7_price}\n**1Hr Change**: ${rank7_price_change_hr}%\n**24Hr Change**: ${rank7_price_change_day}%\n**7d Change**: ${rank7_price_change_week}%`,
             true
           )
           .addField(
             `Rank 8 ~ **${rank8_name}**`,
-            `**Price**: **\$${rank8_price}**\n**1Hr Change**: **${rank8_price_change_hr}%**\n**24Hr Change**: **${rank8_price_change_day}%**\n**7d Change**: **${rank8_price_change_week}%**`,
+            `**Price**: \$${rank8_price}\n**1Hr Change**: ${rank8_price_change_hr}%\n**24Hr Change**: ${rank8_price_change_day}%\n**7d Change**: ${rank8_price_change_week}%`,
             true
           )
           .addField(
             `Rank 9 ~ **${rank9_name}**`,
-            `**Price**: **\$${rank9_price}**\n**1Hr Change**: **${rank9_price_change_hr}%**\n**24Hr Change**: **${rank9_price_change_day}%**\n**7d Change**: **${rank9_price_change_week}%**`,
+            `**Price**: \$${rank9_price}\n**1Hr Change**: ${rank9_price_change_hr}%\n**24Hr Change**: ${rank9_price_change_day}%\n**7d Change**: ${rank9_price_change_week}%`,
             true
           )
           .addField(
             `Rank 10 ~ **${rank10_name}**`,
-            `**Price**: **\$${rank10_price}**\n**1Hr Change**: **${rank10_price_change_hr}%**\n**24Hr Change**: **${rank10_price_change_day}%**\n**7d Change**: **${rank10_price_change_week}%**`,
+            `**Price**: \$${rank10_price}\n**1Hr Change**: ${rank10_price_change_hr}%\n**24Hr Change**: ${rank10_price_change_day}%\n**7d Change**: ${rank10_price_change_week}%`,
             true
           )
           .addBlankField()
           .addField(
             "Note",
-            "If you like the bot and want it to be active, use the `.donate` command to support the bot's server costs. "
+            "If you like the bot and want it to be active, use the **`.donate`** command to support the bot's server costs. "
           );
 
         return message.channel.send(embed); //Sends top 10 crypto stats
@@ -222,7 +212,7 @@ module.exports.run = async (bot, message, args) => {
               .addBlankField()
               .addField(
                 "Note",
-                "If you like the bot and want it to be active, use the `.donate` command to support the bot's server costs. "
+                "If you like the bot and want it to be active, use the **`.donate`** command to support the bot's server costs. "
               );
 
             return message.channel.send(embed); //Sends searched coin stats
