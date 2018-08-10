@@ -28,6 +28,7 @@ module.exports.run = async (bot, message, args) => {
 
   let platform = "wrong";
 
+  //Sets platform
   if (args[1].toLowerCase() == "pc") {
     platform = "pc";
   } else if (args[1].toLowerCase() == "psn") {
@@ -43,8 +44,8 @@ module.exports.run = async (bot, message, args) => {
     );
 
   if (!args[2]) {
-    let profileStats = await getProfileStats(platform, username);
-    let playerStats = await getPlayerStats(platform, username);
+    let profileStats = await getProfileStats(platform, username); //Gets basic stats
+    let playerStats = await getPlayerStats(platform, username); //Gets detailed stats
 
     //prettier-ignore
     let embed = new Discord.RichEmbed()
@@ -72,25 +73,38 @@ module.exports.run = async (bot, message, args) => {
       .addField(`Solo Kills`, `${playerStats.stats.combat.competitive[7].value}`, true)
       .addField(`Healing Done`, `${playerStats.stats.assists.competitive[3].value}`, true)
       .addField(`Objective Kills`, `${playerStats.stats.combat.competitive[9].value}`, true)
-      .addField(`Objective Time`, `${playerStats.stats.combat.competitive[8].value}`, true);
+      .addField(`Objective Time`, `${playerStats.stats.combat.competitive[8].value}`, true)
+      .addBlankField()
+      .addField("Note", "If you like the bot and want it to be active, use the **`.donate`** command to support the bot's server costs. ");
 
     return message.channel.send(embed); //Sends stats
-  } else if (args[2] == "top" || args[2] == "heroes") {
-    let playerStats = await getPlayerStats(platform, username);
+  }
+  //.ow <username#battleTag> [platform pc/psn/xbl] top/heroes - Shows top heroes stats
+  else if (args[2] == "top" || args[2] == "heroes") {
+    let playerStats = await getPlayerStats(platform, username); //Gets basic stats
+    let heroStats = await getHeroStats(playerStats); //Gets top heroes
 
     //prettier-ignore
     let embed = new Discord.RichEmbed()
       .setTitle(`## OVERWATCH TOP HEROES FOR ${playerStats.username.toUpperCase()} ##`)
       .setDescription("Hero Name - Games Won - Time Played")
+      .setColor("#f4d442")
       .addField(`Quickplay`, `Main Heroes - Fluent Heroes`)
-      .addField(`Main Heroes`, `1. ${playerStats.stats.top_heroes.quickplay.games_won[0].hero} - ${playerStats.stats.top_heroes.quickplay.games_won[0].games_won}`);
+      .addField(`Main Heroes`, `1. **${heroStats.quickName[0]}** - ${heroStats.quickGames[0]} wins - ${heroStats.quickTime[0]}\n2. **${heroStats.quickName[1]}** - ${heroStats.quickGames[1]} wins - ${heroStats.quickTime[1]}\n3. **${heroStats.quickName[2]}** - ${heroStats.quickGames[2]} wins - ${heroStats.quickTime[3]}`, true)
+      .addField(`Fluent Heroes`, `4. **${heroStats.quickName[3]}** - ${heroStats.quickGames[3]} wins - ${heroStats.quickTime[3]}\n5. **${heroStats.quickName[4]}** - ${heroStats.quickGames[4]} wins - ${heroStats.quickTime[4]}`, true)
+      .addBlankField()
+      .addField(`Competitive`, `Main Heroes - Fluent Heroes`)
+      .addField(`Main Heroes`, `1. **${heroStats.compName[0]}** - ${heroStats.compGames[0]} wins - ${heroStats.compTime[0]}\n2. **${heroStats.compName[1]}** - ${heroStats.compGames[1]} wins - ${heroStats.compTime[1]}\n3. **${heroStats.compName[2]}** - ${heroStats.compGames[2]} - ${heroStats.compTime[3]}`, true)
+      .addField(`Fluent Heroes`, `4. **${heroStats.compName[3]}** - ${heroStats.compGames[3]} wins - ${heroStats.compTime[3]}\n5. **${heroStats.compName[4]}** - ${heroStats.compGames[4]} wins - ${heroStats.compTime[4]}`, true)
+      .addBlankField()
+      .addField("Note", "If you like the bot and want it to be active, use the **`.donate`** command to support the bot's server costs. ");
 
-    return message.channel.send(embed);
-    //ADD TOP HEROES
-  } else if (args[2] == "full") {
-    let playerStats = await getPlayerStats(platform, username);
-    //FULL COMBAT REPORT
+    return message.channel.send(embed); //Sends stats
   }
+  // else if (args[2] == "full") {
+  //   let playerStats = await getPlayerStats(platform, username);
+  //   //FULL COMBAT REPORT
+  // }
 
   async function getProfileStats(platform, username) {
     //Accesses the API
@@ -119,6 +133,7 @@ module.exports.run = async (bot, message, args) => {
   }
 
   async function getPlayerStats(platform, username) {
+    //API Access
     let { body } = await superagent
       .get(`http://ow-api.herokuapp.com/stats/${platform}/global/${username}`)
       .on("error", err => {
@@ -141,6 +156,69 @@ module.exports.run = async (bot, message, args) => {
       );
 
     return body;
+  }
+
+  async function getHeroStats(body) {
+    //QUICKPLAY
+    let quickMainHeroes_name = []; //Names of heroes
+    let quickMainHeroes_games = []; //Games won
+    let quickMainHeroes_time = []; //Time played
+
+    for (let i = 0; i < 5; i++) {
+      quickMainHeroes_name.push(
+        body.stats.top_heroes.quickplay.games_won[i].hero
+      );
+      quickMainHeroes_games.push(
+        body.stats.top_heroes.quickplay.games_won[i].games_won
+      );
+    }
+    for (let k = 0; k < 5; k++) {
+      for (let i = 0; i < 100; i++) {
+        if (
+          body.stats.top_heroes.quickplay.played[i].hero ==
+          quickMainHeroes_name[k]
+        ) {
+          quickMainHeroes_time.push(
+            body.stats.top_heroes.quickplay.played[i].played
+          );
+          break;
+        }
+      }
+    }
+    //COMPETITIVE
+    let compMainHeroes_name = []; //Names of heroes
+    let compMainHeroes_games = []; //Games won
+    let compMainHeroes_time = []; //Time played
+
+    for (let i = 0; i < 5; i++) {
+      compMainHeroes_name.push(
+        body.stats.top_heroes.competitive.games_won[i].hero
+      );
+      compMainHeroes_games.push(
+        body.stats.top_heroes.competitive.games_won[i].games_won
+      );
+    }
+    for (let k = 0; k < 5; k++) {
+      for (let i = 0; i < 100; i++) {
+        if (
+          body.stats.top_heroes.competitive.played[i].hero ==
+          compMainHeroes_name[k]
+        ) {
+          compMainHeroes_time.push(
+            body.stats.top_heroes.competitive.played[i].played
+          );
+          break;
+        }
+      }
+    }
+    return {
+      quickName: quickMainHeroes_name,
+      quickGames: quickMainHeroes_games,
+      quickTime: quickMainHeroes_time,
+      compName: compMainHeroes_name,
+      compGames: compMainHeroes_games,
+      compTime: compMainHeroes_time
+    };
   }
 
   function checkUsername(username) {
