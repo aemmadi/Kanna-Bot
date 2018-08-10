@@ -4,7 +4,7 @@ An easy to use, simple multi-purpose discord bot for your server.
 
 <img src="https://i.imgur.com/ZOAzsBK.png" alt="Kanna Bot Logo" height = "100px" width = "100px" align="right">
 
-`Version 1.0.0`
+`Version 1.0.1`
 
 Doesn't support music playback. (server costs :/)
 
@@ -55,6 +55,7 @@ These are some suggestions (not mandatory) :-
 #### Overwatch
 
 - `.ow <username#battleTag> [platform pc/psn/xbl]` : Shows profile stats of user. Example: `.ow Finnsi#2664 pc`
+- `.ow <username#battleTag> [platform pc/psn/xbl] top/heroes` : Shows Top 5 hero stats of user. Example: `.ow Finnsi#2664 pc top`
 
 #### Rocket League
 
