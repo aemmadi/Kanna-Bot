@@ -57,7 +57,6 @@ module.exports.run = async (bot, message, args) => {
     async function getSubReddit() {
       let memeSubs = [
         "blackpeopletwitter",
-        "MemeEconomy",
         "metal_me_irl",
         "bee_irl",
         "coaxedintoasnafu",
