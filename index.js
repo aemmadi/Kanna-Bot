@@ -63,5 +63,5 @@ function status_change(status) {
   setInterval(function() {
     let chosen = status[Math.floor(Math.random() * status.length)];
     bot.user.setActivity(`${chosen}`, { type: "Watching" });
-  }, 4400);
+  }, 10000);
 }
