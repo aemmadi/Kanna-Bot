@@ -3,25 +3,27 @@ const superagent = require("superagent");
 
 //.motivate - shows a random motivation post from reddit
 module.exports.run = async (bot, message, args) => {
-  let motivate = await getMotivate();
+  for (let i = 0; i < 10; i++) {
+    let motivate = await getMotivate();
 
-  if (motivate.again) {
-    console.log("hit");
-    motivate = await getMotivate();
-  }
-  if (motivate.text) {
-    if (motivate.content === "") {
-      return message.channel.send(`**${motivate.title}**`);
+    if (!motivate) {
+      let again = "keep_the_loop_going";
     }
-    return message.channel.send(`**${motivate.title}**\n${motivate.content}`);
-  } else if (motivate.image) {
-    //prettier-ignore
-    let embed = new Discord.RichEmbed()
-      .setTitle("## MOTIVATIONAL IMAGE FROM REDDIT ##")
-      .setDescription(`**${motivate.title}** | Scraped from [r/GetMotivated](https://www.reddit.com/r/GetMotivated)`)
-      .setImage(motivate.content);
+    if (motivate.text) {
+      if (motivate.content === "") {
+        return message.channel.send(`**${motivate.title}**`);
+      }
+      return message.channel.send(`**${motivate.title}**\n${motivate.content}`);
+    } else if (motivate.image) {
+      //prettier-ignore
+      let embed = new Discord.RichEmbed()
+        .setTitle("## MOTIVATIONAL IMAGE FROM REDDIT ##")
+        .setDescription(`**${motivate.title}** | Scraped from [r/GetMotivated](https://www.reddit.com/r/GetMotivated)`)
+        .setColor("#f49842")
+        .setImage(motivate.content);
 
-    return message.channel.send(embed);
+      return message.channel.send(embed);
+    }
   }
 
   async function getMotivate() {
@@ -34,7 +36,7 @@ module.exports.run = async (bot, message, args) => {
         );
       });
 
-    let number = randomNumber(3);
+    let number = randomNumber(100);
     let motivateTitle = body.data.children[number].data.title;
     if (motivateTitle.charAt(1).toLowerCase() == "t") {
       let motivateContent = body.data.children[number].data.selftext;
@@ -59,9 +61,7 @@ module.exports.run = async (bot, message, args) => {
         content: motivateImg
       };
     } else {
-      return {
-        again: true
-      };
+      return false;
     }
   }
 
