@@ -4,7 +4,7 @@ An easy to use, simple multi-purpose discord bot for your server.
 
 <img src="https://i.imgur.com/ZOAzsBK.png" alt="Kanna Bot Logo" height = "100px" width = "100px" align="right">
 
-`Version 1.0.1`
+`Version 1.0.3`
 
 Doesn't support music playback. (server costs :/)
 
