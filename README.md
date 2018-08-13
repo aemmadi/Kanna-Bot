@@ -67,12 +67,16 @@ These are some suggestions (not mandatory) :-
 - `.crypto top` : Shows top 10 crypto stats
 - `.crypto <coin-name/symbol>` : Shows specific coin stats. Example: `.crypto eth` (or) `.crypto bitcoin`
 
-### Memes
+### Reddit
+
+- `.motivate` : Gets a random motivation quote/image from reddit. r/GetMotivated
+
+#### Memes
 
 - `.meme` : Gets a random meme from meme subreddits on reddit
 - `.meme <number 2-10>` : Gets `<number>` random memes from meme subreddits on reddit
 
-### Jokes
+#### Jokes
 
 - `.joke` : Gets a randome joke from reddit
 - `.dadjoke` : Gets a random dad joke
