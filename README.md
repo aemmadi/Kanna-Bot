@@ -74,8 +74,9 @@ These are some suggestions (not mandatory) :-
 
 ### Jokes
 
-- `.joke` : Gets a randome dad joke
-- `.joke <number 2-10>` : Gets `<number>` random dad jokes
+- `.joke` : Gets a randome joke from reddit
+- `.dadjoke` : Gets a random dad joke
+- `.dadjoke <number 2-10>` : Gets `<number>` random dad jokes
 
 ### Feedback
 
