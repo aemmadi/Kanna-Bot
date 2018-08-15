@@ -57,6 +57,20 @@ module.exports.run = async (bot, message, args) => {
       return false;
     return true;
   }
+
+  function linkChecker(link) {
+    return link.match(/\.(jpeg|jpg|gif|png)$/) != null; //TRUE or FALSE. if url ends with .jpeg, .jpg, .png, or .gif
+  }
+
+  function nsfwChecker(body, randomMeme) {
+    let nsfw = body.data.children[randomMeme].data.over_18;
+    return nsfw;
+  }
+
+  function randomNumber(num) {
+    let picker = Math.floor(Math.random() * num); //Generates a random number
+    return picker;
+  }
 };
 
 module.exports.help = {
