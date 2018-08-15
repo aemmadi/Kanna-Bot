@@ -16,6 +16,12 @@ Follow this link to invite the bot:
 
 [Invite Kanna Bot to your Server!](https://discordapp.com/oauth2/authorize?client_id=450118801816551424&permissions=1916071031&scope=bot) | [View Trello Board for Bot](https://trello.com/b/m81jUf4o/kanna-bot) | [Support Me (Patreon)](https://www.patreon.com/KannaDev)
 
+<p align="center">
+  <a href="https://discordbots.org/bot/450118801816551424">
+    <img src="https://discordbots.org/api/widget/450118801816551424.svg" alt="KannaBot">
+  </a>
+</p>
+
 ### Suggestions
 
 These are some suggestions (not mandatory) :-
