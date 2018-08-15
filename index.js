@@ -3,18 +3,18 @@ const config = require("./config.json");
 const Discord = require("discord.js");
 const bot = new Discord.Client({ disableEveryone: true });
 
-//DISCORDBOTS.ORG SERVER COUNT API
-//-------------------------------------------------------------\\
-const DBL = require("dblapi.js");
-const dbl = new DBL(config.dblApi, bot);
-dbl.on("posted", () => {
-  console.log("Server count posted on discordbots.org!");
-});
+// //DISCORDBOTS.ORG SERVER COUNT API
+// //-------------------------------------------------------------\\
+// const DBL = require("dblapi.js");
+// const dbl = new DBL(config.dblApi, bot);
+// dbl.on("posted", () => {
+//   console.log("Server count posted on discordbots.org!");
+// });
 
-dbl.on("error", e => {
-  console.log(`Error connecting with discordbots.org`);
-});
-//-------------------------------------------------------------\\
+// dbl.on("error", e => {
+//   console.log(`Error connecting with discordbots.org`);
+// });
+// //-------------------------------------------------------------\\
 
 //Command Handler
 const fileSys = require("fs");
@@ -42,6 +42,17 @@ bot.on("ready", async () => {
   status_change(status); //Random status displays
 });
 
+// This is called as, for instance:
+bot.on("guildCreate", guild => {
+  const defaultChannel = guild.channels.find(c =>
+    c
+      .type("text")
+      .permissionsFor(guild.me)
+      .has("SEND_MESSAGES")
+  );
+  defaultChannel.send(`Welcome!`);
+});
+
 bot.on("message", async message => {
   if (message.author.bot) return; //Don't respond to messages made by the bot
   if (message.channel.type == "dm") return; //Don't respond to dm's sent to the bot
@@ -57,7 +68,7 @@ bot.on("message", async message => {
     if (commandFile) commandFile.run(bot, message, args); //Run commands
   }
 });
-bot.login(config.token);
+bot.login(config.devToken);
 
 function status_change(status) {
   setInterval(function() {
