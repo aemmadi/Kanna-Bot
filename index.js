@@ -42,7 +42,7 @@ bot.on("ready", async () => {
   status_change(status); //Random status displays
 });
 
-// This is called as, for instance:
+// FIGURE THIS OUT
 bot.on("guildCreate", guild => {
   const defaultChannel = guild.channels.find(c =>
     c
