@@ -13,7 +13,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/kanna6501/Kanna-Bot.git"
+    "url": "git+https://github.com/KannaDev/Kanna-Bot.git"
   },
   "keywords": [
     "discord.js"
@@ -21,7 +21,7 @@
   "author": "Anirudh Emmadi",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/kanna6501/Kanna-Bot/issues"
+    "url": "https://github.com/KannaDev/Kanna-Bot/issues"
   },
   "homepage": "hhttps://github.com/kanna6501/Kanna-Bot#readme",
   "dependencies": {
