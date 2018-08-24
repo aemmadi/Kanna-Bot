@@ -6,6 +6,7 @@ module.exports.run = async (bot, message, args) => {
   if (!args[0])
     return message.channel.send("Error. Specify a term! `.def [term]`");
 
+  //FIXME: SPACES IN TERM, REPLACE _ to %20
   let term = args[0].toLowerCase();
 
   let define = await getDefine(term);
