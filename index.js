@@ -3,18 +3,18 @@ const config = require("./config.json");
 const Discord = require("discord.js");
 const bot = new Discord.Client({ disableEveryone: true });
 
-// //DISCORDBOTS.ORG SERVER COUNT API
-// //-------------------------------------------------------------\\
-// const DBL = require("dblapi.js");
-// const dbl = new DBL(config.dblApi, bot);
-// dbl.on("posted", () => {
-//   console.log("Server count posted on discordbots.org!");
-// });
+//DISCORDBOTS.ORG SERVER COUNT API
+//-------------------------------------------------------------\\
+const DBL = require("dblapi.js");
+const dbl = new DBL(config.dblApi, bot);
+dbl.on("posted", () => {
+  console.log("Server count posted on discordbots.org!");
+});
 
-// dbl.on("error", e => {
-//   console.log(`Error connecting with discordbots.org`);
-// });
-// //-------------------------------------------------------------\\
+dbl.on("error", e => {
+  console.log(`Error connecting with discordbots.org`);
+});
+//-------------------------------------------------------------\\
 
 //Command Handler
 const fileSys = require("fs");
@@ -57,7 +57,7 @@ bot.on("message", async message => {
     if (commandFile) commandFile.run(bot, message, args); //Run commands
   }
 });
-bot.login(config.devToken);
+bot.login(config.token);
 
 function status_change(status) {
   setInterval(function () {
