@@ -48,7 +48,7 @@ module.exports.run = async (bot, message, args) => {
   try {
     await message.author.send(embed);
     await message.author.send(
-      `**For more detailed usage of commands, visit https://www.kannabot.ml **`
+      `**For more detailed usage of commands, visit https://kannabot.ml **`
     );
     return message.channel.send(
       `Sent all available commands in your DM's ${message.author}`
