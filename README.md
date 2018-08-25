@@ -4,7 +4,7 @@ An easy to use, simple multi-purpose discord bot for your server.
 
 <img src="https://i.imgur.com/ZOAzsBK.png" alt="Kanna Bot Logo" height = "100px" width = "100px" align="right">
 
-`Version 1.0.3`
+`Version 1.0.4`
 
 Doesn't support music playback. (server costs :/)
 
@@ -95,6 +95,7 @@ These are some suggestions (not mandatory) :-
 
 ### Miscellaneous
 
+- `.def <term>` : Gets definition of <term> from urbandictionary.com
 - `.dog` : Displays a random dog image or gif
 - `.cat` : Displays a random cat image or gif
 - `.8ball <question?>` : Generates an 8ball response to a question

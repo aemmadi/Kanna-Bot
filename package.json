@@ -1,6 +1,6 @@
 {
   "name": "Kanna-Bot",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "A Multi purpose discord bot",
   "main": "index.js",
   "engines": {
