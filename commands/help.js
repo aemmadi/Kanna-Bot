@@ -35,7 +35,7 @@ module.exports.run = async (bot, message, args) => {
     )
     .addField(
       "Jokes",
-      "`.joke` : Gets a random dad joke\n`.joke <number 2-10>` : Gets <number> random dad jokes"
+      "`.joke` : Gets a random joke from reddit\n`.dadjoke` : Gets a random dad joke\n`.dadjoke <number 2-10> : Gets <number> random dad jokes"
     )
     .addField(
       "Feedback",
@@ -43,7 +43,7 @@ module.exports.run = async (bot, message, args) => {
     )
     .addField(
       "Misc.",
-      "`.8ball <question?>` : Generates a 8ball response to question\n`.flip` : Flips a coin and replies HEADS or TAILS\n`.dog` : Random dog image or gif\n`.cat` : Random cat image or gif\n`.roll` : Rolls a dice"
+      "`.def <term>`: Gets the definition of <term> from urbandictionary.com\n`.8ball <question?>` : Generates a 8ball response to question\n`.flip` : Flips a coin and replies HEADS or TAILS\n`.dog` : Random dog image or gif\n`.cat` : Random cat image or gif\n`.roll` : Rolls a dice"
     );
   try {
     await message.author.send(embed);
@@ -55,7 +55,7 @@ module.exports.run = async (bot, message, args) => {
     );
   } catch (e) {
     return message.channel.send(
-      `Due to the extensive features this bot provides, listing all available commands takes time. [Check list of commands](https://github.com/KannaDev/Kanna-Bot/blob/master/README.md)`
+      `Due to the extensive features this bot provides, listing all available commands takes time. [Check list of commands](https://kannabot.ml)`
     );
   }
 };
