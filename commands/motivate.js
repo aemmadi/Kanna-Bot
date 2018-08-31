@@ -13,7 +13,7 @@ module.exports.run = async (bot, message, args) => {
       if (motivate.content === "") {
         return message.channel.send(`**${motivate.title}**`);
       }
-      return message.channel.send(`**${motivate.title}**\n${motivate.content}`);
+      return message.channel.send(`**${motivate.title}**\n\`\`\`${motivate.content}\`\`\``);
     } else if (motivate.image) {
       //prettier-ignore
       let embed = new Discord.RichEmbed()
