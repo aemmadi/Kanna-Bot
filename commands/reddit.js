@@ -10,7 +10,18 @@ module.exports.run = async (bot, message, args) => {
 
   let subreddit = args[0].replace("r/", "");
   let subCheck = await isSubExist(subreddit);
-  console.log(subCheck);
+  if (!subCheck)
+    return message.channel.send("Enter a **valid** subreddit. `.help reddit`.");
+
+  async function getRedditPost(subreddit) {
+    let { body } = await superagent
+      .get(`https://www.reddit.com/r/${subreddit}/hot.json?limit=100`)
+      .on("error", err => {
+        return message.channel.send(
+          "Error occurred while getting post. Try again. `.help reddit`.\n\n **If this problem keeps arising, make sure you use the `.issue` command to report any issues with the bot**"
+        );
+      });
+  }
 
   async function isSubExist(subreddit) {
     let { body } = await superagent
