@@ -25,7 +25,7 @@
   },
   "homepage": "hhttps://github.com/kanna6501/Kanna-Bot#readme",
   "dependencies": {
-    "coinmarketcap-api": "^2.3.2",
+    "coinmarketcap-api": "^3.0.0",
     "dblapi.js": "^2.2.0",
     "discord.js": "^11.3.2",
     "fortnite": "^4.1.1",

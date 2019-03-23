@@ -57,7 +57,7 @@ bot.on("message", async message => {
     if (commandFile) commandFile.run(bot, message, args); //Run commands
   }
 });
-bot.login(config.token);
+bot.login(config.devToken);
 
 function status_change(status) {
   setInterval(function () {

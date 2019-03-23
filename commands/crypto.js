@@ -1,11 +1,14 @@
 const Discord = require("discord.js");
 const CoinMarketCap = require("coinmarketcap-api");
-const client = new CoinMarketCap();
+const config = require("../config.json");
+const API_KEY = config.cryptoApi;
+const client = new CoinMarketCap(API_KEY);
 
 //.crypto - Show global stats
 //.crypto top - Show top 10
 //.crypto <coin-name/symbol> - Show <coin-name> stats
 module.exports.run = async (bot, message, args) => {
+  // client.getTickers({ limit: 10 }).then(console.log).catch(console.error)
   //.crypto
   if (!args[0]) {
     let global = client
@@ -23,9 +26,9 @@ module.exports.run = async (bot, message, args) => {
           .setColor("#f98e22")
           .addField("Number of Active Cryptocurrencies: ", totalCrypto)
           .addField("Total Active Markets: ", totalMarket)
-          .addField("Percentage of Bitcoin in the Market: ",`${bitcoinPercent}%`)
+          .addField("Percentage of Bitcoin in the Market: ", `${bitcoinPercent}%`)
           .addBlankField()
-          .addField("Note","If you like the bot and want it to be active, use the **`.donate`** command to support the bot's server costs. ");
+          .addField("Note", "If you like the bot and want it to be active, use the **`.donate`** command to support the bot's server costs. ");
 
         return message.channel.send(embed); //Sends global crypto stats
       })
@@ -37,71 +40,71 @@ module.exports.run = async (bot, message, args) => {
       });
   }
 
-  //.crypto top
+  //.crypto to
   if (args[0].toLowerCase() == "top") {
     let data = client
-      .getTicker({ start: 0, limit: 10, structure: "array", convert: "USD" })
+      .getTickers({ limit: 10, convert: "USD" })
       .then(data => {
         let rank1 = data["data"][0];
         let rank1_name = rank1.name;
-        let rank1_price = rank1.quotes.USD.price;
-        let rank1_price_change_hr = rank1.quotes.USD.percent_change_1h;
-        let rank1_price_change_day = rank1.quotes.USD.percent_change_24h;
-        let rank1_price_change_week = rank1.quotes.USD.percent_change_7d;
+        let rank1_price = rank1.quote.USD.price;
+        let rank1_price_change_hr = rank1.quote.USD.percent_change_1h;
+        let rank1_price_change_day = rank1.quote.USD.percent_change_24h;
+        let rank1_price_change_week = rank1.quote.USD.percent_change_7d;
         let rank2 = data["data"][1];
         let rank2_name = rank2.name;
-        let rank2_price = rank2.quotes.USD.price;
-        let rank2_price_change_hr = rank2.quotes.USD.percent_change_1h;
-        let rank2_price_change_day = rank2.quotes.USD.percent_change_24h;
-        let rank2_price_change_week = rank2.quotes.USD.percent_change_7d;
+        let rank2_price = rank2.quote.USD.price;
+        let rank2_price_change_hr = rank2.quote.USD.percent_change_1h;
+        let rank2_price_change_day = rank2.quote.USD.percent_change_24h;
+        let rank2_price_change_week = rank2.quote.USD.percent_change_7d;
         let rank3 = data["data"][2];
         let rank3_name = rank3.name;
-        let rank3_price = rank3.quotes.USD.price;
-        let rank3_price_change_hr = rank3.quotes.USD.percent_change_1h;
-        let rank3_price_change_day = rank3.quotes.USD.percent_change_24h;
-        let rank3_price_change_week = rank3.quotes.USD.percent_change_7d;
+        let rank3_price = rank3.quote.USD.price;
+        let rank3_price_change_hr = rank3.quote.USD.percent_change_1h;
+        let rank3_price_change_day = rank3.quote.USD.percent_change_24h;
+        let rank3_price_change_week = rank3.quote.USD.percent_change_7d;
         let rank4 = data["data"][3];
         let rank4_name = rank4.name;
-        let rank4_price = rank4.quotes.USD.price;
-        let rank4_price_change_hr = rank4.quotes.USD.percent_change_1h;
-        let rank4_price_change_day = rank4.quotes.USD.percent_change_24h;
-        let rank4_price_change_week = rank4.quotes.USD.percent_change_7d;
+        let rank4_price = rank4.quote.USD.price;
+        let rank4_price_change_hr = rank4.quote.USD.percent_change_1h;
+        let rank4_price_change_day = rank4.quote.USD.percent_change_24h;
+        let rank4_price_change_week = rank4.quote.USD.percent_change_7d;
         let rank5 = data["data"][4];
         let rank5_name = rank5.name;
-        let rank5_price = rank5.quotes.USD.price;
-        let rank5_price_change_hr = rank5.quotes.USD.percent_change_1h;
-        let rank5_price_change_day = rank5.quotes.USD.percent_change_24h;
-        let rank5_price_change_week = rank5.quotes.USD.percent_change_7d;
+        let rank5_price = rank5.quote.USD.price;
+        let rank5_price_change_hr = rank5.quote.USD.percent_change_1h;
+        let rank5_price_change_day = rank5.quote.USD.percent_change_24h;
+        let rank5_price_change_week = rank5.quote.USD.percent_change_7d;
         let rank6 = data["data"][5];
         let rank6_name = rank6.name;
-        let rank6_price = rank6.quotes.USD.price;
-        let rank6_price_change_hr = rank6.quotes.USD.percent_change_1h;
-        let rank6_price_change_day = rank6.quotes.USD.percent_change_24h;
-        let rank6_price_change_week = rank6.quotes.USD.percent_change_7d;
+        let rank6_price = rank6.quote.USD.price;
+        let rank6_price_change_hr = rank6.quote.USD.percent_change_1h;
+        let rank6_price_change_day = rank6.quote.USD.percent_change_24h;
+        let rank6_price_change_week = rank6.quote.USD.percent_change_7d;
         let rank7 = data["data"][6];
         let rank7_name = rank7.name;
-        let rank7_price = rank7.quotes.USD.price;
-        let rank7_price_change_hr = rank7.quotes.USD.percent_change_1h;
-        let rank7_price_change_day = rank7.quotes.USD.percent_change_24h;
-        let rank7_price_change_week = rank7.quotes.USD.percent_change_7d;
+        let rank7_price = rank7.quote.USD.price;
+        let rank7_price_change_hr = rank7.quote.USD.percent_change_1h;
+        let rank7_price_change_day = rank7.quote.USD.percent_change_24h;
+        let rank7_price_change_week = rank7.quote.USD.percent_change_7d;
         let rank8 = data["data"][7];
         let rank8_name = rank8.name;
-        let rank8_price = rank8.quotes.USD.price;
-        let rank8_price_change_hr = rank8.quotes.USD.percent_change_1h;
-        let rank8_price_change_day = rank8.quotes.USD.percent_change_24h;
-        let rank8_price_change_week = rank8.quotes.USD.percent_change_7d;
+        let rank8_price = rank8.quote.USD.price;
+        let rank8_price_change_hr = rank8.quote.USD.percent_change_1h;
+        let rank8_price_change_day = rank8.quote.USD.percent_change_24h;
+        let rank8_price_change_week = rank8.quote.USD.percent_change_7d;
         let rank9 = data["data"][8];
         let rank9_name = rank9.name;
-        let rank9_price = rank9.quotes.USD.price;
-        let rank9_price_change_hr = rank9.quotes.USD.percent_change_1h;
-        let rank9_price_change_day = rank9.quotes.USD.percent_change_24h;
-        let rank9_price_change_week = rank9.quotes.USD.percent_change_7d;
+        let rank9_price = rank9.quote.USD.price;
+        let rank9_price_change_hr = rank9.quote.USD.percent_change_1h;
+        let rank9_price_change_day = rank9.quote.USD.percent_change_24h;
+        let rank9_price_change_week = rank9.quote.USD.percent_change_7d;
         let rank10 = data["data"][9];
         let rank10_name = rank10.name;
-        let rank10_price = rank10.quotes.USD.price;
-        let rank10_price_change_hr = rank10.quotes.USD.percent_change_1h;
-        let rank10_price_change_day = rank10.quotes.USD.percent_change_24h;
-        let rank10_price_change_week = rank10.quotes.USD.percent_change_7d;
+        let rank10_price = rank10.quote.USD.price;
+        let rank10_price_change_hr = rank10.quote.USD.percent_change_1h;
+        let rank10_price_change_day = rank10.quote.USD.percent_change_24h;
+        let rank10_price_change_week = rank10.quote.USD.percent_change_7d;
 
         //prettier-ignore
         let embed = new Discord.RichEmbed()
@@ -168,32 +171,34 @@ module.exports.run = async (bot, message, args) => {
         return message.channel.send(embed); //Sends top 10 crypto stats
       })
       .catch(err => {
-        //console.error(err);
+        console.error(err);
         return message.channel.send(
           "An unknown error occurred.\n\n**If this problem keeps arising, make sure you use the `.issue` command to report any issues with the bot**"
         ); //Error message in case API fails
       });
   } else {
     //.crypto <coin-name/symbol>
-    let coin = args[0];
+    let coin = args[0].toUpperCase();
     let data = client
-      .getTicker({ structure: "array", convert: "USD" })
+      .getMetadata({ symbol: coin })
       .then(data => {
-        for (var i = 0; i < 1800; i++) {
+        // console.log(data);
+        console.log(data["data"][`${coin}`]);
+        for (var i = 0; i < data["data"].length; i++) {
           if (
             data["data"][i].name.toLowerCase() == coin.toLowerCase() ||
             data["data"][i].symbol.toLowerCase() == coin.toLowerCase()
           ) {
             let query = data["data"][i];
             let name = query.name;
-            let price = query.quotes.USD.price;
+            let price = query.quote.USD.price;
             let rank = query.rank;
             let circulation = query.circulating_supply;
             let symbol = query.symbol;
             let max_supply = query.max_supply;
-            let price_change_hr = query.quotes.USD.percent_change_1h;
-            let price_change_day = query.quotes.USD.percent_change_24h;
-            let price_change_week = query.quotes.USD.percent_change_7d;
+            let price_change_hr = query.quote.USD.percent_change_1h;
+            let price_change_day = query.quote.USD.percent_change_24h;
+            let price_change_week = query.quote.USD.percent_change_7d;
 
             let embed = new Discord.RichEmbed()
               .setTitle(`## ${coin.toUpperCase()} DETAILS ##`)
