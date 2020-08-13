@@ -1,5 +1,5 @@
 {
-    name; "Kanna-Bot",
+    name: "Kanna-Bot",
     description: "A discord bot",
     plugins: ["docsify-copy-code"],
     theme: "dark"
