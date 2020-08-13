@@ -1,6 +1,6 @@
 {
     name; "Kanna-Bot",
     description: "A discord bot",
-    plugins: ["docsify-copy-code"]
+    plugins: ["docsify-copy-code"],
     theme: "dark"
 }
