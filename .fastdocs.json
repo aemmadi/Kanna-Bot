@@ -1,6 +1,4 @@
 {
-    "name": "Kanna-Bot",
     "description": "A discord bot",
-    "plugins": ["docsify-copy-code"],
-    "theme": "dark"
+    "plugins": ["docsify-copy-code", "full-text-search"]
 }
