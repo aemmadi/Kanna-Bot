@@ -8,6 +8,12 @@ An easy to use, simple multi-purpose discord bot for your server.
 
 Doesn't support music playback. (server costs :/)
 
+```js
+const test = "hello world";
+console.log(test);
+```
+
+
 ## Setup
 
 It's pretty straight forward to use the bot. Invite the bot, and type `.help` to view all the available commands.
